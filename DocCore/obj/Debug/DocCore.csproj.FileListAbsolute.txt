@@ -1,0 +1,4 @@
+c:\users\jose\documents\visual studio 2010\Projects\EDoc\DocCore\bin\Debug\DocCore.dll
+c:\users\jose\documents\visual studio 2010\Projects\EDoc\DocCore\bin\Debug\DocCore.pdb
+c:\users\jose\documents\visual studio 2010\Projects\EDoc\DocCore\obj\Debug\DocCore.dll
+c:\users\jose\documents\visual studio 2010\Projects\EDoc\DocCore\obj\Debug\DocCore.pdb

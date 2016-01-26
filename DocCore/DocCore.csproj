@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D06025B5-086B-48F7-B3A7-49CA63431008}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DocCore</RootNamespace>
+    <AssemblyName>DocCore</AssemblyName>
+    <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.8.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Library\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=12.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Document\Document.cs" />
+    <Compile Include="Document\DocumentList.cs" />
+    <Compile Include="Document\Parser\DocParserDOCX.cs" />
+    <Compile Include="Document\Parser\DocParserPDF.cs" />
+    <Compile Include="Document\Parser\DocParserTXT.cs" />
+    <Compile Include="Document\Parser\FactoryParser.cs" />
+    <Compile Include="Document\Parser\IDocParser.cs" />
+    <Compile Include="Document\RepositoryDocument\EnumFileType.cs" />
+    <Compile Include="Document\RepositoryDocument\EnumRepositoryType.cs" />
+    <Compile Include="Document\RepositoryDocument\FactoryRepositoryDocument.cs" />
+    <Compile Include="Document\RepositoryDocument\IRepositoryDocument.cs" />
+    <Compile Include="Document\RepositoryDocument\RepositoryDocumentFolder.cs" />
+    <Compile Include="Engine\Engine.cs" />
+    <Compile Include="Engine\EngineConfiguration.cs" />
+    <Compile Include="Engine\Indexer.cs" />
+    <Compile Include="Engine\Messages.cs" />
+    <Compile Include="ExecutionLog\Log.cs" />
+    <Compile Include="ExecutionLog\Repository\FactoryRepositoryLog.cs" />
+    <Compile Include="ExecutionLog\Repository\RepositoryLogTXT.cs" />
+    <Compile Include="ExecutionLog\Repository\IRepositoryLog.cs" />
+    <Compile Include="Sentence\RepositorySentence\IRepositorySentence.cs" />
+    <Compile Include="Sentence\RepositorySentence\RepositorySentenceTXT.cs" />
+    <Compile Include="Sentence\Sentence.cs" />
+    <Compile Include="Sentence\SentenceParser.cs" />
+    <Compile Include="Util\Util.cs" />
+    <Compile Include="Word\Word.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Word\WordHit.cs" />
+    <Compile Include="Word\Lexicon.cs" />
+    <Compile Include="Word\WordOccurrenceNode.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Library\itextsharp.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
