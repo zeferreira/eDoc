@@ -20,6 +20,12 @@ namespace DocCore
         //private long id;
         private int quant;
 
+        public int Quantity
+        {
+            get { return quant; }
+            set { quant = value; }
+        }
+
         private WordOccurrenceNode firstOccurrence;
 
         public WordOccurrenceNode FirstOccurrence
@@ -27,6 +33,15 @@ namespace DocCore
             get { return firstOccurrence; }
             set { firstOccurrence = value; }
         }
+
+        private WordOccurrenceNode lastOccurrence;
+
+        public WordOccurrenceNode LastOccurrence
+        {
+            get { return lastOccurrence; }
+            set { lastOccurrence = value; }
+        }
+
 
         public override int GetHashCode()
         {

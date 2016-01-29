@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using System.Collections;
 
 namespace DocCore
 {
@@ -60,6 +61,52 @@ namespace DocCore
         public override int GetHashCode()
         {
             return file.GetHashCode() ;
+        }
+
+        public Hashtable GetPostingList()
+        {
+            Hashtable postingList = new Hashtable();
+
+            string text = this.GetText();
+
+            string[] splitWords = text.Split(' ');
+            this.WordQuantity = splitWords.Length + 1;
+
+            //index words
+            for (int i = 0; i < splitWords.Length; i++)
+            {
+                string wordTmp = SentenceParser.GetCleanSentence(splitWords[i]);
+                wordTmp = wordTmp.Replace(" ", string.Empty);
+
+                int key = wordTmp.GetHashCode();
+
+                //get frequency for eac document word
+                if (postingList.ContainsKey(key))
+                {
+                    WordOccurrenceNode node = postingList[key] as WordOccurrenceNode;
+
+                    WordHit newhit = new WordHit();
+                    newhit.Position = i;
+                    node.Hits.Add(newhit);
+                }
+                else
+                {
+                    WordOccurrenceNode newNode = new WordOccurrenceNode();
+                    newNode.Word = new Word();
+                    newNode.Word.Text = wordTmp;
+
+                    newNode.Doc = this;
+
+                    WordHit newhit = new WordHit();
+                    newhit.Position = i;
+                    //define frequency
+                    newNode.Hits.Add(newhit);
+
+                    postingList.Add(key, newNode);
+                }
+            }
+
+            return postingList;
         }
     }
 }

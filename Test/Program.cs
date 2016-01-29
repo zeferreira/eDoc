@@ -32,15 +32,16 @@ namespace Test
             entry.StartDateTime = start;
             entry.ExecutionTime = timeDif;
             entry.LogParameters = new List<string>();
-            entry.LogParameters.Add("NoParameters");
+            entry.LogParameters.Add("totalIndexedDocs: " + eng.TotalDocumentQuantity.ToString());
+            entry.LogParameters.Add("totalIndexedWords: " + eng.TotalWordQuantity.ToString());
 
             repLog.Write(entry);
 
-
+            //search one word
             Console.WriteLine("||||| positive test - one word |||||");
             string parameters = "search";
             start = DateTime.Now;
-            List<Document> docList = eng.Search(parameters);
+            List<WordOccurrenceNode> docList = eng.Search(parameters);
             end = DateTime.Now;
             timeDif = end - start;
 
@@ -53,14 +54,15 @@ namespace Test
             entry.LogParameters.Add("totalDocFound: " + docList.Count.ToString());
             repLog.Write(entry);
 
-            foreach (Document item in docList)
+            foreach (WordOccurrenceNode item in docList)
             {
                 qtd++;
-                Console.WriteLine(qtd + " - " + item.Title + " | " + "\n");
+                Console.WriteLine(qtd + " - " + item.Doc.Title + " | Occurrences: " + item.Hits.Count + "\n");
             }
              
             TestResult(docList);
             
+            //search word that not exist
             Console.WriteLine("||||| negative test  |||||");
 
             parameters = "gimgolbel123#321456654987qqqwweqweq";
@@ -76,14 +78,14 @@ namespace Test
             entry.LogParameters = new List<string>();
             entry.LogParameters.Add("sentence: " + parameters);
             entry.LogParameters.Add("totalDocFound: " + docList.Count.ToString());
+            entry.LogParameters.Add("totalDocIndexed: " + eng.TotalDocumentQuantity.ToString());
             repLog.Write(entry);
 
             qtd = 0;
 
-            foreach (Document item in docList)
+            foreach (WordOccurrenceNode item in docList)
             {
-                Console.WriteLine(qtd + " - " + item.Title + " | " + "\n");
-                
+                Console.WriteLine(qtd + " - " + item.Doc.Title + " | WordsQtd:" + item.Doc.WordQuantity + "\n");
             }
 
             TestResult(docList);
@@ -100,7 +102,7 @@ namespace Test
 
         
 
-        static void TestResult(List<Document> list)
+        static void TestResult(List<WordOccurrenceNode> list)
         {
             if (list.Count == 0)
             {

@@ -45,53 +45,21 @@ namespace DocCore
             if (!HasWord(newNode.Word.Text))
             {
                 newNode.Word.FirstOccurrence = newNode;
+                newNode.Word.LastOccurrence = newNode;
+                newNode.Word.Quantity = newNode.Hits.Count;
                 this.Add(newNode.Word);
             }
             else
             {
-                Word actualWord = this.GetWord(newNode.Word.Text);
-                WordOccurrenceNode firstNode = actualWord.FirstOccurrence;
+                newNode.Word = this.GetWord(newNode.Word.Text);
 
-                WordOccurrenceNode hasDocWithWord = this.GetOccurrenceByDoc(newNode.Doc, actualWord);
-
-                if (firstNode.Doc.GetHashCode() == newNode.Doc.GetHashCode())
-                {
-                    firstNode.Hits.Add(newNode.Hits[0]);
-                }
-                else
-                {
-                    if (firstNode.Rank < newNode.Rank)
-                    {
-                        actualWord.FirstOccurrence = newNode;
-                        firstNode.PreviousOccurrence = newNode;
-                        newNode.NextOccurrence = firstNode;
-                    }
-                    else
-                    {
-                        firstNode.Add(newNode);
-                    }
-                }
+                newNode.PreviousOccurrence = newNode.Word.LastOccurrence;
+                newNode.Word.LastOccurrence.NextOccurrence = newNode;
+                newNode.Word.LastOccurrence = newNode;
+                newNode.Word.Quantity += newNode.Hits.Count;
             }
 
         }
 
-        public WordOccurrenceNode GetOccurrenceByDoc(Document doc, Word word)
-        {
-            WordOccurrenceNode tmpOccurrence;
-            WordOccurrenceNode firstOccurrence = word.FirstOccurrence;
-
-            do
-            {
-                tmpOccurrence = firstOccurrence;
-
-                if (tmpOccurrence.Doc.GetHashCode() == doc.GetHashCode())
-                {
-                    return tmpOccurrence;
-                }
-
-            } while (tmpOccurrence.HasNext());
-
-            return null;
-        }
     }
 }

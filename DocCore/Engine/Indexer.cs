@@ -1,13 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Collections;
 
 namespace DocCore
 {
     class Indexer
     {
-        private long wordQuantity;
-        private long docQuantity;
+        private long totalWordQuantity;
+
+        public long TotalWordQuantity
+        {
+            get { return totalWordQuantity; }
+        }
+
+        private long totalDocumentQuantity;
+
+        public long TotalDocumentQuantity
+        {
+            get { return totalDocumentQuantity; }
+        }
 
         private Lexicon lexicon;
         private IRepositoryDocument repDoc;
@@ -18,9 +30,10 @@ namespace DocCore
             this.repDoc = FactoryRepositoryDocument.GetRepositoryDocument(EnumRepositoryType.TXT);
         }
 
-        public void StartIndexing()
+        public void ReIndexing()
         {
             List<Document> listOfDocs = repDoc.Search(false);
+            this.totalDocumentQuantity += listOfDocs.Count;
 
             Index(listOfDocs);
         }
@@ -28,7 +41,7 @@ namespace DocCore
         public void Load()
         {
             List<Document> listOfDocs = repDoc.Search(true);
-
+            this.totalDocumentQuantity += listOfDocs.Count;
             Index(listOfDocs);
         }
 
@@ -39,64 +52,21 @@ namespace DocCore
 
         void Index(List<Document> listOfDocs)
         {
-            foreach (Document item in listOfDocs)
+            foreach (Document docItem in listOfDocs)
             {
-                string text = item.GetText();
+                Hashtable postingList = docItem.GetPostingList();
 
-                string[] splitWords = text.Split(' ');
-
-                for (int i = 0; i < splitWords.Length; i++)
+                foreach (DictionaryEntry dicEntry in postingList)
                 {
-                    string wordTmp = SentenceParser.GetCleanSentence(splitWords[i]);
-                    wordTmp = wordTmp.Replace(" ", string.Empty);
+                    //get posting list and add hits
+                    //never reindex the same document 2 times.
 
-                    WordOccurrenceNode newNode;
+                    WordOccurrenceNode occurrence = dicEntry.Value as WordOccurrenceNode;
 
-                    if (this.lexicon.HasWord(wordTmp))
-                    {
-                        newNode = this.lexicon.GetOccurrenceByDoc(item,this.lexicon.GetWord(wordTmp));
-
-                        if (newNode == null)
-                        {
-                            newNode = new WordOccurrenceNode();
-                            newNode.Word = this.lexicon.GetWord(wordTmp);
-                            newNode.Doc = item;
-
-                            WordHit newhit = new WordHit();
-                            newhit.Position = i;
-                            //define frequency
-                            newNode.Hits.Add(newhit);
-                        }
-                        else
-                        {
-                            WordHit newhit = new WordHit();
-                            newhit.Position = i;
-                            //define frequency
-                            newNode.Hits.Add(newhit);
-                        }
-                    }
-                    else
-                    {
-                        newNode = new WordOccurrenceNode();
-                        newNode.Word = new Word();
-                        newNode.Word.Text = wordTmp;
-
-                        newNode.Doc = item;
-
-                        WordHit newhit = new WordHit();
-                        newhit.Position = i;
-                        //define frequency
-                        newNode.Hits.Add(newhit);
-                        item.WordQuantity = splitWords.Length + 1;
-                        newNode.Word.FirstOccurrence = newNode;
-                        //add occurrence
-                        lexicon.AddWordOccurrence(newNode);
-                    }
+                    lexicon.AddWordOccurrence(occurrence);
+                    this.totalWordQuantity += occurrence.Hits.Count;
                 }
             }
         }
-
-
-
     }
 }

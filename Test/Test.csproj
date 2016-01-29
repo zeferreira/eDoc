@@ -53,10 +53,9 @@
       </SubType>
     </None>
     <None Include="RepositoryFiles\AdeliaBarros.pdf" />
-    <None Include="RepositoryFiles\InformationRetrieval.docx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="RepositoryFiles\Google_phrase.txt" />
+    <Content Include="RepositoryFiles\The Anatomy of a Large-Scale Hypertextual Web Search Engine.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Log\" />

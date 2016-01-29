@@ -27,10 +27,13 @@ namespace DocCore
                         string message = Messages.DocParserNotSupportedFile + @" (File: " + file + ")";
 
                         Log l = new Log();
-                        l.TaskDescription = "Parsing document";
+                        l.TaskDescription = "Parsing document - Not Supported";
                         l.StartDateTime = DateTime.Now;
                         l.LogParameters.Add(file);
-                        
+
+                        IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
+                        repLog.Write(l);
+
                         throw new NotSupportedException();
                     }
             }

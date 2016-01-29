@@ -6,6 +6,22 @@ namespace DocCore
 {
     public class WordOccurrenceNode
     {
+        private Word word;
+
+        public Word Word
+        {
+            get { return word; }
+            set { word = value; }
+        }
+
+        private Document doc;
+
+        public Document Doc
+        {
+            get { return doc; }
+            set { doc = value; }
+        }
+
         //private float frequency;
         private float rank;
         //used to order the list
@@ -21,7 +37,6 @@ namespace DocCore
                 rank = value; 
             }
         }
-        
 
         public float Frequency
         {
@@ -30,22 +45,6 @@ namespace DocCore
                 return hits.Count / doc.WordQuantity; 
                 
             }
-        }
-
-        private Word word;
-
-        public Word Word
-        {
-            get { return word; }
-            set { word = value; }
-        }
-
-        private Document doc;
-
-        public Document Doc
-        {
-            get { return doc; }
-            set { doc = value; }
         }
 
         private List<WordHit> hits;
@@ -99,16 +98,7 @@ namespace DocCore
         {
             if (this.HasNext())
             {
-                if (newNode.Rank > this.NextOccurrence.Rank)
-                {
-                    newNode.NextOccurrence = this.NextOccurrence;
-                    this.NextOccurrence.PreviousOccurrence = newNode;
-                }
-                else 
-                {
-                    this.NextOccurrence.Add(newNode);
-                }
-
+                this.NextOccurrence.Add(newNode);
             }
             else
             {
