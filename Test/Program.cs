@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using DocCore;
+using System.Diagnostics;
 
 namespace Test
 {
@@ -14,18 +15,17 @@ namespace Test
             int qtd = 0;
             Engine eng = new Engine();
             DateTime start;
-            DateTime end;
             TimeSpan timeDif;
+            Stopwatch sw;
 
             string smsTimeToLoad = "Load Engine".PadRight(15);
             string smsSearch = "Search".PadRight(15);
 
-
             start = DateTime.Now;
-            //start = new DateTime(2016, 1, 20, 4, 0, 0);
+            sw = Stopwatch.StartNew();
             eng.Load();
-            end = DateTime.Now;
-            timeDif = end - start;
+            sw.Stop();
+            timeDif = sw.Elapsed;
 
             Log entry = new Log();
             entry.TaskDescription = smsTimeToLoad;
@@ -41,9 +41,10 @@ namespace Test
             Console.WriteLine("||||| positive test - one word |||||");
             string parameters = "search";
             start = DateTime.Now;
+            sw = Stopwatch.StartNew();
             List<WordOccurrenceNode> docList = eng.Search(parameters);
-            end = DateTime.Now;
-            timeDif = end - start;
+            sw.Stop();
+            timeDif = sw.Elapsed;
 
             entry = new Log();
             entry.TaskDescription = smsSearch;
@@ -67,9 +68,10 @@ namespace Test
 
             parameters = "gimgolbel123#321456654987qqqwweqweq";
             start = DateTime.Now;
+            sw = Stopwatch.StartNew();
             docList = eng.Search(parameters);
-            end = DateTime.Now;
-            timeDif = end - start;
+            sw.Stop();
+            timeDif = sw.Elapsed;
 
             entry = new Log();
             entry.TaskDescription = smsSearch;
@@ -90,17 +92,12 @@ namespace Test
 
             TestResult(docList);
 
-            List<Log> logList = repLog.List();
+            //ShowLogEntrys();
 
-            foreach (Log item in logList)
-            {
-                Console.WriteLine(item.ToString());
-            }
+
 
             Console.ReadLine();
         }
-
-        
 
         static void TestResult(List<WordOccurrenceNode> list)
         {
@@ -110,6 +107,18 @@ namespace Test
             }
             else
                 Console.WriteLine("{0} "+ Messages.DocumentsFound +" \n", list.Count);
+        }
+
+        static void ShowLogEntrys()
+        {
+            IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
+
+            List<Log> logList = repLog.List();
+
+            foreach (Log item in logList)
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
     }
 }
