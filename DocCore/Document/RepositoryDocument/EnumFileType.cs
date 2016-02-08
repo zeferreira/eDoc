@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DocCore
 {
-    public enum EnumRepositoryType  
+    public enum EnumFileType
     {
-        TXT,
-        SQL
+        txt,
+        pdf
     };
 }

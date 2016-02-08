@@ -33,7 +33,7 @@ namespace DocCore
 
         public long GetTotalQuantity()
         {
-            throw new NotImplementedException();
+            return this.quant;
         }
 
         public List<Document> Search(bool onlyIndexed)
@@ -50,6 +50,8 @@ namespace DocCore
                 throw new Exception("Diretorio do repositorio não encontrado.");
             }
 
+            this.quant = list.Count;
+            this.lastIndexTime = DateTime.Now;
             return list;
         }
 

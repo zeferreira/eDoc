@@ -7,25 +7,23 @@ namespace DocCore
 {
     public class RepositoryLogTXT : IRepositoryLog
     {
-        string logFile;
         string logFilePath;
         char separator;
         char separatorParameters;
-        EngineConfiguration engConf;
+        bool activeStatus;
 
 
-        public RepositoryLogTXT(string logFileName)
+        public RepositoryLogTXT(string logFileName, char separator, char separatorParm, bool isActive)
         {
-            this.engConf = new EngineConfiguration();
-            this.logFile = logFileName;
-            this.logFilePath = engConf.LogFilePath + @"\" + this.logFile;
-            this.separator = engConf.LogSeparator;
-            this.separatorParameters = '#';
+            this.logFilePath = logFileName;
+            this.separator = separator;
+            this.separatorParameters = separatorParm;
+            this.activeStatus = isActive;
         }
 
         public void Write(Log entry)
         {
-            if(engConf.LogIsActive)
+            if(this.activeStatus)
                 File.AppendAllText(logFilePath, entry.ToString());
         }
         

@@ -18,7 +18,7 @@ namespace DocCore
             switch (type)
             {
                 case "txt":
-                    return new RepositoryLogTXT("ExecutionLog.txt");
+                    return new RepositoryLogTXT(path, engConf.LogSeparator,'#',engConf.LogIsActive);
 
                 case "sql":
                     throw new NotImplementedException();

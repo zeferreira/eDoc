@@ -12,7 +12,7 @@ namespace DocCore
 
             switch (type)
             {
-                case EnumRepositoryType.TXT:
+                case EnumRepositoryType.Folder:
                     return new RepositoryDocumentFolder(path);
                     
                 case EnumRepositoryType.SQL:

@@ -5,8 +5,11 @@ using System.Collections;
 
 namespace DocCore
 {
-    class Indexer
+    public class Indexer
     {
+        private Lexicon lexicon;
+        private IRepositoryDocument repDoc;
+
         private long totalWordQuantity;
 
         public long TotalWordQuantity
@@ -21,13 +24,10 @@ namespace DocCore
             get { return totalDocumentQuantity; }
         }
 
-        private Lexicon lexicon;
-        private IRepositoryDocument repDoc;
-
         public Indexer()
         {
             this.lexicon = new Lexicon();
-            this.repDoc = FactoryRepositoryDocument.GetRepositoryDocument(EnumRepositoryType.TXT);
+            this.repDoc = FactoryRepositoryDocument.GetRepositoryDocument(EnumRepositoryType.Folder);
         }
 
         public void ReIndexing()
@@ -50,23 +50,30 @@ namespace DocCore
             return this.lexicon.GetWord(word);
         }
 
-        void Index(List<Document> listOfDocs)
+        public void Index(List<Document> listOfDocs)
         {
             foreach (Document docItem in listOfDocs)
             {
                 Hashtable postingList = docItem.GetPostingList();
+                IDictionaryEnumerator iDicE = postingList.GetEnumerator();
 
-                foreach (DictionaryEntry dicEntry in postingList)
+                while (iDicE.MoveNext())
                 {
                     //get posting list and add hits
                     //never reindex the same document 2 times.
 
+                    DictionaryEntry dicEntry = (DictionaryEntry)iDicE.Current;
                     WordOccurrenceNode occurrence = dicEntry.Value as WordOccurrenceNode;
 
                     lexicon.AddWordOccurrence(occurrence);
-                    this.totalWordQuantity += occurrence.Hits.Count;
+                    totalWordQuantity += occurrence.Hits.Count;
                 }
             }
+        }
+
+        private void IndexOneFile(Document doc)
+        {
+            
         }
     }
 }

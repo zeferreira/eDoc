@@ -20,6 +20,7 @@ namespace Test
 
             string smsTimeToLoad = "Load Engine".PadRight(15);
             string smsSearch = "Search".PadRight(15);
+            string smsSearchTwoWords = "Search Two Words".PadRight(15);
 
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
@@ -63,6 +64,34 @@ namespace Test
              
             TestResult(docList);
             
+            //search 2 words
+            //search one word
+            Console.WriteLine("||||| positive test - two words |||||");
+            parameters = "web search";
+            start = DateTime.Now;
+            sw = Stopwatch.StartNew();
+            docList = eng.Search(parameters);
+            sw.Stop();
+            timeDif = sw.Elapsed;
+
+            entry = new Log();
+            entry.TaskDescription = smsSearchTwoWords;
+            entry.StartDateTime = start;
+            entry.ExecutionTime = timeDif;
+            entry.LogParameters = new List<string>();
+            entry.LogParameters.Add("sentence: " + parameters);
+            entry.LogParameters.Add("totalDocFound: " + docList.Count.ToString());
+            repLog.Write(entry);
+
+            foreach (WordOccurrenceNode item in docList)
+            {
+                qtd++;
+                Console.WriteLine(qtd + " - " + item.Doc.Title + " | Occurrences: " + item.Hits.Count + "\n");
+            }
+
+            TestResult(docList);
+
+
             //search word that not exist
             Console.WriteLine("||||| negative test  |||||");
 

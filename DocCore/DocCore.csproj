@@ -51,8 +51,8 @@
     <Compile Include="Document\Parser\DocParserTXT.cs" />
     <Compile Include="Document\Parser\FactoryParser.cs" />
     <Compile Include="Document\Parser\IDocParser.cs" />
-    <Compile Include="Document\RepositoryDocument\EnumFileType.cs" />
     <Compile Include="Document\RepositoryDocument\EnumRepositoryType.cs" />
+    <Compile Include="Document\RepositoryDocument\EnumFileType.cs" />
     <Compile Include="Document\RepositoryDocument\FactoryRepositoryDocument.cs" />
     <Compile Include="Document\RepositoryDocument\IRepositoryDocument.cs" />
     <Compile Include="Document\RepositoryDocument\RepositoryDocumentFolder.cs" />
