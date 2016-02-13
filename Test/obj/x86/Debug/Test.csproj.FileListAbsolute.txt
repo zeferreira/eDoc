@@ -5,3 +5,12 @@ c:\users\jose\documents\visual studio 2010\Projects\EDoc\Test\bin\Debug\DocCore.
 c:\users\jose\documents\visual studio 2010\Projects\EDoc\Test\obj\x86\Debug\Test.csprojResolveAssemblyReference.cache
 c:\users\jose\documents\visual studio 2010\Projects\EDoc\Test\obj\x86\Debug\Test.exe
 c:\users\jose\documents\visual studio 2010\Projects\EDoc\Test\obj\x86\Debug\Test.pdb
+D:\projetos\edoc\CodeRepository\eDoc\Test\bin\Debug\Test.exe.config
+D:\projetos\edoc\CodeRepository\eDoc\Test\bin\Debug\Test.exe
+D:\projetos\edoc\CodeRepository\eDoc\Test\bin\Debug\Test.pdb
+D:\projetos\edoc\CodeRepository\eDoc\Test\bin\Debug\DocCore.dll
+D:\projetos\edoc\CodeRepository\eDoc\Test\bin\Debug\itextsharp.dll
+D:\projetos\edoc\CodeRepository\eDoc\Test\bin\Debug\DocCore.pdb
+D:\projetos\edoc\CodeRepository\eDoc\Test\obj\x86\Debug\Test.csprojResolveAssemblyReference.cache
+D:\projetos\edoc\CodeRepository\eDoc\Test\obj\x86\Debug\Test.exe
+D:\projetos\edoc\CodeRepository\eDoc\Test\obj\x86\Debug\Test.pdb

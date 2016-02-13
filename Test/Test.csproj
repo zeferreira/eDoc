@@ -49,8 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
-      <SubType>
-      </SubType>
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup>

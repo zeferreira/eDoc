@@ -64,10 +64,11 @@
     <Compile Include="ExecutionLog\Repository\FactoryRepositoryLog.cs" />
     <Compile Include="ExecutionLog\Repository\RepositoryLogTXT.cs" />
     <Compile Include="ExecutionLog\Repository\IRepositoryLog.cs" />
-    <Compile Include="Sentence\RepositorySentence\IRepositorySentence.cs" />
-    <Compile Include="Sentence\RepositorySentence\RepositorySentenceTXT.cs" />
-    <Compile Include="Sentence\Sentence.cs" />
-    <Compile Include="Sentence\SentenceParser.cs" />
+    <Compile Include="Query\QueryItem.cs" />
+    <Compile Include="Query\RepositoryQuery\IRepositoryQuery.cs" />
+    <Compile Include="Query\RepositoryQuery\RepositoryQueryTXT.cs" />
+    <Compile Include="Query\Query.cs" />
+    <Compile Include="Query\QueryParser.cs" />
     <Compile Include="Util\Util.cs" />
     <Compile Include="Word\Word.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +81,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Library\itextsharp.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Word\WordRepository\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

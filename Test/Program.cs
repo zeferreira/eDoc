@@ -39,8 +39,9 @@ namespace Test
             repLog.Write(entry);
 
             //search one word
-            Console.WriteLine("||||| positive test - one word |||||");
             string parameters = "search";
+            Console.WriteLine("||||| positive test - one word ||||| ( {0} )", parameters);
+            qtd = 0;
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
             List<WordOccurrenceNode> docList = eng.Search(parameters);
@@ -66,8 +67,9 @@ namespace Test
             
             //search 2 words
             //search one word
-            Console.WriteLine("||||| positive test - two words |||||");
             parameters = "web search";
+            Console.WriteLine("||||| positive test - two words ||||| ( {0} )",   parameters);
+            qtd = 0;
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
             docList = eng.Search(parameters);
@@ -93,9 +95,9 @@ namespace Test
 
 
             //search word that not exist
-            Console.WriteLine("||||| negative test  |||||");
-
             parameters = "gimgolbel123#321456654987qqqwweqweq";
+            Console.WriteLine("||||| negative test  ||||| ( {0} )", parameters);
+            qtd = 0;
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
             docList = eng.Search(parameters);

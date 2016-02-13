@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DocCore
 {
-    class RepositorySentenceTXT
+    public class RepositoryQueryTXT
     {
 
     }

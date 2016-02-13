@@ -40,6 +40,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="ZetaLongPaths, Version=1.0.0.3, Culture=neutral, PublicKeyToken=b764f59068f31f38, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ProcessorLibrary\FileSystemHelper\Library\ZetaLongPaths.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form1.cs">
@@ -48,7 +52,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProcessorLibrary\FileSystemSupport\IFileSystemHelper.cs" />
+    <Compile Include="ProcessorLibrary\FileSystemHelper\FileSystemHelperZetaLongPath.cs" />
+    <Compile Include="ProcessorLibrary\FileSystemHelper\FactoryFileSystemHelper.cs" />
+    <Compile Include="ProcessorLibrary\FileSystemHelper\FileSystemHelperDotNet.cs" />
+    <Compile Include="ProcessorLibrary\FileSystemHelper\IFileSystemHelper.cs" />
     <Compile Include="ProcessorLibrary\RepositorySummaryDocType\FactoryRepositorySummaryDocType.cs" />
     <Compile Include="ProcessorLibrary\RepositorySummaryDocType\IRepositorySummaryDocType.cs" />
     <Compile Include="ProcessorLibrary\RepositorySummaryDocType\RepositorySummaryDocTypeTXT.cs" />
@@ -100,6 +107,7 @@
     <Folder Include="Report\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ProcessorLibrary\FileSystemHelper\Library\ZetaLongPaths.dll" />
     <Content Include="Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

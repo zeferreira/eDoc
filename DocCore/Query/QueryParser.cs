@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DocCore
 {
-    public class SentenceParser
+    public class QueryParser
     {
-        public static string GetCleanSentence(string sentence)
+        public static string GetCleanQuery(string sentence)
         {
             string replaced = Util.RemoveForbbidenSymbols(sentence);
 

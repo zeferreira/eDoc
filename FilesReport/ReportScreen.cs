@@ -31,8 +31,7 @@ namespace FilesReport
             FilesReport.ReportGenerator.SignalReportProgress signalProgress = new ReportGenerator.SignalReportProgress(SignalStatus);
             FilesReport.ReportGenerator.SignalReportDone signalWorkDone = new ReportGenerator.SignalReportDone(OpenNewReport);
 
-            reportGenerator = new ReportGenerator(rootFolder, signalProgress, signalWorkDone);
-           
+            this.reportGenerator = new ReportGenerator(rootFolder, signalProgress, signalWorkDone);
         }
 
         private void btnProcessReport_Click(object sender, EventArgs e)

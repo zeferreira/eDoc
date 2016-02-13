@@ -8,6 +8,15 @@ namespace DocCore
     public class Lexicon
     {
         Hashtable ht;
+        private long maxLength;
+
+        public long MaxLength 
+        { 
+            get 
+            {
+                return this.maxLength;   
+            } 
+        }
 
         public long Quantity
         {
@@ -17,6 +26,7 @@ namespace DocCore
         public Lexicon()
         {
             this.ht = new Hashtable();
+            this.maxLength = int.MaxValue;
         }
 
         public Word GetWord(string word)

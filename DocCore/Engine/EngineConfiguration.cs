@@ -8,6 +8,7 @@ namespace DocCore
     public class EngineConfiguration
     {
         int maxSentence;
+        long maxResultList;
 
         public int MaxSentence
         {
@@ -73,7 +74,14 @@ namespace DocCore
             }
         }
 
-
+        public long MaxResultList
+        {
+            get
+            {
+                this.maxResultList = Convert.ToInt64(ConfigurationManager.AppSettings["maxResultList"].ToString());
+                return maxResultList;
+            }
+        }
 
     }
 }

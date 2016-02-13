@@ -18,8 +18,11 @@ namespace FilesReport
         long quant;
         long totalSize;
         DateTime lastIndexTime;
+        
         IRepositorySummaryDocType repSum;
         IRepositoryLog repLog;
+        IFileSystemHelper fileSystemHelper;
+
         long skippedFiles;
         
 
@@ -43,6 +46,7 @@ namespace FilesReport
 
             this.pathReportsFolder = ConfigurationManager.AppSettings["reportFolder"].ToString();
             this.repLog = FactoryRepositoryLog.GetRepositoryLog();
+            this.fileSystemHelper = FactoryFileSystemHelper.GetFileSystemHelper();
         }
 
         public void AddOccurrence(SummaryDocType d)
@@ -89,17 +93,10 @@ namespace FilesReport
 
             this.repSum = FactoryRepositorySummaryDocType.GetRepositorySummaryDocType();
 
-            if (Directory.Exists(rootFolder))
+            // This path is a directory and his path is valid
+            if (this.fileSystemHelper.IsValidPath(rootFolder))
             {
-                // This path is a directory and his path is valid
-                if(IsValidPath(rootFolder))
-                {
-                    ProcessDirectory(rootFolder);
-                }
-            }
-            else
-            {
-                throw new Exception("Diretorio do repositorio não encontrado.");
+                ProcessDirectory(rootFolder);
             }
 
             this.lastIndexTime = DateTime.Now;
@@ -125,9 +122,8 @@ namespace FilesReport
         {
             try
             {
-                //there is a PathTooLongException - Here!!!!!
                 // Process the list of files found in the directory.
-                string[] fileEntries = Directory.GetFiles(targetDirectory);
+                string[] fileEntries = this.fileSystemHelper.GetFiles(targetDirectory);
 
                 foreach (string fileName in fileEntries)
                     ProcessFile(fileName);
@@ -151,11 +147,11 @@ namespace FilesReport
             try
             {
                 // Recurse into subdirectories of this directory.
-                string[] subdirectoryEntries = Directory.GetDirectories(targetDirectory);
+                string[] subdirectoryEntries = this.fileSystemHelper.GetDirectories(targetDirectory);
 
                 foreach (string subdirectory in subdirectoryEntries)
                 {
-                    if (IsValidPath(subdirectory))
+                    if (this.fileSystemHelper.IsValidPath(subdirectory))
                     {
                         ProcessDirectory(subdirectory);
                     }
@@ -181,31 +177,23 @@ namespace FilesReport
         {
             try
             {
-                //there is a PathTooLongException - Here!!!!!
-                FileInfo fileInfo = new FileInfo(fileName);
+                SummaryDocType newDoc = new SummaryDocType(this.fileSystemHelper.GetExtension(fileName));
+                newDoc.MaxSizeFile = this.fileSystemHelper.GetFileSize(fileName);
 
-                SummaryDocType newDoc = new SummaryDocType(fileInfo.Extension);
-                newDoc.MaxSizeFile = fileInfo.Length;
+                newDoc.OlderFile = this.fileSystemHelper.GetCreationDate(fileName);
 
-                if (fileInfo.LastWriteTime < fileInfo.CreationTime)
-                {
-                    newDoc.OlderFile = fileInfo.LastWriteTime;
-                }
-                else
-                {
-                    newDoc.OlderFile = fileInfo.CreationTime;
-                }
-
-                newDoc.RecentFile = fileInfo.CreationTime;
-                newDoc.TotalSize = fileInfo.Length;
+                newDoc.RecentFile = this.fileSystemHelper.GetCreationDate(fileName);
+                newDoc.TotalSize = this.fileSystemHelper.GetFileSize(fileName); 
                 newDoc.TotalQuantity = 1;
                 this.quant += 1;
-                this.totalSize += fileInfo.Length;
+                this.totalSize += this.fileSystemHelper.GetFileSize(fileName);
 
                 AddOccurrence(newDoc);
             }
             catch (PathTooLongException e)
             {
+                //only for not supported file name mode.
+                //redundancy
                 Log entryLog = new Log();
                 entryLog.TaskDescription = "File Name is Too Long";
                 entryLog.ExecutionTime = timeDif;
@@ -269,52 +257,6 @@ namespace FilesReport
             {
                 return bytesSize.ToString() + "(B's)";
             }
-        }
-
-        private bool IsValidPath(string p)
-        {
-            if ((File.GetAttributes(p) & FileAttributes.ReparsePoint) == FileAttributes.ReparsePoint)
-            {
-                Log entryLog = new Log();
-
-                entryLog.TaskDescription = "'" + p + "' is a reparse point. Skipped";
-                entryLog.StartDateTime = DateTime.Now;
-                entryLog.LogParameters = new List<string>();
-
-                entryLog.LogParameters.Add("DirectoryEntry Name: " + p);
-
-                this.repLog.Write(entryLog);
-                
-                return false;
-            }
-            if (!IsReadable(p))
-            {
-                Log entryLog = new Log();
-
-                entryLog.TaskDescription = "'" + p + "' *ACCESS DENIED*. Skipped";
-                entryLog.StartDateTime = DateTime.Now;
-                entryLog.LogParameters = new List<string>();
-
-                entryLog.LogParameters.Add("DirectoryEntry Name: " + p);
-
-                this.repLog.Write(entryLog);
-
-                return false;
-            }
-            return true;
-        }
-
-        private bool IsReadable(string p)
-        {
-            try
-            {
-                string[] s = Directory.GetDirectories(p);
-            }
-            catch (UnauthorizedAccessException)
-            {
-                return false;
-            }
-            return true;
         }
 
     }

@@ -4,8 +4,8 @@ using System.Text;
 
 namespace DocCore
 {
-    public interface IRepositorySentence
+    public interface IRepositoryQuery
     {
-        void Insert(Sentence s);
+        void Insert(Query s);
     }
 }

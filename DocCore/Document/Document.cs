@@ -75,7 +75,7 @@ namespace DocCore
             //index words
             for (int i = 0; i < splitWords.Length; i++)
             {
-                string wordTmp = SentenceParser.GetCleanSentence(splitWords[i]);
+                string wordTmp = QueryParser.GetCleanQuery(splitWords[i]);
                 wordTmp = wordTmp.Replace(" ", string.Empty);
 
                 int key = wordTmp.GetHashCode();
@@ -89,7 +89,7 @@ namespace DocCore
                     newhit.Position = i;
                     node.Hits.Add(newhit);
                 }
-                else
+                else if(!string.IsNullOrEmpty(wordTmp))
                 {
                     WordOccurrenceNode newNode = new WordOccurrenceNode();
                     newNode.Word = new Word();

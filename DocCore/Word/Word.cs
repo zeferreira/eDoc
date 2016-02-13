@@ -45,6 +45,11 @@ namespace DocCore
 
         public override int GetHashCode()
         {
+            return GetHashValue(Text);
+        }
+
+        public static int GetHashValue(string text)
+        {
             return text.GetHashCode();
         }
     }

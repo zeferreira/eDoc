@@ -2,3 +2,9 @@ c:\users\jose\documents\visual studio 2010\Projects\EDoc\DocCore\bin\Debug\DocCo
 c:\users\jose\documents\visual studio 2010\Projects\EDoc\DocCore\bin\Debug\DocCore.pdb
 c:\users\jose\documents\visual studio 2010\Projects\EDoc\DocCore\obj\Debug\DocCore.dll
 c:\users\jose\documents\visual studio 2010\Projects\EDoc\DocCore\obj\Debug\DocCore.pdb
+D:\projetos\edoc\CodeRepository\eDoc\DocCore\bin\Debug\DocCore.dll.config
+D:\projetos\edoc\CodeRepository\eDoc\DocCore\bin\Debug\DocCore.dll
+D:\projetos\edoc\CodeRepository\eDoc\DocCore\bin\Debug\DocCore.pdb
+D:\projetos\edoc\CodeRepository\eDoc\DocCore\bin\Debug\itextsharp.dll
+D:\projetos\edoc\CodeRepository\eDoc\DocCore\obj\Debug\DocCore.dll
+D:\projetos\edoc\CodeRepository\eDoc\DocCore\obj\Debug\DocCore.pdb

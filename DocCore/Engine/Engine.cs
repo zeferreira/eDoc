@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using System.Text;
 
 namespace DocCore
@@ -9,6 +10,8 @@ namespace DocCore
         private Indexer indexer;
         private EngineConfiguration engineConfiguration;
         private IRepositoryLog logRep;
+        int maxSentence;
+        long maxResultList;
 
         public long TotalDocumentQuantity 
         { 
@@ -28,42 +31,8 @@ namespace DocCore
         {
             this.engineConfiguration = new EngineConfiguration();
             this.logRep = FactoryRepositoryLog.GetRepositoryLog();
-        }
-
-        public List<WordOccurrenceNode> Search(string sentence)
-        {
-            int maxSentence = engineConfiguration.MaxSentence;
-
-            List<WordOccurrenceNode> resultList = new List<WordOccurrenceNode>();
-            List<Word> wordFound = new List<Word>();
-
-            string sentenceClear = SentenceParser.GetCleanSentence(sentence);
-
-            string[] splitWords = sentenceClear.Split(' ');
-
-            for (int i = 0; ((i < splitWords.Length) && (i < maxSentence)); i++)
-            {
-                Word wf = indexer.Search(splitWords[i]);
-                
-                if(wf != null)
-                    wordFound.Add(wf);
-            }
-
-            foreach (Word item in wordFound)
-            {
-                WordOccurrenceNode firstOcc = item.FirstOccurrence;
-                resultList.Add(firstOcc);
-                
-                WordOccurrenceNode tmp = firstOcc;
-
-                while (tmp.HasNext())
-                {
-                    tmp = tmp.NextOccurrence;
-                    resultList.Add(tmp);
-                }
-            }
-
-            return resultList;
+            maxSentence = engineConfiguration.MaxSentence;
+            maxResultList = engineConfiguration.MaxResultList;
         }
 
         public void Load()
@@ -78,5 +47,62 @@ namespace DocCore
             this.indexer.ReIndexing();
         }
 
+        public List<WordOccurrenceNode> Search(string sentence)
+        {
+            Hashtable resultHash = new Hashtable();
+
+            List<WordOccurrenceNode> resultList = new List<WordOccurrenceNode>();
+            List<Word> wordFound = new List<Word>();
+
+            Query query = new Query(sentence);
+            
+            for (int i = 0; ((i < query.QueryItens.Count) && (i < maxSentence)); i++)
+            {
+                Word wf = indexer.Search(query.QueryItens[i].Text);
+                
+                if(wf != null)
+                    wordFound.Add(wf);
+            }
+
+            //merging the list.
+            foreach (Word item in wordFound)
+            {
+                WordOccurrenceNode firstOcc = item.FirstOccurrence;
+
+                if (!resultHash.ContainsKey(firstOcc.Doc.DocID))
+                {
+                    resultHash.Add(firstOcc.Doc.DocID, firstOcc);
+                }
+
+                WordOccurrenceNode tmp = firstOcc;
+
+                while (tmp.HasNext())
+                {
+                    tmp = tmp.NextOccurrence;
+
+                    if (!resultHash.ContainsKey(tmp.Doc.DocID))
+                    {
+                        resultHash.Add(tmp.Doc.DocID, tmp);
+                        RankCalc(tmp, query);
+                    }
+                }
+            }
+
+            //convert hasthtable to list
+            foreach (DictionaryEntry entry in resultHash)
+            {
+                resultList.Add(entry.Value as WordOccurrenceNode);
+            }
+
+            return resultList;
+        }
+
+        private void RankCalc(WordOccurrenceNode node, Query query)
+        {
+            double tempRank = node.Frequency - (node.Word.Quantity / this.indexer.TotalWordQuantity);
+            node.Rank = tempRank;
+
+            
+        }
     }
 }

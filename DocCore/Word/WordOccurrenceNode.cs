@@ -23,13 +23,12 @@ namespace DocCore
         }
 
         //private float frequency;
-        private float rank;
+        private double rank;
         //used to order the list
-        public float Rank
+        public double Rank
         {
             get 
             {
-                this.Rank = Frequency;
                 return rank; 
             }
             set 
@@ -38,7 +37,7 @@ namespace DocCore
             }
         }
 
-        public float Frequency
+        public double Frequency
         {
             get {
                 
