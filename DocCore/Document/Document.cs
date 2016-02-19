@@ -53,7 +53,7 @@ namespace DocCore
         public string GetText()
         {
             this.parser = FactoryParser.GetParser(File);
-            string text = Util.RemoveForbbidenSymbols( this.parser.GetText(file)); //to do: 33% of time to read full text
+            string text = Useful.RemoveForbbidenSymbols( this.parser.GetText(file)); //to do: 33% of time to read full text
 
             return text.ToLower(); //0% of time O.o
         }
@@ -108,5 +108,6 @@ namespace DocCore
 
             return postingList;
         }
+        
     }
 }

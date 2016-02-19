@@ -5,7 +5,7 @@ using System.Globalization;
 
 namespace DocCore
 {
-    public class Util
+    public class Useful
     {
         public static string RemoveForbbidenSymbols(string text)
         {
@@ -28,8 +28,10 @@ namespace DocCore
             replaced = replaced.Replace('{', ' ');
             replaced = replaced.Replace('}', ' ');
             replaced = replaced.Replace(';', ' ');
+            replaced = replaced.Replace(':', ' ');
             replaced = replaced.Replace('#', ' ');
             replaced = replaced.Replace('|', ' ');
+            replaced = replaced.Replace('_', ' ');
 
             return replaced;
         }

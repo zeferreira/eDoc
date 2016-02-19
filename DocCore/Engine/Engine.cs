@@ -68,7 +68,9 @@ namespace DocCore
             foreach (Word item in wordFound)
             {
                 WordOccurrenceNode firstOcc = item.FirstOccurrence;
-
+                //problem: the number of occurrences is wrong! The 'else' case, doesn't exist and becaouse this, 
+                //the program don't count the occurrences of the second word. 
+                //when he merge, it discards the occurrences. 
                 if (!resultHash.ContainsKey(firstOcc.Doc.DocID))
                 {
                     resultHash.Add(firstOcc.Doc.DocID, firstOcc);
@@ -92,6 +94,66 @@ namespace DocCore
             foreach (DictionaryEntry entry in resultHash)
             {
                 resultList.Add(entry.Value as WordOccurrenceNode);
+            }
+
+            return resultList;
+        }
+
+        public List<DocumentResult> Search(string query)
+        {
+            Hashtable resultHash = new Hashtable();
+
+            List<DocumentResult> resultList = new List<DocumentResult>();
+            List<Word> wordFound = new List<Word>();
+
+            Query parsedQuery = new Query(query);
+
+            for (int i = 0; ((i < parsedQuery.QueryItens.Count) && (i < maxSentence)); i++)
+            {
+                Word wf = indexer.Search(parsedQuery.QueryItens[i].Text);
+
+                if (wf != null)
+                    wordFound.Add(wf);
+            }
+
+            //merging the list.
+            foreach (Word item in wordFound)
+            {
+                WordOccurrenceNode firstOcc = item.FirstOccurrence;
+                //problem: the number of occurrences is wrong! The 'else' case, doesn't exist and becaouse this, 
+                //the program don't count the occurrences of the second word. 
+                //when he merge, it discards the occurrences. 
+                if (!resultHash.ContainsKey(firstOcc.Doc.DocID))
+                {
+                    DocumentResult newDoc = (DocumentResult)firstOcc.Doc;
+
+                    resultHash.Add(newDoc.DocID, newDoc);
+                }
+
+                WordOccurrenceNode tmp = firstOcc;
+
+                while (tmp.HasNext())
+                {
+                    tmp = tmp.NextOccurrence;
+
+                    if (!resultHash.ContainsKey(tmp.Doc.DocID))
+                    {
+                        DocumentResult newDoc = (DocumentResult)tmp.Doc;
+
+                        resultHash.Add(newDoc.DocID, newDoc);
+                    }
+                    else
+                    {
+                        DocumentResult newDoc = resultHash[tmp.Doc.DocID] as DocumentResult;
+                        newDoc.DocQuantitityResults += tmp.Hits.Count;
+                    }
+                }
+            }
+
+            //convert hasthtable to list
+            foreach (DictionaryEntry entry in resultHash)
+            {
+                resultList.Add(entry.Value as DocumentResult);
             }
 
             return resultList;

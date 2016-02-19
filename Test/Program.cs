@@ -12,7 +12,6 @@ namespace Test
         {
             IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
 
-            int qtd = 0;
             Engine eng = new Engine();
             DateTime start;
             TimeSpan timeDif;
@@ -41,7 +40,6 @@ namespace Test
             //search one word
             string parameters = "search";
             Console.WriteLine("||||| positive test - one word ||||| ( {0} )", parameters);
-            qtd = 0;
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
             List<WordOccurrenceNode> docList = eng.Search(parameters);
@@ -57,19 +55,13 @@ namespace Test
             entry.LogParameters.Add("totalDocFound: " + docList.Count.ToString());
             repLog.Write(entry);
 
-            foreach (WordOccurrenceNode item in docList)
-            {
-                qtd++;
-                Console.WriteLine(qtd + " - " + item.Doc.Title + " | Occurrences: " + item.Hits.Count + "\n");
-            }
-             
             TestResult(docList);
             
-            //search 2 words
+            //search 2 words 
             //search one word
             parameters = "web search";
             Console.WriteLine("||||| positive test - two words ||||| ( {0} )",   parameters);
-            qtd = 0;
+            
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
             docList = eng.Search(parameters);
@@ -85,19 +77,13 @@ namespace Test
             entry.LogParameters.Add("totalDocFound: " + docList.Count.ToString());
             repLog.Write(entry);
 
-            foreach (WordOccurrenceNode item in docList)
-            {
-                qtd++;
-                Console.WriteLine(qtd + " - " + item.Doc.Title + " | Occurrences: " + item.Hits.Count + "\n");
-            }
-
             TestResult(docList);
 
 
             //search word that not exist
             parameters = "gimgolbel123#321456654987qqqwweqweq";
             Console.WriteLine("||||| negative test  ||||| ( {0} )", parameters);
-            qtd = 0;
+            
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
             docList = eng.Search(parameters);
@@ -114,13 +100,6 @@ namespace Test
             entry.LogParameters.Add("totalDocIndexed: " + eng.TotalDocumentQuantity.ToString());
             repLog.Write(entry);
 
-            qtd = 0;
-
-            foreach (WordOccurrenceNode item in docList)
-            {
-                Console.WriteLine(qtd + " - " + item.Doc.Title + " | WordsQtd:" + item.Doc.WordQuantity + "\n");
-            }
-
             TestResult(docList);
 
             //ShowLogEntrys();
@@ -132,6 +111,18 @@ namespace Test
 
         static void TestResult(List<WordOccurrenceNode> list)
         {
+            int qtd = 1;
+
+            foreach (WordOccurrenceNode item in list)
+            {
+                Console.WriteLine(
+                    
+                    qtd + " - " + item.Doc.Title + " | WordsQtd:" + item.Doc.WordQuantity + "\n" +
+                    "| File: " + item.Doc.File + "\n");
+                
+                qtd++;
+            }
+
             if (list.Count == 0)
             {
                 Console.WriteLine(Messages.DocumentNotFound + "\n");

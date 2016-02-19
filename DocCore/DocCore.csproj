@@ -45,7 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Document\Document.cs" />
-    <Compile Include="Document\DocumentList.cs" />
+    <Compile Include="Document\DocumentIndex.cs" />
+    <Compile Include="Document\DocumentResult.cs" />
     <Compile Include="Document\Parser\DocParserDOCX.cs" />
     <Compile Include="Document\Parser\DocParserPDF.cs" />
     <Compile Include="Document\Parser\DocParserTXT.cs" />
@@ -69,7 +70,7 @@
     <Compile Include="Query\RepositoryQuery\RepositoryQueryTXT.cs" />
     <Compile Include="Query\Query.cs" />
     <Compile Include="Query\QueryParser.cs" />
-    <Compile Include="Util\Util.cs" />
+    <Compile Include="Useful\Useful.cs" />
     <Compile Include="Word\Word.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Word\WordHit.cs" />

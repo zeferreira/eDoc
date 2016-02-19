@@ -57,7 +57,7 @@ namespace DocCore
         {
             this.OriginalQueryText = queryText;
             this.QueryItens = ParseQueryItens(queryText);
-            this.ClearQueryText = Util.RemoveForbbidenSymbols(queryText);
+            this.ClearQueryText = Useful.RemoveForbbidenSymbols(queryText);
             this.QueryItens = ParseQueryItens(queryText);
         }
 

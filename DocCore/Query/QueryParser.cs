@@ -8,7 +8,7 @@ namespace DocCore
     {
         public static string GetCleanQuery(string sentence)
         {
-            string replaced = Util.RemoveForbbidenSymbols(sentence);
+            string replaced = Useful.RemoveForbbidenSymbols(sentence);
 
             return replaced.ToLower();
         }
