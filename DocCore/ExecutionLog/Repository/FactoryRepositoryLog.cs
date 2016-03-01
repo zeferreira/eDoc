@@ -10,8 +10,8 @@ namespace DocCore
 
         public static IRepositoryLog GetRepositoryLog()
         {
-            EngineConfiguration engConf = new EngineConfiguration();
-            string path = (new EngineConfiguration()).LogFilePath;
+            EngineConfiguration engConf = EngineConfiguration.Instance;
+            string path = engConf.LogFilePath;
 
             string type = engConf.LogType;
 

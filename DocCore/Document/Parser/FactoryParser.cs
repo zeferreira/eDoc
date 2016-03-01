@@ -14,13 +14,16 @@ namespace DocCore
             switch (extension.ToLower())
             {
                 case ".txt":
-                    return new DocParserTXT();
+                    return DocParserTxt.Instance;
 
                 case ".pdf":
-                    return new DocParserPDF();
+                    return DocParserPdf.Instance;
                 
                 case ".docx":
-                    return new DocParserDOCX();
+                    return DocParserDocxOpenXML.Instance;
+
+                case ".doc":
+                    return DocParserDocxInterop.Instance;
 
                 default:
                     {

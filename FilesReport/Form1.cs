@@ -45,8 +45,8 @@ namespace FilesReport
         {
             IRepositoryDocument repDoc = FactoryRepositoryDocument.GetRepositoryDocument(EnumRepositoryType.Folder);
             IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
-            Indexer indexer = new Indexer();
-            Lexicon lexicon = new Lexicon();
+            Indexer indexer = Indexer.Instance;
+            ILexicon lexicon = FactoryLexicon.GetLexicon();
 
             DateTime start;
             TimeSpan timeDif;

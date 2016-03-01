@@ -12,7 +12,7 @@ namespace Test
         {
             IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
 
-            Engine eng = new Engine();
+            Engine eng = Engine.Instance;
             DateTime start;
             TimeSpan timeDif;
             Stopwatch sw;
@@ -20,6 +20,8 @@ namespace Test
             string smsTimeToLoad = "Load Engine".PadRight(15);
             string smsSearch = "Search".PadRight(15);
             string smsSearchTwoWords = "Search Two Words".PadRight(15);
+            string smsMemoryUsage = "Memory".PadRight(15);
+            
 
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
@@ -42,7 +44,7 @@ namespace Test
             Console.WriteLine("||||| positive test - one word ||||| ( {0} )", parameters);
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
-            List<WordOccurrenceNode> docList = eng.Search(parameters);
+            List<DocumentResult> docList = eng.Search(parameters);
             sw.Stop();
             timeDif = sw.Elapsed;
 
@@ -102,6 +104,19 @@ namespace Test
 
             TestResult(docList);
 
+            //memory monitor
+            Process currentProc = Process.GetCurrentProcess();
+
+            long memoryUsed = currentProc.PrivateMemorySize64;
+
+            entry = new Log();
+            entry.TaskDescription = smsMemoryUsage;
+            entry.StartDateTime = start;
+            entry.ExecutionTime = timeDif;
+            entry.LogParameters = new List<string>();
+            entry.LogParameters.Add("TotalMemory: " + Useful.GetFormatedSizeString(memoryUsed));
+            repLog.Write(entry);
+
             //ShowLogEntrys();
 
 
@@ -109,16 +124,19 @@ namespace Test
             Console.ReadLine();
         }
 
-        static void TestResult(List<WordOccurrenceNode> list)
+        static void TestResult(List<DocumentResult> list)
         {
             int qtd = 1;
 
-            foreach (WordOccurrenceNode item in list)
+            foreach (DocumentResult item in list)
             {
                 Console.WriteLine(
                     
-                    qtd + " - " + item.Doc.Title + " | WordsQtd:" + item.Doc.WordQuantity + "\n" +
-                    "| File: " + item.Doc.File + "\n");
+                    qtd + " - " + item.Title +
+                    " | QueryRank: " + item.QueryRank + 
+                    " | WordsQtd:" + item.WordQuantity +
+                    //"\n" + " | File: " + item.File +
+                    "\n");
                 
                 qtd++;
             }
@@ -142,5 +160,7 @@ namespace Test
                 Console.WriteLine(item.ToString());
             }
         }
+
+
     }
 }

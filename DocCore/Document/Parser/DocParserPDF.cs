@@ -7,20 +7,54 @@ using iTextSharp.text.pdf.parser;
 
 namespace DocCore
 {
-    class DocParserPDF : IDocParser
+    class DocParserPdf : IDocParser
     {
-        public string GetText(string docFilePath)
+        //implements singleton pattern
+        private static DocParserPdf instance = null;
+        private static readonly object padlock = new object();
+
+        public static DocParserPdf Instance
         {
-            StringBuilder text = new StringBuilder();
-            using (PdfReader reader = new PdfReader(docFilePath))
+            get
             {
-                for (int i = 1; i <= reader.NumberOfPages; i++)
+                lock (padlock)
                 {
-                    text.Append(PdfTextExtractor.GetTextFromPage(reader, i));
+                    if (instance == null)
+                    {
+                        instance = new DocParserPdf();
+                    }
+                    return instance;
                 }
             }
+        }
 
-            return text.ToString();
+        DocParserPdf()
+        { }
+
+        public string GetText(string docFilePath)
+        {
+            try
+            {
+                StringBuilder text = new StringBuilder();
+                using (PdfReader reader = new PdfReader(docFilePath))
+                {
+                    for (int i = 1; i <= reader.NumberOfPages; i++)
+                    {
+                        text.Append(PdfTextExtractor.GetTextFromPage(reader, i));
+                    }
+                }
+
+                return text.ToString();
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally
+            {
+                GC.Collect();
+            }
         }
     }
 }

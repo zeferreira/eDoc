@@ -4,13 +4,48 @@ using System.Text;
 
 namespace DocCore
 {
-    class DocParserTXT : IDocParser
+    class DocParserTxt : IDocParser
     {
+        //implements singleton pattern
+        private static DocParserTxt instance = null;
+        private static readonly object padlock = new object();
+
+        public static DocParserTxt Instance
+        {
+            get
+            {
+                lock (padlock)
+                {
+                    if (instance == null)
+                    {
+                        instance = new DocParserTxt();
+                    }
+                    return instance;
+                }
+            }
+        }
+
+        DocParserTxt()
+        { }
+
         public string GetText(string docFilePath)
         {
-            string text = System.IO.File.ReadAllText(docFilePath);
+            try
+            {
+                string text = System.IO.File.ReadAllText(docFilePath);
 
-            return text;
+                return text;
+                
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            finally
+            {
+                GC.Collect();
+            }
         }
     }
 }

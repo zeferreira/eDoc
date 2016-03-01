@@ -60,5 +60,47 @@ namespace DocCore
 
             return stringBuilder.ToString().Normalize(NormalizationForm.FormC);
         }
+
+        public static string GetFormatedSizeString(long bytesSize)
+        {
+            if (bytesSize > 1024)
+            {
+                long kbSize = bytesSize / 1024;
+
+                if (kbSize > 1024)
+                {
+                    long mbSize = kbSize / 1024;
+
+                    if (mbSize > 1024)
+                    {
+                        long gbSize = mbSize / 1024;
+
+                        if (gbSize > 1024)
+                        {
+                            long tbSize = gbSize / 1024;
+                            return tbSize.ToString() + "(TB's)";
+                        }
+                        else
+                        {
+                            return gbSize.ToString() + "(GB's)";
+                        }
+                    }
+                    else
+                    {
+                        return mbSize.ToString() + "(MB's)";
+                    }
+                }
+                else
+                {
+                    return kbSize.ToString() + "(KB's)";
+                }
+
+            }
+            else
+            {
+                return bytesSize.ToString() + "(B's)";
+            }
+        }
+
     }
 }

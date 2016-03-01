@@ -10,6 +10,28 @@ namespace DocCore
         int maxSentence;
         long maxResultList;
 
+        //implements singleton pattern
+        private static EngineConfiguration instance = null;
+        private static readonly object padlock = new object();
+
+        public static EngineConfiguration Instance
+        {
+            get
+            {
+                lock (padlock)
+                {
+                    if (instance == null)
+                    {
+                        instance = new EngineConfiguration();
+                    }
+                    return instance;
+                }
+            }
+        }
+
+        EngineConfiguration()
+        { }
+
         public int MaxSentence
         {
             get 
@@ -80,6 +102,29 @@ namespace DocCore
             {
                 this.maxResultList = Convert.ToInt64(ConfigurationManager.AppSettings["maxResultList"].ToString());
                 return maxResultList;
+            }
+        }
+
+
+        string documentIndexType;
+
+        public string DocumentIndexType
+        {
+            get
+            {
+                this.documentIndexType = ConfigurationManager.AppSettings["documentIndexType"] as string;
+                return documentIndexType.ToLower();
+            }
+        }
+
+        string lexiconType;
+
+        public string LexiconType
+        {
+            get
+            {
+                this.lexiconType = ConfigurationManager.AppSettings["lexiconType"] as string;
+                return lexiconType.ToLower();
             }
         }
 

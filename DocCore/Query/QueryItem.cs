@@ -14,9 +14,9 @@ namespace DocCore
             set { text = value; }
         }
 
-        long wordID;
+        int wordID;
 
-        public long WordID
+        public int WordID
         {
             get { return wordID; }
             set { wordID = value; }

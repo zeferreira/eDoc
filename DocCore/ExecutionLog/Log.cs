@@ -47,9 +47,10 @@ namespace DocCore
 
         public Log()
         {
-            this.engConf = new EngineConfiguration();
+            this.engConf = EngineConfiguration.Instance;
             this.separator = engConf.LogSeparator;
             this.separatorParameters = '#';
+            this.LogParameters = new List<string>();
         }
 
         public override string ToString()

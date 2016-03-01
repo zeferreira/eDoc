@@ -9,15 +9,22 @@ namespace DocCore
     /// </summary>
     public class Word
     {
-        private string text;
+        //private string text;
 
-        public string Text
+        //public string Text
+        //{
+        //    get { return text; }
+        //    set { text = value; }
+        //}
+
+        private int wordID;
+
+        public int WordID
         {
-            get { return text; }
-            set { text = value; }
+            get { return wordID; }
+            set { wordID = value; }
         }
 
-        //private long id;
         private int quant;
 
         public int Quantity
@@ -42,11 +49,10 @@ namespace DocCore
             set { lastOccurrence = value; }
         }
 
-
-        public override int GetHashCode()
-        {
-            return GetHashValue(Text);
-        }
+        //public override int GetHashCode()
+        //{
+        //    return GetHashValue(Text);
+        //}
 
         public static int GetHashValue(string text)
         {

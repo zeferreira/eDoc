@@ -50,11 +50,17 @@ namespace DocCore
 
         private IDocParser parser;
 
+        public Document()
+        {
+
+        }
+
         public string GetText()
         {
             this.parser = FactoryParser.GetParser(File);
             string text = Useful.RemoveForbbidenSymbols( this.parser.GetText(file)); //to do: 33% of time to read full text
 
+            GC.ReRegisterForFinalize(this.parser);
             return text.ToLower(); //0% of time O.o
         }
 
@@ -93,7 +99,8 @@ namespace DocCore
                 {
                     WordOccurrenceNode newNode = new WordOccurrenceNode();
                     newNode.Word = new Word();
-                    newNode.Word.Text = wordTmp;
+                    newNode.Word.WordID = key;
+                    //newNode.Word.Text = wordTmp;
 
                     newNode.Doc = this;
 
@@ -105,6 +112,10 @@ namespace DocCore
                     postingList.Add(key, newNode);
                 }
             }
+
+            GC.ReRegisterForFinalize(text);
+            GC.ReRegisterForFinalize(splitWords);
+            GC.Collect();
 
             return postingList;
         }

@@ -8,7 +8,7 @@ namespace DocCore
     {
         public static IRepositoryDocument GetRepositoryDocument(EnumRepositoryType type)
         {
-            string path = (new EngineConfiguration()).PathFolderRepository;
+            string path = (EngineConfiguration.Instance).PathFolderRepository;
 
             switch (type)
             {

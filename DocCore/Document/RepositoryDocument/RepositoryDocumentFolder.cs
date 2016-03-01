@@ -71,9 +71,10 @@ namespace DocCore
         private static void ProcessFile(string fileName, List<Document> list)
         {
             Document newDoc = new Document();
+            
             newDoc.Title = Path.GetFileName(fileName);
             newDoc.File = fileName;
-
+            newDoc.DocID = newDoc.File.GetHashCode();
             list.Add(newDoc);
         }
     }

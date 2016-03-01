@@ -6,9 +6,12 @@ namespace DocCore
 {
     public class DocumentResult : Document
     {
-        private long queryRank;
+        IDocumentIndex docIndex;
+        ILexicon lexicon;
 
-        public long QueryRank
+        private double queryRank;
+
+        public double QueryRank
         {
             get { return queryRank; }
         }
@@ -21,9 +24,37 @@ namespace DocCore
             set { docQuantitityResults = value; }
         }
 
+        public DocumentResult(Document doc)
+        {
+            this.docIndex = FactoryDocumentIndex.GetDocumentIndex();
+            this.lexicon = FactoryLexicon.GetLexicon();
+
+            this.DocID = doc.DocID;
+            this.File = doc.File;
+            this.Title = doc.Title;
+            this.WordQuantity = doc.WordQuantity;
+        }
+
         public void CalculateRank(Query query)
         {
+            //this.queryRank += DocQuantitityResults;
             //to do.
+            if (HasPhrase(query))
+            {
+                this.queryRank += 50;
+            }
+        }
+
+        public void CalculateRank(Word word)
+        {
+            this.queryRank += ((double)lexicon.Quantity)/((double)word.Quantity);
+        }
+
+        public bool HasPhrase(Query query)
+        {
+
+
+            return false;
         }
 
     }

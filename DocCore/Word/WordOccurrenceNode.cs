@@ -41,8 +41,7 @@ namespace DocCore
         {
             get {
                 
-                return hits.Count / doc.WordQuantity; 
-                
+                return ((double) hits.Count) / ((double)doc.WordQuantity); 
             }
         }
 

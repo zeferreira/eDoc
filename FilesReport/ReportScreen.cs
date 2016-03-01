@@ -23,7 +23,7 @@ namespace FilesReport
 
         private void ReportScreen_Load(object sender, EventArgs e)
         {
-            EngineConfiguration engConf = new EngineConfiguration();
+            EngineConfiguration engConf = EngineConfiguration.Instance;
 
             string rootFolder = engConf.PathFolderRepository;
             this.lblRootFolder.Text += " " + rootFolder;

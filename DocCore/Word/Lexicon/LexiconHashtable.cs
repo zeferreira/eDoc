@@ -5,7 +5,7 @@ using System.Collections;
 
 namespace DocCore
 {
-    public class Lexicon
+    public class LexiconHashtable : ILexicon
     {
         Hashtable ht;
         private long maxLength;
@@ -23,7 +23,26 @@ namespace DocCore
             get { return ht.Count; }
         }
 
-        public Lexicon()
+        //implements singleton pattern
+        private static LexiconHashtable instance = null;
+        private static readonly object padlock = new object();
+
+        public static LexiconHashtable Instance
+        {
+            get
+            {
+                lock (padlock)
+                {
+                    if (instance == null)
+                    {
+                        instance = new LexiconHashtable();
+                    }
+                    return instance;
+                }
+            }
+        }
+
+        LexiconHashtable()
         {
             this.ht = new Hashtable();
             this.maxLength = int.MaxValue;
@@ -34,14 +53,29 @@ namespace DocCore
             return ht[word.GetHashCode()] as Word;
         }
 
+        public Word GetWord(int wordID)
+        {
+            return ht[wordID] as Word;
+        }
+
         void Add(Word word)
         {
-            this.ht.Add(word.GetHashCode(), word);
+            this.ht.Add(word.WordID, word);
         }
 
         public bool HasWord(string word)
         {
-            if(this.ht.ContainsKey(word.GetHashCode()))
+            if(this.ht.ContainsKey(Word.GetHashValue(word)))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public bool HasWord(int wordID)
+        {
+            if (this.ht.ContainsKey(wordID))
             {
                 return true;
             }
@@ -52,7 +86,7 @@ namespace DocCore
         public void AddWordOccurrence(WordOccurrenceNode newNode)
         {
             //Do not has any word
-            if (!HasWord(newNode.Word.Text))
+            if (!HasWord(newNode.Word.WordID))
             {
                 newNode.Word.FirstOccurrence = newNode;
                 newNode.Word.LastOccurrence = newNode;
@@ -61,7 +95,7 @@ namespace DocCore
             }
             else
             {
-                newNode.Word = this.GetWord(newNode.Word.Text);
+                newNode.Word = this.GetWord(newNode.Word.WordID);
 
                 newNode.PreviousOccurrence = newNode.Word.LastOccurrence;
                 newNode.Word.LastOccurrence.NextOccurrence = newNode;

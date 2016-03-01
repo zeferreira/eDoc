@@ -1,0 +1,311 @@
+Load Engine    |23/02/2016 11:06:49|0|0|0|0|635|totalIndexedDocs: 3#totalIndexedWords: 60518#
+Search         |23/02/2016 11:06:50|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 11:06:50|0|0|0|0|0|sentence: web search#totalDocFound: 3#
+Search         |23/02/2016 11:06:50|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 3#
+Load Engine    |23/02/2016 11:07:10|0|0|0|1|267|totalIndexedDocs: 6#totalIndexedWords: 134978#
+Search         |23/02/2016 11:07:11|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 11:07:11|0|0|0|0|0|sentence: web search#totalDocFound: 6#
+Search         |23/02/2016 11:07:11|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 6#
+Load Engine    |23/02/2016 11:46:37|0|0|0|0|445|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 11:46:37|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 11:46:37|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 11:46:37|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 11:51:46|0|0|0|0|459|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 11:51:47|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 11:51:47|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 11:51:47|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:02:48|0|0|0|0|443|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 12:02:49|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 12:02:49|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 12:02:49|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:10:47|0|0|0|0|450|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 12:10:47|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 12:10:47|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 12:10:47|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:14:11|0|0|0|0|445|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 12:14:12|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 12:14:12|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 12:14:12|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:23:05|0|0|0|0|452|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 12:23:05|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 12:23:05|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 12:23:05|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:23:16|0|0|0|0|475|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 12:23:17|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 12:23:17|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 12:23:17|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:24:03|0|0|1|50|21|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |23/02/2016 12:25:53|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|23/02/2016 12:25:53|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |23/02/2016 12:25:53|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Load Engine    |23/02/2016 12:28:43|0|0|1|48|939|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |23/02/2016 12:30:32|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|23/02/2016 12:30:32|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |23/02/2016 12:30:32|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Load Engine    |23/02/2016 12:39:24|0|0|0|0|467|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 12:39:25|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 12:39:25|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 12:39:25|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:39:56|0|0|0|0|442|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 12:39:57|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 12:39:57|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 12:39:57|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:40:48|0|0|0|0|490|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 12:40:48|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 12:40:48|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 12:40:48|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:41:17|0|0|0|0|462|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 12:41:17|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 12:41:17|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 12:41:17|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:41:31|0|0|0|0|446|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 12:41:32|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 12:41:32|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 12:41:32|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:41:45|0|0|0|0|483|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 12:41:45|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 12:41:45|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 12:41:45|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:42:08|0|0|1|11|526|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |23/02/2016 12:43:19|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|23/02/2016 12:43:19|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |23/02/2016 12:43:19|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Load Engine    |23/02/2016 12:44:06|0|0|1|11|845|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |23/02/2016 12:45:18|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|23/02/2016 12:45:18|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |23/02/2016 12:45:18|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Load Engine    |23/02/2016 12:48:41|0|0|1|10|170|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |23/02/2016 12:49:51|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|23/02/2016 12:49:51|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |23/02/2016 12:49:51|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Load Engine    |23/02/2016 12:51:29|0|0|1|9|423|totalIndexedDocs: 115#totalIndexedWords: 2017728#
+Search         |23/02/2016 12:52:38|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|23/02/2016 12:52:38|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |23/02/2016 12:52:38|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Load Engine    |23/02/2016 12:53:44|0|0|0|0|434|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 12:53:45|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 12:53:45|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 12:53:45|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:58:45|0|0|0|0|473|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 12:58:46|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 12:58:46|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 12:58:46|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Load Engine    |23/02/2016 12:59:40|0|0|1|11|747|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |23/02/2016 13:00:52|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|23/02/2016 13:00:52|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |23/02/2016 13:00:52|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Load Engine    |23/02/2016 13:12:54|0|0|1|11|592|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |23/02/2016 13:14:06|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|23/02/2016 13:14:06|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |23/02/2016 13:14:06|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |23/02/2016 13:14:06|0|0|0|0|0|TotalMemory: 197(MB's)#
+Load Engine    |23/02/2016 13:20:14|0|0|0|0|467|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |23/02/2016 13:20:15|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|23/02/2016 13:20:15|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |23/02/2016 13:20:15|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |23/02/2016 13:20:15|0|0|0|0|0|TotalMemory: 33(MB's)#
+Load Engine    |24/02/2016 11:16:55|0|0|0|0|464|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |24/02/2016 11:16:55|0|0|0|0|2|sentence: search#totalDocFound: 1#
+Search Two Words|24/02/2016 11:16:55|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |24/02/2016 11:16:55|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |24/02/2016 11:16:55|0|0|0|0|0|TotalMemory: 33(MB's)#
+Load Engine    |24/02/2016 11:17:11|0|0|0|0|527|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |24/02/2016 11:17:11|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|24/02/2016 11:17:11|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |24/02/2016 11:17:11|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |24/02/2016 11:17:11|0|0|0|0|0|TotalMemory: 33(MB's)#
+Load Engine    |24/02/2016 11:17:24|0|0|0|0|449|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |24/02/2016 11:17:24|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|24/02/2016 11:17:24|0|0|0|9|533|sentence: web search#totalDocFound: 2#
+Search         |24/02/2016 11:17:34|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |24/02/2016 11:17:34|0|0|0|0|0|TotalMemory: 33(MB's)#
+Load Engine    |24/02/2016 11:36:02|0|0|0|0|485|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |24/02/2016 11:36:02|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|24/02/2016 11:36:02|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |24/02/2016 11:36:02|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |24/02/2016 11:36:02|0|0|0|0|0|TotalMemory: 33(MB's)#
+Load Engine    |24/02/2016 11:36:39|0|0|0|0|450|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |24/02/2016 11:36:40|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|24/02/2016 11:36:40|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |24/02/2016 11:36:40|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |24/02/2016 11:36:40|0|0|0|0|0|TotalMemory: 33(MB's)#
+Load Engine    |24/02/2016 11:37:16|0|0|1|11|125|totalIndexedDocs: 115#totalIndexedWords: 2018006#
+Search         |24/02/2016 11:38:27|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|24/02/2016 11:38:27|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |24/02/2016 11:38:27|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |24/02/2016 11:38:27|0|0|0|0|0|TotalMemory: 123(MB's)#
+Load Engine    |24/02/2016 12:07:13|0|0|1|11|972|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |24/02/2016 12:08:25|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|24/02/2016 12:08:25|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |24/02/2016 12:08:25|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |24/02/2016 12:08:25|0|0|0|0|0|TotalMemory: 127(MB's)#
+Load Engine    |24/02/2016 12:10:55|0|0|1|10|567|totalIndexedDocs: 115#totalIndexedWords: 2017530#
+Search         |24/02/2016 12:12:05|0|0|0|24|163|sentence: search#totalDocFound: 23#
+Search Two Words|24/02/2016 12:12:29|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |24/02/2016 12:12:29|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |24/02/2016 12:12:29|0|0|0|0|0|TotalMemory: 117(MB's)#
+Load Engine    |25/02/2016 05:33:02|0|0|0|1|323|totalIndexedDocs: 104#totalIndexedWords: 54620#
+Search         |25/02/2016 05:33:03|0|0|0|0|2|sentence: search#totalDocFound: 0#
+Search Two Words|25/02/2016 05:33:03|0|0|0|0|0|sentence: web search#totalDocFound: 0#
+Search         |25/02/2016 05:33:03|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 104#
+Memory         |25/02/2016 05:33:03|0|0|0|0|0|TotalMemory: 30(MB's)#
+Load Engine    |25/02/2016 05:38:15|0|0|3|6|847|totalIndexedDocs: 127#totalIndexedWords: 59064#
+Search         |25/02/2016 05:41:21|0|0|0|0|2|sentence: search#totalDocFound: 0#
+Search Two Words|25/02/2016 05:41:21|0|0|0|0|0|sentence: web search#totalDocFound: 0#
+Search         |25/02/2016 05:41:21|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 127#
+Memory         |25/02/2016 05:41:21|0|0|0|0|0|TotalMemory: 32(MB's)#
+Load Engine    |25/02/2016 05:43:30|0|0|0|2|418|totalIndexedDocs: 127#totalIndexedWords: 59126#
+Search         |25/02/2016 05:43:33|0|0|0|0|2|sentence: search#totalDocFound: 0#
+Search Two Words|25/02/2016 05:43:33|0|0|0|0|0|sentence: web search#totalDocFound: 0#
+Search         |25/02/2016 05:43:33|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 127#
+Memory         |25/02/2016 05:43:33|0|0|0|0|0|TotalMemory: 27(MB's)#
+Load Engine    |25/02/2016 05:47:15|0|0|0|1|249|totalIndexedDocs: 127#totalIndexedWords: 59126#
+Search         |25/02/2016 05:47:16|0|0|0|0|2|sentence: search#totalDocFound: 0#
+Search Two Words|25/02/2016 05:47:16|0|0|0|0|0|sentence: web search#totalDocFound: 0#
+Search         |25/02/2016 05:47:16|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 127#
+Memory         |25/02/2016 05:47:16|0|0|0|0|0|TotalMemory: 32(MB's)#
+Load Engine    |25/02/2016 06:07:49|0|0|0|3|227|totalIndexedDocs: 260#totalIndexedWords: 214837#
+Search         |25/02/2016 06:07:53|0|0|0|0|2|sentence: search#totalDocFound: 0#
+Search Two Words|25/02/2016 06:07:53|0|0|0|0|0|sentence: web search#totalDocFound: 0#
+Search         |25/02/2016 06:07:53|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 260#
+Memory         |25/02/2016 06:07:53|0|0|0|0|0|TotalMemory: 42(MB's)#
+Load Engine    |25/02/2016 06:08:56|0|0|0|6|723|totalIndexedDocs: 513#totalIndexedWords: 501440#
+Search         |25/02/2016 06:09:02|0|0|0|0|2|sentence: search#totalDocFound: 0#
+Search Two Words|25/02/2016 06:09:02|0|0|0|0|0|sentence: web search#totalDocFound: 0#
+Search         |25/02/2016 06:09:02|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 513#
+Memory         |25/02/2016 06:09:02|0|0|0|0|0|TotalMemory: 52(MB's)#
+Load Engine    |25/02/2016 06:10:38|0|0|0|6|490|totalIndexedDocs: 513#totalIndexedWords: 501440#
+Search         |25/02/2016 06:10:45|0|0|0|0|2|sentence: search#totalDocFound: 0#
+Search Two Words|25/02/2016 06:10:45|0|0|0|0|0|sentence: web search#totalDocFound: 0#
+Search         |25/02/2016 06:10:45|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 513#
+Memory         |25/02/2016 06:10:45|0|0|0|0|0|TotalMemory: 80(MB's)#
+Load Engine    |25/02/2016 06:11:28|0|0|0|15|202|totalIndexedDocs: 1175#totalIndexedWords: 1230201#
+Search         |25/02/2016 06:11:43|0|0|0|0|2|sentence: search#totalDocFound: 0#
+Search Two Words|25/02/2016 06:11:43|0|0|0|0|0|sentence: web search#totalDocFound: 0#
+Search         |25/02/2016 06:11:43|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 1175#
+Memory         |25/02/2016 06:11:43|0|0|0|0|0|TotalMemory: 169(MB's)#
+Load Engine    |25/02/2016 21:59:31|0|0|1|13|245|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |25/02/2016 22:00:44|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|25/02/2016 22:00:44|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |25/02/2016 22:00:44|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |25/02/2016 22:00:44|0|0|0|0|0|TotalMemory: 181(MB's)#
+Load Engine    |25/02/2016 22:16:42|0|0|1|16|83|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |25/02/2016 22:17:58|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|25/02/2016 22:17:58|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |25/02/2016 22:17:58|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |25/02/2016 22:17:58|0|0|0|0|0|TotalMemory: 132(MB's)#
+Load Engine    |25/02/2016 22:21:37|0|0|1|11|875|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |25/02/2016 22:22:49|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|25/02/2016 22:22:49|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |25/02/2016 22:22:49|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |25/02/2016 22:22:49|0|0|0|0|0|TotalMemory: 120(MB's)#
+Load Engine    |25/02/2016 22:25:42|0|0|1|31|674|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |25/02/2016 22:27:14|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|25/02/2016 22:27:14|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |25/02/2016 22:27:14|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |25/02/2016 22:27:14|0|0|0|0|0|TotalMemory: 105(MB's)#
+Load Engine    |26/02/2016 11:09:04|0|0|1|40|111|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |26/02/2016 11:10:45|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|26/02/2016 11:10:45|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |26/02/2016 11:10:45|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |26/02/2016 11:10:45|0|0|0|0|0|TotalMemory: 105(MB's)#
+Load Engine    |26/02/2016 11:12:11|0|0|1|48|711|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |26/02/2016 11:14:00|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|26/02/2016 11:14:00|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |26/02/2016 11:14:00|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |26/02/2016 11:14:00|0|0|0|0|0|TotalMemory: 105(MB's)#
+Load Engine    |26/02/2016 11:29:07|0|0|1|49|459|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |26/02/2016 11:30:56|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|26/02/2016 11:30:56|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |26/02/2016 11:30:56|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |26/02/2016 11:30:56|0|0|0|0|0|TotalMemory: 104(MB's)#
+Load Engine    |26/02/2016 11:41:56|0|0|1|43|390|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |26/02/2016 11:43:39|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|26/02/2016 11:43:39|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |26/02/2016 11:43:39|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |26/02/2016 11:43:39|0|0|0|0|0|TotalMemory: 105(MB's)#
+Load Engine    |01/03/2016 09:42:43|0|0|1|50|919|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |01/03/2016 09:44:34|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|01/03/2016 09:44:34|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |01/03/2016 09:44:34|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |01/03/2016 09:44:34|0|0|0|0|0|TotalMemory: 103(MB's)#
+Load Engine    |01/03/2016 09:44:56|0|0|1|43|798|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |01/03/2016 09:46:40|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|01/03/2016 09:46:40|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |01/03/2016 09:46:40|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |01/03/2016 09:46:40|0|0|0|0|0|TotalMemory: 106(MB's)#
+Load Engine    |01/03/2016 09:48:40|0|0|1|43|580|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |01/03/2016 09:50:23|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|01/03/2016 09:50:23|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |01/03/2016 09:50:23|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |01/03/2016 09:50:23|0|0|0|0|0|TotalMemory: 101(MB's)#
+Load Engine    |01/03/2016 10:27:51|0|0|1|37|732|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |01/03/2016 10:29:28|0|0|0|0|2|sentence: search#totalDocFound: 0#
+Search Two Words|01/03/2016 10:29:28|0|0|0|0|0|sentence: web search#totalDocFound: 0#
+Search         |01/03/2016 10:29:28|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |01/03/2016 10:29:28|0|0|0|0|0|TotalMemory: 103(MB's)#
+Load Engine    |01/03/2016 10:30:04|0|0|2|28|279|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |01/03/2016 10:32:33|0|0|0|45|822|sentence: search#totalDocFound: 0#
+Search Two Words|01/03/2016 10:33:18|0|0|1|27|545|sentence: web search#totalDocFound: 0#
+Search         |01/03/2016 10:34:46|0|0|0|2|120|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |01/03/2016 10:34:46|0|0|0|2|120|TotalMemory: 104(MB's)#
+Load Engine    |01/03/2016 10:37:49|0|0|0|1|35|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |01/03/2016 10:37:50|0|0|0|2|998|sentence: search#totalDocFound: 0#
+Search Two Words|01/03/2016 10:37:53|0|0|0|2|540|sentence: web search#totalDocFound: 0#
+Search         |01/03/2016 10:37:56|0|0|0|1|763|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |01/03/2016 10:37:56|0|0|0|1|763|TotalMemory: 29(MB's)#
+Load Engine    |01/03/2016 10:46:50|0|0|0|0|522|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |01/03/2016 10:46:51|0|0|0|0|2|sentence: search#totalDocFound: 0#
+Search Two Words|01/03/2016 10:46:51|0|0|0|0|0|sentence: web search#totalDocFound: 0#
+Search         |01/03/2016 10:46:51|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |01/03/2016 10:46:51|0|0|0|0|0|TotalMemory: 29(MB's)#
+Load Engine    |01/03/2016 10:50:13|0|0|0|0|533|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |01/03/2016 10:50:14|0|0|0|0|2|sentence: search#totalDocFound: 0#
+Search Two Words|01/03/2016 10:50:14|0|0|0|0|0|sentence: web search#totalDocFound: 0#
+Search         |01/03/2016 10:50:14|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |01/03/2016 10:50:14|0|0|0|0|0|TotalMemory: 29(MB's)#
+Load Engine    |01/03/2016 10:50:56|0|0|0|0|545|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |01/03/2016 10:50:57|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|01/03/2016 10:50:57|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |01/03/2016 10:50:57|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |01/03/2016 10:50:57|0|0|0|0|0|TotalMemory: 29(MB's)#
+Load Engine    |01/03/2016 10:56:35|0|0|0|0|535|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |01/03/2016 10:56:36|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|01/03/2016 10:56:36|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |01/03/2016 10:56:36|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |01/03/2016 10:56:36|0|0|0|0|0|TotalMemory: 31(MB's)#
+Load Engine    |01/03/2016 10:56:59|0|0|0|0|522|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |01/03/2016 10:57:00|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|01/03/2016 10:57:00|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |01/03/2016 10:57:00|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |01/03/2016 10:57:00|0|0|0|0|0|TotalMemory: 29(MB's)#
+Load Engine    |01/03/2016 10:59:15|0|0|0|0|535|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |01/03/2016 10:59:15|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|01/03/2016 10:59:15|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |01/03/2016 10:59:15|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |01/03/2016 10:59:15|0|0|0|0|0|TotalMemory: 29(MB's)#
+Load Engine    |01/03/2016 11:02:04|0|0|0|0|583|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |01/03/2016 11:02:05|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|01/03/2016 11:02:05|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |01/03/2016 11:02:05|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |01/03/2016 11:02:05|0|0|0|0|0|TotalMemory: 29(MB's)#
+Load Engine    |01/03/2016 11:05:09|0|0|0|0|523|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |01/03/2016 11:05:09|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|01/03/2016 11:05:09|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |01/03/2016 11:05:09|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |01/03/2016 11:05:09|0|0|0|0|0|TotalMemory: 29(MB's)#
+Load Engine    |01/03/2016 11:05:35|0|0|0|0|533|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Search         |01/03/2016 11:05:35|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|01/03/2016 11:05:35|0|0|0|0|0|sentence: web search#totalDocFound: 2#
+Search         |01/03/2016 11:05:35|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
+Memory         |01/03/2016 11:05:35|0|0|0|0|0|TotalMemory: 29(MB's)#
+Load Engine    |01/03/2016 11:06:02|0|0|1|43|113|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |01/03/2016 11:07:46|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|01/03/2016 11:07:46|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |01/03/2016 11:07:46|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |01/03/2016 11:07:46|0|0|0|0|0|TotalMemory: 103(MB's)#
+Load Engine    |01/03/2016 11:10:20|0|0|1|41|188|totalIndexedDocs: 115#totalIndexedWords: 2018052#
+Search         |01/03/2016 11:12:01|0|0|0|0|3|sentence: search#totalDocFound: 23#
+Search Two Words|01/03/2016 11:12:01|0|0|0|0|0|sentence: web search#totalDocFound: 80#
+Search         |01/03/2016 11:12:01|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 115#
+Memory         |01/03/2016 11:12:01|0|0|0|0|0|TotalMemory: 99(MB's)#
