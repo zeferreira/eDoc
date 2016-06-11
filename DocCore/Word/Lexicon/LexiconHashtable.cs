@@ -48,12 +48,12 @@ namespace DocCore
             this.maxLength = int.MaxValue;
         }
 
-        public Word GetWord(string word)
-        {
-            return ht[word.GetHashCode()] as Word;
-        }
+        //public Word GetWord(string word)
+        //{
+        //    return ht[word.GetHashCode()] as Word;
+        //}
 
-        public Word GetWord(int wordID)
+        public Word GetWord(ref int wordID)
         {
             return ht[wordID] as Word;
         }
@@ -63,17 +63,17 @@ namespace DocCore
             this.ht.Add(word.WordID, word);
         }
 
-        public bool HasWord(string word)
-        {
-            if(this.ht.ContainsKey(Word.GetHashValue(word)))
-            {
-                return true;
-            }
+        //public bool HasWord(string word)
+        //{
+        //    if(this.ht.ContainsKey(Word.GetHashValue(word)))
+        //    {
+        //        return true;
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
-        public bool HasWord(int wordID)
+        public bool HasWord(ref int wordID)
         {
             if (this.ht.ContainsKey(wordID))
             {
@@ -86,7 +86,7 @@ namespace DocCore
         public void AddWordOccurrence(WordOccurrenceNode newNode)
         {
             //Do not has any word
-            if (!HasWord(newNode.Word.WordID))
+            if (!HasWord(ref newNode.Word.WordID ))
             {
                 newNode.Word.FirstOccurrence = newNode;
                 newNode.Word.LastOccurrence = newNode;
@@ -95,14 +95,14 @@ namespace DocCore
             }
             else
             {
-                newNode.Word = this.GetWord(newNode.Word.WordID);
+                //to do: memory allocation alert!! remove ref!! use newnode.Word.text or something, don't pass WordID as a parameter!!
+                newNode.Word = this.GetWord(ref newNode.Word.WordID);
 
                 newNode.PreviousOccurrence = newNode.Word.LastOccurrence;
                 newNode.Word.LastOccurrence.NextOccurrence = newNode;
                 newNode.Word.LastOccurrence = newNode;
                 newNode.Word.Quantity += newNode.Hits.Count;
             }
-
         }
 
     }

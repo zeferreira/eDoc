@@ -9,13 +9,26 @@
 <body>
     
     <form id="form1" runat="server">
-    <div>
-        <asp:HyperLink ID="lnkAbout" NavigateUrl="~/About.aspx" runat="server">About the instance</asp:HyperLink> 
-    </div>
+
     <asp:TextBox ID="txtQuerySearch" runat="server" Width="574px" Height="89px"></asp:TextBox>
     <asp:Button ID="btnSearch" runat="server" onclick="btnSearch_Click" 
         Text="Search" Height="89px" Width="138px" />
-    
+        <div>
+            <asp:HyperLink ID="lnkAbout" NavigateUrl="~/About.aspx" runat="server">About the instance</asp:HyperLink> 
+        </div>
+        <div id='divFeedback' runat="server">
+            <asp:RadioButtonList ID="RadioButtonFeedback" runat="server" RepeatDirection="Vertical">
+                <asp:ListItem Text="Os primeiros resultados eram exatamente o que eu estava procurando" Value="1"></asp:ListItem>
+                <asp:ListItem Text="Os primeiros resultados eram sobre o que eu estava procurando, mas, a ordem pode melhorar." Value="2"></asp:ListItem>
+                <asp:ListItem Text="Os primeiros resultados citavam o que eu estava procurando" Value="3"></asp:ListItem>
+                <asp:ListItem Text="Os resultados não eram sobre o que eu procurava" Value="4"></asp:ListItem>
+            </asp:RadioButtonList>
+            <asp:Label Text="Descreva melhor seu feedback:" runat="server" /><br />
+            <asp:TextBox ID="txtFeedback" runat="server" Width="574px" Height="89px"></asp:TextBox>
+            <asp:Button ID="btnGravarFeedback" runat="server" Text="Send Feedback" 
+                Height="89px" Width="138px" onclick="btnGravarFeedback_Click" />
+
+        </div>
     </form>
 </body>
 </html>

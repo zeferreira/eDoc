@@ -1,0 +1,34 @@
+Report File Created|01/03/2016 13:00:58|0|0|0|0|19|Quantity: 2#Size: 152(KB's)#
+Report File Created|01/03/2016 13:01:19|0|0|0|0|23|Quantity: 2#Size: 152(KB's)#
+RepDocSearchAll                                   |01/03/2016 13:03:57|0|0|0|0|2|totalReadDocs: 2#
+Document.GetTextPDF                               |01/03/2016 13:03:57|0|0|0|0|632|totalWords: 2#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.pdf#
+Document.GetTextPDF                               repeat|01/03/2016 13:03:57|0|0|0|0|390|totalWords: 2#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.pdf#
+Document.GetTextPDF                               repeat again|01/03/2016 13:03:58|0|0|0|0|382|totalWords: 2#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.pdf#
+Document.GetTextTXT                               |01/03/2016 13:03:58|0|0|0|0|5|totalWords: 0#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.txt#
+Document.GetPostingList                           |01/03/2016 13:03:58|0|0|0|0|20|totalWords: 2147#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.txt#
+Indexer.Index                                     |01/03/2016 13:03:58|0|0|0|0|478|totalWords: 21723#totalFiles: 0#
+Lexicon.AddOccurrence                             |01/03/2016 13:03:58|0|0|0|0|26|totalWords: 21723#totalFiles: 0#
+RepDocSearchAll                                   |01/03/2016 13:11:59|0|0|0|0|2|totalReadDocs: 2#
+Document.GetTextPDF                               |01/03/2016 13:11:59|0|0|0|0|568|totalWords: 2#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.pdf#
+Document.GetTextPDF                               repeat|01/03/2016 13:11:59|0|0|0|0|409|totalWords: 2#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.pdf#
+Document.GetTextPDF                               repeat again|01/03/2016 13:12:00|0|0|0|0|473|totalWords: 2#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.pdf#
+Document.GetTextTXT                               |01/03/2016 13:12:00|0|0|0|0|5|totalWords: 0#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.txt#
+Document.GetPostingList                           |01/03/2016 13:12:00|0|0|0|0|22|totalWords: 2147#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.txt#
+Indexer.Index                                     |01/03/2016 13:12:00|0|0|0|0|513|totalWords: 21723#totalFiles: 0#
+Lexicon.AddOccurrence                             |01/03/2016 13:12:01|0|0|0|0|27|totalWords: 21723#totalFiles: 0#
+RepDocSearchAll                                   |01/03/2016 13:12:04|0|0|0|0|1|totalReadDocs: 2#
+Document.GetTextPDF                               |01/03/2016 13:12:04|0|0|0|0|421|totalWords: 2#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.pdf#
+Document.GetTextPDF                               repeat|01/03/2016 13:12:04|0|0|0|0|422|totalWords: 2#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.pdf#
+Document.GetTextPDF                               repeat again|01/03/2016 13:12:05|0|0|0|0|413|totalWords: 2#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.pdf#
+Document.GetTextTXT                               |01/03/2016 13:12:05|0|0|0|0|6|totalWords: 0#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.txt#
+Document.GetPostingList                           |01/03/2016 13:12:05|0|0|0|0|24|totalWords: 2147#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.txt#
+Indexer.Index                                     |01/03/2016 13:12:05|0|0|0|0|472|totalWords: 43446#totalFiles: 0#
+Lexicon.AddOccurrence                             |01/03/2016 13:12:05|0|0|0|0|28|totalWords: 43446#totalFiles: 0#
+RepDocSearchAll                                   |01/03/2016 13:19:03|0|0|0|0|3|totalReadDocs: 2#
+Document.GetTextPDF                               |01/03/2016 13:19:03|0|0|0|0|514|totalWords: 2#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.pdf#
+Document.GetTextPDF                               repeat|01/03/2016 13:19:03|0|0|0|0|392|totalWords: 2#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.pdf#
+Document.GetTextPDF                               repeat again|01/03/2016 13:19:04|0|0|0|0|446|totalWords: 2#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.pdf#
+Document.GetTextTXT                               |01/03/2016 13:19:04|0|0|0|0|5|totalWords: 0#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.txt#
+Document.GetPostingList                           |01/03/2016 13:19:04|0|0|0|0|19|totalWords: 2147#File: D:\projetos\edoc\CodeRepository\eDoc\FilesReport\Repository\The Anatomy of a Large-Scale Hypertextual Web Search Engine.txt#
+Indexer.Index                                     |01/03/2016 13:19:04|0|0|0|0|495|totalWords: 21723#totalFiles: 0#
+Lexicon.AddOccurrence                             |01/03/2016 13:19:05|0|0|0|0|23|totalWords: 21723#totalFiles: 0#

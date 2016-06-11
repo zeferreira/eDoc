@@ -14,7 +14,7 @@ namespace FilesReport
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ReportScreen());
+            Application.Run(new Form1());
         }
     }
 }

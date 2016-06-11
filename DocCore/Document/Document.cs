@@ -60,7 +60,6 @@ namespace DocCore
             this.parser = FactoryParser.GetParser(File);
             string text = Useful.RemoveForbbidenSymbols( this.parser.GetText(file)); //to do: 33% of time to read full text
 
-            GC.ReRegisterForFinalize(this.parser);
             return text.ToLower(); //0% of time O.o
         }
 

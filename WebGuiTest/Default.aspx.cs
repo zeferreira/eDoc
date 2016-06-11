@@ -13,15 +13,37 @@ namespace WebGuiTest
     public partial class _Default : System.Web.UI.Page
     {
         Engine eng;
+        string host;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             eng = Engine.Instance;
+            host = Request.Url.Host.ToLower();
+
+            string query = Request.QueryString["qr"];
+
+            if (!string.IsNullOrEmpty(query))
+            {
+                this.divFeedback.Visible = true;
+                Response.Write("You are searching about: ");
+                Response.Write("<b>" + query + "</b>"+ "<br>");
+                //this.txtQuerySearch.Text = query;
+                Search(query);
+            }
+            else
+            {
+                this.divFeedback.Visible = false;
+            }
         }
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            Response.Clear();
+            Response.Redirect("~/Default.aspx?qr=" + this.txtQuerySearch.Text);
+        }
+
+        void Search(string query)
+        {
+            //Response.Clear();
 
             IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
 
@@ -34,12 +56,12 @@ namespace WebGuiTest
 
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
-            List<DocumentResult> result = eng.Search(txtQuerySearch.Text);
+            List<DocumentResult> result = eng.Search(query);
             sw.Stop();
             timeDif = sw.Elapsed;
 
-            string parameters = txtQuerySearch.Text;
-            
+            string parameters = query;
+
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
             List<DocumentResult> docList = eng.Search(parameters);
@@ -71,7 +93,6 @@ namespace WebGuiTest
 
                 resultPath = virtualRepositoryParh + resultPath.Replace("\\", "/");
 
-
                 //resultPath = Server.MapPath(resultPath);
                 //resultPath = HttpContext.Current.Request.Url +"/" + resultPath;
                 //to do: needs encoding.
@@ -93,6 +114,7 @@ namespace WebGuiTest
             if (list.Count == 0)
             {
                  Response.Write(Messages.DocumentNotFound +"<br>");
+                 this.divFeedback.Visible = false;
             }
             else
                  Response.Write(list.Count.ToString() +" " + Messages.DocumentsFound + "<br>" );
@@ -100,18 +122,58 @@ namespace WebGuiTest
 
         private string GetEncodedString(string text)
         {
-            string[] temp = text.Split('/');
-            StringBuilder builder = new StringBuilder();
+            string resolveTemp = Page.ResolveUrl(text);
 
-            foreach (string item in temp)
+            return Page.ResolveUrl(resolveTemp);
+        }
+
+        protected void btnGravarFeedback_Click(object sender, EventArgs e)
+        {
+            IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
+
+            Engine eng = Engine.Instance;
+            DateTime start;
+            TimeSpan timeDif;
+            Stopwatch sw;
+
+            string query = Request.QueryString["qr"];
+            string parameters = "";
+
+            if (!string.IsNullOrEmpty(query))
             {
-                builder.Append(HttpContext.Current.Server.UrlEncode(item));
-                builder.Append("/");
+                parameters = query;
             }
 
-            builder.Remove(builder.Length - 1, 1);
+            string smsFeedback = "Feedback".PadRight(15);
 
-            return builder.ToString();
+            start = DateTime.Now;
+            sw = Stopwatch.StartNew();
+            List<DocumentResult> result = eng.Search(query);
+            sw.Stop();
+            timeDif = sw.Elapsed;
+
+            start = DateTime.Now;
+            sw = Stopwatch.StartNew();
+            sw.Stop();
+            timeDif = sw.Elapsed;
+
+            Log entry = new Log();
+            entry.TaskDescription = smsFeedback;
+            entry.StartDateTime = start;
+            entry.ExecutionTime = timeDif;
+            entry.LogParameters = new List<string>();
+            entry.LogParameters.Add("sentence: " + parameters);
+            entry.LogParameters.Add(txtFeedback.Text);
+
+            if (RadioButtonFeedback.SelectedIndex > -1)
+            {
+                entry.LogParameters.Add(RadioButtonFeedback.SelectedItem.Text);
+                entry.LogParameters.Add(("FeedbackValue: " + RadioButtonFeedback.SelectedItem.Value.ToString()));
+            }
+
+            repLog.Write(entry);
+            this.divFeedback.Visible = false;
+            Response.Write("Feedback Sent!!" + "<br>");
         }
     }
 }

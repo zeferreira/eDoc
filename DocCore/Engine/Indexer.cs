@@ -67,14 +67,14 @@ namespace DocCore
             Index(listOfDocs);
         }
 
-        public Word Search(string word)
-        {
-            return this.lexicon.GetWord(word);
-        }
+        //public Word Search(string word)
+        //{
+        //    return this.lexicon.GetWord(word);
+        //}
 
         public Word Search(int wordID)
         {
-            return this.lexicon.GetWord(wordID);
+            return this.lexicon.GetWord( ref wordID);
         }
         
         //serial

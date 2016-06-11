@@ -17,13 +17,13 @@ namespace DocCore
         //    set { text = value; }
         //}
 
-        private int wordID;
+        public int WordID;
 
-        public int WordID
-        {
-            get { return wordID; }
-            set { wordID = value; }
-        }
+        //public int WordID
+        //{
+        //    get { return wordID; }
+        //    set { wordID = value; }
+        //}
 
         private int quant;
 

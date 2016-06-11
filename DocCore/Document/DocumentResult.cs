@@ -35,6 +35,21 @@ namespace DocCore
             this.WordQuantity = doc.WordQuantity;
         }
 
+        public DocumentResult(int docID)
+        {
+            Document docTmp;
+
+            this.docIndex = FactoryDocumentIndex.GetDocumentIndex();
+            this.lexicon = FactoryLexicon.GetLexicon();
+
+            docTmp = docIndex.Search(docID);
+
+            this.DocID = DocID;
+            this.File = docTmp.File;
+            this.Title = docTmp.Title;
+            this.WordQuantity = docTmp.WordQuantity;
+        }
+
         public void CalculateRank(Query query)
         {
             //this.queryRank += DocQuantitityResults;
