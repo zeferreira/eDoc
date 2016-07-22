@@ -7,7 +7,8 @@ namespace DocCore
     {
         long MaxLength { get; }
         long Quantity { get; }
-        void AddWordOccurrence(WordOccurrenceNode newNode);
+        void AddNewWord(Word word);
+        //void AddWordOccurrence(WordOccurrenceNode newNode);
         //Word GetWord(string word);
         //bool HasWord(string word);
         Word GetWord(ref int wordID);

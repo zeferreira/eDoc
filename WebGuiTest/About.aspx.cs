@@ -11,12 +11,12 @@ namespace WebGuiTest
 {
     public partial class About : System.Web.UI.Page
     {
-        Indexer index;
+        IIndexer index;
         ILexicon lexicon;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            index = Indexer.Instance;
+            index = FactoryIndexer.GetIndexer();
 
             Process currentProc = Process.GetCurrentProcess();
 

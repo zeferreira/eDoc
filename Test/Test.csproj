@@ -55,10 +55,11 @@
     <None Include="RepositoryFiles\monografia_AndrezaSoares.docx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="RepositoryFiles\The Anatomy of a Large-Scale Hypertextual Web Search Engine.txt" />
+    <Folder Include="IndexFiles\" />
+    <Folder Include="Log\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Log\" />
+    <Content Include="RepositoryFiles\The Anatomy of a Large-Scale Hypertextual Web Search Engine.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

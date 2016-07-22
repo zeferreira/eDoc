@@ -7,7 +7,7 @@ namespace DocCore
     public interface IDocumentIndex
     {
         void Insert(Document doc);
-        Document Search(long docID);
-        void Delete(long docID);
+        Document Search(int docID);
+        void Delete(int docID);
     }
 }

@@ -42,12 +42,12 @@ namespace DocCore
             this.ht[doc.DocID] = doc;
         }
 
-        public Document Search(long docID)
+        public Document Search(int docID)
         {
             return this.ht[docID] as Document;
         }
 
-        public void Delete(long docID)
+        public void Delete(int docID)
         {
             this.ht.Remove(docID);
         }

@@ -62,13 +62,11 @@ namespace DocCore
 
         public void CalculateRank(Word word)
         {
-            this.queryRank += ((double)lexicon.Quantity)/((double)word.Quantity);
+            this.queryRank += ((double)lexicon.Quantity) / ((double)word.Quantity);
         }
 
         public bool HasPhrase(Query query)
         {
-
-
             return false;
         }
 

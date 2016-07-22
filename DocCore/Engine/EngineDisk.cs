@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Text;
 
+
 namespace DocCore
 {
-    public class Engine
+    public class EngineDisk : IEngine
     {
-        private Indexer indexer;
+        private IIndexer indexer;
         private EngineConfiguration engineConfiguration;
         private IRepositoryLog logRep;
         int maxSentence;
@@ -28,10 +29,10 @@ namespace DocCore
         }
 
         //implements singleton pattern
-        private static Engine instance = null;
+        private static EngineDisk instance = null;
         private static readonly object padlock = new object();
 
-        public static Engine Instance
+        public static EngineDisk Instance
         {
             get
             {
@@ -39,20 +40,20 @@ namespace DocCore
                 {
                     if (instance == null)
                     {
-                        instance = new Engine();
+                        instance = new EngineDisk();
                     }
                     return instance;
                 }
             }
         }
 
-        Engine()
+        EngineDisk()
         {
             this.engineConfiguration = EngineConfiguration.Instance;
             this.logRep = FactoryRepositoryLog.GetRepositoryLog();
             maxSentence = engineConfiguration.MaxSentence;
             maxResultList = engineConfiguration.MaxResultList;
-            this.indexer = Indexer.Instance;
+            this.indexer = FactoryIndexer.GetIndexer();
         }
 
         public void Load()
@@ -65,14 +66,9 @@ namespace DocCore
             this.indexer.ReIndexing();
         }
 
-        public List<DocumentResult> Search(string query)
+        private List<Word> FindWords(Query parsedQuery)
         {
-            Hashtable resultHash = new Hashtable();
-
-            List<DocumentResult> resultList = new List<DocumentResult>();
             List<Word> wordFound = new List<Word>();
-
-            Query parsedQuery = new Query(query);
 
             for (int i = 0; ((i < parsedQuery.QueryItens.Count) && (i < maxSentence)); i++)
             {
@@ -82,43 +78,39 @@ namespace DocCore
                     wordFound.Add(wf);
             }
 
+            return wordFound;
+        }
+
+        public List<DocumentResult> Search(string query)
+        {
+            Hashtable resultHash = new Hashtable();
+
+            List<DocumentResult> resultList = new List<DocumentResult>();
+
+            Query parsedQuery = new Query(query);
+
+            List<Word> wordFound = FindWords(parsedQuery);
+
+            List<int> docListIDs = new List<int>();
+
             //merging the list.
             foreach (Word item in wordFound)
             {
-                WordOccurrenceNode firstOcc = item.FirstOccurrence;
-                //problem: the number of occurrences is wrong! The 'else' case, doesn't exist and becaouse this, 
-                //the program don't count the occurrences of the second word. 
-                //when he merge, it discards the occurrences. 
-                if (!resultHash.ContainsKey(firstOcc.Doc.DocID))
-                {
-                    DocumentResult newDoc = new DocumentResult(firstOcc.Doc);
-                    newDoc.CalculateRank(item);
-                    resultHash.Add(newDoc.DocID, newDoc);
-                }
-                else
-                {
-                    DocumentResult newDoc = resultHash[firstOcc.Doc.DocID] as DocumentResult;
-                    newDoc.DocQuantitityResults += firstOcc.Hits.Count;
-                    newDoc.CalculateRank(firstOcc.Word);
-                }
+                List<int> tempDocList = InvertedFileManager.Instance.GetWordOccurrencies(item.WordID);
 
-                WordOccurrenceNode tmp = firstOcc;
-
-                while (tmp.HasNext())
+                foreach (int docIDtmp in tempDocList)
                 {
-                    tmp = tmp.NextOccurrence;
-
-                    if (!resultHash.ContainsKey(tmp.Doc.DocID))
+                    if (!resultHash.ContainsKey(docIDtmp))
                     {
-                        DocumentResult newDoc = new DocumentResult(tmp.Doc);
-                        newDoc.CalculateRank(tmp.Word);
+                        DocumentResult newDoc = new DocumentResult(docIDtmp);
+                        newDoc.CalculateRank(item);
                         resultHash.Add(newDoc.DocID, newDoc);
                     }
                     else
                     {
-                        DocumentResult newDoc = resultHash[tmp.Doc.DocID] as DocumentResult;
-                        newDoc.DocQuantitityResults += tmp.Hits.Count;
-                        newDoc.CalculateRank(tmp.Word);
+                        DocumentResult newDoc = resultHash[docIDtmp] as DocumentResult;
+                        //newDoc.DocQuantitityResults += firstOcc.Hits.Count;
+                        newDoc.CalculateRank(item);
                     }
                 }
             }
@@ -133,8 +125,10 @@ namespace DocCore
 
             //sort result list by QueryRank and return
             resultList.Sort((y, x) => x.QueryRank.CompareTo(y.QueryRank));
-            
+
             return resultList;
         }
+
+
     }
 }

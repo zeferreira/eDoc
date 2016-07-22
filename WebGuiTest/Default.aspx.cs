@@ -12,12 +12,12 @@ namespace WebGuiTest
 {
     public partial class _Default : System.Web.UI.Page
     {
-        Engine eng;
+        IEngine eng;
         string host;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            eng = Engine.Instance;
+            eng = FactoryEngine.GetEngine();
             host = Request.Url.Host.ToLower();
 
             string query = Request.QueryString["qr"];
@@ -47,7 +47,7 @@ namespace WebGuiTest
 
             IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
 
-            Engine eng = Engine.Instance;
+            IEngine eng = FactoryEngine.GetEngine();
             DateTime start;
             TimeSpan timeDif;
             Stopwatch sw;
@@ -131,7 +131,7 @@ namespace WebGuiTest
         {
             IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
 
-            Engine eng = Engine.Instance;
+            IEngine eng = FactoryEngine.GetEngine();
             DateTime start;
             TimeSpan timeDif;
             Stopwatch sw;

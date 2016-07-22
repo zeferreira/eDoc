@@ -13,5 +13,6 @@ namespace DocCore
         public static readonly string LexiconTypeNotImplemented = "Tipo de indice para palavras (lexicon) não implementado.";
         public static readonly string RepositoryLogNotImplemented = "Tipo de repositorio de log não implementado.";
         public static readonly string DocParserNotSupportedFile = "Tipo de arquivo não suportado para indexação.";
+        public static readonly string IndexTypeNotImplemented = "Tipo de indexação não implementada.";
     }
 }

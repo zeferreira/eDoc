@@ -58,20 +58,10 @@ namespace DocCore
             return ht[wordID] as Word;
         }
 
-        void Add(Word word)
+        public void AddNewWord(Word word)
         {
             this.ht.Add(word.WordID, word);
         }
-
-        //public bool HasWord(string word)
-        //{
-        //    if(this.ht.ContainsKey(Word.GetHashValue(word)))
-        //    {
-        //        return true;
-        //    }
-
-        //    return false;
-        //}
 
         public bool HasWord(ref int wordID)
         {
@@ -81,28 +71,6 @@ namespace DocCore
             }
 
             return false;
-        }
-
-        public void AddWordOccurrence(WordOccurrenceNode newNode)
-        {
-            //Do not has any word
-            if (!HasWord(ref newNode.Word.WordID ))
-            {
-                newNode.Word.FirstOccurrence = newNode;
-                newNode.Word.LastOccurrence = newNode;
-                newNode.Word.Quantity = newNode.Hits.Count;
-                this.Add(newNode.Word);
-            }
-            else
-            {
-                //to do: memory allocation alert!! remove ref!! use newnode.Word.text or something, don't pass WordID as a parameter!!
-                newNode.Word = this.GetWord(ref newNode.Word.WordID);
-
-                newNode.PreviousOccurrence = newNode.Word.LastOccurrence;
-                newNode.Word.LastOccurrence.NextOccurrence = newNode;
-                newNode.Word.LastOccurrence = newNode;
-                newNode.Word.Quantity += newNode.Hits.Count;
-            }
         }
 
     }

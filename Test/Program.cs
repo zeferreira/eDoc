@@ -12,7 +12,7 @@ namespace Test
         {
             IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
 
-            Engine eng = Engine.Instance;
+            IEngine eng = FactoryEngine.GetEngine();
             DateTime start;
             TimeSpan timeDif;
             Stopwatch sw;
@@ -21,7 +21,6 @@ namespace Test
             string smsSearch = "Search".PadRight(15);
             string smsSearchTwoWords = "Search Two Words".PadRight(15);
             string smsMemoryUsage = "Memory".PadRight(15);
-            
 
             start = DateTime.Now;
             sw = Stopwatch.StartNew();

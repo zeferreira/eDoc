@@ -8,9 +8,9 @@ namespace DocCore
 {
     public class Document
     {
-        private long docID;
+        private int docID;
 
-        public long DocID
+        public int DocID
         {
             get { return docID; }
             set { docID = value; }
@@ -85,7 +85,7 @@ namespace DocCore
 
                 int key = wordTmp.GetHashCode();
 
-                //get frequency for eac document word
+                //get frequency for each document word
                 if (postingList.ContainsKey(key))
                 {
                     WordOccurrenceNode node = postingList[key] as WordOccurrenceNode;

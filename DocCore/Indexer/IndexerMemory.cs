@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DocCore
 {
-    public class Indexer
+    public class IndexerMemory : IIndexer
     {
         private ILexicon lexicon;
         private IDocumentIndex documentIndex;
@@ -27,10 +27,10 @@ namespace DocCore
             get { return totalDocumentQuantity; }
         }
 
-        private static Indexer instance = null;
+        private static IndexerMemory instance = null;
         private static readonly object padlock = new object();
 
-        public static Indexer Instance
+        public static IndexerMemory Instance
         {
             get
             {
@@ -38,14 +38,14 @@ namespace DocCore
                 {
                     if (instance == null)
                     {
-                        instance = new Indexer();
+                        instance = new IndexerMemory();
                     }
                     return instance;
                 }
             }
         }
 
-        Indexer()
+        IndexerMemory()
         {
             this.lexicon = FactoryLexicon.GetLexicon();
             this.documentIndex = FactoryDocumentIndex.GetDocumentIndex();
@@ -67,40 +67,12 @@ namespace DocCore
             Index(listOfDocs);
         }
 
-        //public Word Search(string word)
-        //{
-        //    return this.lexicon.GetWord(word);
-        //}
-
         public Word Search(int wordID)
         {
             return this.lexicon.GetWord( ref wordID);
         }
-        
-        //serial
-        public void SequentialIndex(List<Document> listOfDocs)
-        {
-            foreach (Document docItem in listOfDocs)
-            {
-                this.documentIndex.Insert(docItem);
 
-                Hashtable postingList = docItem.GetPostingList();
-                IDictionaryEnumerator iDicE = postingList.GetEnumerator();
-
-                while (iDicE.MoveNext())
-                {
-                    //get posting list and add hits
-                    //never reindex the same document 2 times.
-
-                    DictionaryEntry dicEntry = (DictionaryEntry)iDicE.Current;
-                    WordOccurrenceNode occurrence = dicEntry.Value as WordOccurrenceNode;
-
-                    lexicon.AddWordOccurrence(occurrence);
-                    totalWordQuantity += occurrence.Hits.Count;
-                }
-            }
-        }
-        //parallel
+        //parallel linked list (memory)
         public void Index(List<Document> listOfDocs)
         {
             Parallel.ForEach(listOfDocs, (docItem) =>
@@ -119,7 +91,26 @@ namespace DocCore
                     WordOccurrenceNode occurrence = dicEntry.Value as WordOccurrenceNode;
                     lock (this)
                     {
-                        lexicon.AddWordOccurrence(occurrence);
+                        //Do not has any word
+                        if (!lexicon.HasWord(ref occurrence.Word.WordID))
+                        {
+                            occurrence.Word.FirstOccurrence = occurrence;
+                            occurrence.Word.LastOccurrence = occurrence;
+                            occurrence.Word.Quantity = occurrence.Hits.Count;
+                            lexicon.AddNewWord(occurrence.Word);
+                        }
+                        else
+                        {
+                            //to do: memory allocation alert!! remove ref!! use newnode.Word.text or something, don't pass WordID as a parameter!! Performance is poor.
+                            occurrence.Word = lexicon.GetWord(ref occurrence.Word.WordID);
+
+                            occurrence.PreviousOccurrence = occurrence.Word.LastOccurrence;
+                            occurrence.Word.LastOccurrence.NextOccurrence = occurrence;
+                            occurrence.Word.LastOccurrence = occurrence;
+
+                            occurrence.Word.Quantity += occurrence.Hits.Count;
+                        }
+
                         totalWordQuantity += occurrence.Hits.Count;    
                     }
                 }
@@ -129,5 +120,6 @@ namespace DocCore
                 GC.Collect();
             });
         }
+
      }
 }

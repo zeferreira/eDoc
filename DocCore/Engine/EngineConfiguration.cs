@@ -51,6 +51,17 @@ namespace DocCore
                 }
         }
 
+        string pathFolderIndex;
+
+        public string PathFolderIndex
+        {
+            get
+            {
+                this.pathFolderIndex = ConfigurationManager.AppSettings["pathFolderIndex"] as string;
+                return this.pathFolderIndex;
+            }
+        }
+
         char logSeparator;
 
         public char LogSeparator
@@ -125,6 +136,28 @@ namespace DocCore
             {
                 this.lexiconType = ConfigurationManager.AppSettings["lexiconType"] as string;
                 return lexiconType.ToLower();
+            }
+        }
+
+        string invertedFileType;
+
+        public string InvertedFileType
+        {
+            get
+            {
+                this.lexiconType = ConfigurationManager.AppSettings["invertedFileType"] as string;
+                return lexiconType.ToLower();
+            }
+        }
+
+        private string engineType;
+
+        public string EngineType
+        {
+            get
+            {
+                this.engineType = ConfigurationManager.AppSettings["engineType"] as string;
+                return engineType.ToLower();
             }
         }
 

@@ -319,3 +319,65 @@ Search         |02/05/2016 12:51:56|0|0|0|0|0|sentence: web#totalDocFound: 2#
 Search         |02/05/2016 12:51:56|0|0|0|0|0|sentence: teste#totalDocFound: 1#
 Search         |02/05/2016 12:51:59|0|0|0|0|0|sentence: teste#totalDocFound: 1#
 Search         |02/05/2016 12:51:59|0|0|0|0|0|sentence: web#totalDocFound: 2#
+Load Engine    |11/06/2016 20:00:05|0|0|0|4|215|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Memory         |11/06/2016 20:00:05|0|0|0|4|215|TotalMemory: 58(MB's)#
+Search         |11/06/2016 20:00:49|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |11/06/2016 20:00:56|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |11/06/2016 20:00:56|0|0|0|0|0|sentence: google#totalDocFound: 1#
+Search         |11/06/2016 20:01:00|0|0|0|0|0|sentence: google#totalDocFound: 1#
+Search         |11/06/2016 20:01:00|0|0|0|0|0|sentence: web#totalDocFound: 2#
+Load Engine    |22/06/2016 12:51:08|0|0|0|5|942|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Memory         |22/06/2016 12:51:08|0|0|0|5|942|TotalMemory: 58(MB's)#
+Load Engine    |22/06/2016 12:52:02|0|0|0|3|915|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Memory         |22/06/2016 12:52:02|0|0|0|3|915|TotalMemory: 59(MB's)#
+Search         |22/06/2016 12:52:08|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |22/06/2016 12:52:14|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |22/06/2016 12:52:19|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |22/06/2016 12:52:23|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |22/06/2016 12:52:23|0|0|0|0|0|sentence: gg#totalDocFound: 0#
+Load Engine    |22/06/2016 13:03:57|0|0|0|12|33|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Memory         |22/06/2016 13:03:57|0|0|0|12|33|TotalMemory: 33(MB's)#
+Load Engine    |23/06/2016 00:45:10|0|0|0|4|288|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Memory         |23/06/2016 00:45:10|0|0|0|4|288|TotalMemory: 61(MB's)#
+Search         |23/06/2016 00:45:27|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |23/06/2016 00:45:33|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |23/06/2016 00:45:34|0|0|0|0|0|sentence: ok#totalDocFound: 0#
+Load Engine    |23/06/2016 00:46:18|0|0|0|0|311|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Memory         |23/06/2016 00:46:18|0|0|0|0|311|TotalMemory: 60(MB's)#
+Search         |23/06/2016 00:46:21|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Load Engine    |23/06/2016 00:46:51|0|0|0|4|72|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Memory         |23/06/2016 00:46:51|0|0|0|4|72|TotalMemory: 62(MB's)#
+Search         |23/06/2016 00:46:59|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Load Engine    |23/06/2016 00:57:10|0|0|0|4|291|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Memory         |23/06/2016 00:57:10|0|0|0|4|291|TotalMemory: 61(MB's)#
+Search         |23/06/2016 00:57:22|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Load Engine    |23/06/2016 01:08:08|0|0|0|4|667|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Memory         |23/06/2016 01:08:08|0|0|0|4|667|TotalMemory: 59(MB's)#
+Search         |23/06/2016 01:08:19|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |23/06/2016 01:09:46|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Load Engine    |23/06/2016 01:10:29|0|0|0|3|990|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Memory         |23/06/2016 01:10:29|0|0|0|3|990|TotalMemory: 36(MB's)#
+Search         |23/06/2016 01:10:41|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Load Engine    |23/06/2016 01:21:39|0|0|0|4|150|totalIndexedDocs: 2#totalIndexedWords: 35698#
+Memory         |23/06/2016 01:21:39|0|0|0|4|150|TotalMemory: 63(MB's)#
+Search         |23/06/2016 01:21:49|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Load Engine    |23/06/2016 01:24:56|0|0|0|4|579|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |23/06/2016 01:24:56|0|0|0|4|579|TotalMemory: 45(MB's)#
+Load Engine    |23/06/2016 01:25:38|0|0|0|4|626|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |23/06/2016 01:25:38|0|0|0|4|626|TotalMemory: 34(MB's)#
+Load Engine    |23/06/2016 01:26:45|0|0|0|4|386|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |23/06/2016 01:26:45|0|0|0|4|386|TotalMemory: 32(MB's)#
+Load Engine    |23/06/2016 01:29:25|0|0|0|4|573|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |23/06/2016 01:29:25|0|0|0|4|573|TotalMemory: 56(MB's)#
+Load Engine    |23/06/2016 01:30:52|0|0|0|4|29|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |23/06/2016 01:30:52|0|0|0|4|29|TotalMemory: 33(MB's)#
+Load Engine    |23/06/2016 01:34:24|0|0|0|9|431|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |23/06/2016 01:34:24|0|0|0|9|431|TotalMemory: 52(MB's)#
+Search         |23/06/2016 01:34:38|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |23/06/2016 01:34:50|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |23/06/2016 01:34:51|0|0|0|0|0|sentence: gg#totalDocFound: 0#
+Load Engine    |23/06/2016 01:36:14|0|0|0|6|800|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |23/06/2016 01:36:14|0|0|0|6|800|TotalMemory: 33(MB's)#
+Search         |23/06/2016 01:36:26|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Load Engine    |29/06/2016 11:58:09|0|0|0|9|869|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |29/06/2016 11:58:09|0|0|0|9|869|TotalMemory: 42(MB's)#

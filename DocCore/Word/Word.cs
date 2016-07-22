@@ -9,21 +9,7 @@ namespace DocCore
     /// </summary>
     public class Word
     {
-        //private string text;
-
-        //public string Text
-        //{
-        //    get { return text; }
-        //    set { text = value; }
-        //}
-
         public int WordID;
-
-        //public int WordID
-        //{
-        //    get { return wordID; }
-        //    set { wordID = value; }
-        //}
 
         private int quant;
 
@@ -32,6 +18,15 @@ namespace DocCore
             get { return quant; }
             set { quant = value; }
         }
+
+        public static int GetHashValue(string text)
+        {
+            return text.GetHashCode();
+        }
+
+        string invertedFile;
+
+
 
         private WordOccurrenceNode firstOccurrence;
 
@@ -49,15 +44,7 @@ namespace DocCore
             set { lastOccurrence = value; }
         }
 
-        //public override int GetHashCode()
-        //{
-        //    return GetHashValue(Text);
-        //}
 
-        public static int GetHashValue(string text)
-        {
-            return text.GetHashCode();
-        }
     }
 }
 

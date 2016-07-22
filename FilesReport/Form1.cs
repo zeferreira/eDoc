@@ -45,7 +45,7 @@ namespace FilesReport
         {
             IRepositoryDocument repDoc = FactoryRepositoryDocument.GetRepositoryDocument(EnumRepositoryType.Folder);
             IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
-            Indexer indexer = Indexer.Instance;
+            IIndexer indexer = FactoryIndexer.GetIndexer();
             ILexicon lexicon = FactoryLexicon.GetLexicon();
 
             DateTime start;
@@ -203,7 +203,7 @@ namespace FilesReport
                 DictionaryEntry dicEntry = (DictionaryEntry)iDicE.Current;
                 WordOccurrenceNode occurrence = dicEntry.Value as WordOccurrenceNode;
 
-                lexicon.AddWordOccurrence(occurrence);
+                //lexicon.AddWordOccurrence(occurrence);
                 totalWordQuantity += occurrence.Hits.Count;
             }
 

@@ -11,16 +11,15 @@ namespace WebGuiTest
 {
     public class Global : System.Web.HttpApplication
     {
-        private Engine eng;
+        private IEngine eng;
         IRepositoryLog repLog;
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            this.eng = Engine.Instance;
+            this.eng = FactoryEngine.GetEngine();
 
             this.repLog = FactoryRepositoryLog.GetRepositoryLog();
 
-            Engine eng = Engine.Instance;
             DateTime start;
             TimeSpan timeDif;
             Stopwatch sw;
