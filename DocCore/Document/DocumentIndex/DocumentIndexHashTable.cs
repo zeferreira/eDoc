@@ -14,6 +14,21 @@ namespace DocCore
             get { return ht.Count; }
         }
 
+        private int maxDocSize;
+        private int minDocSize;
+        private float averageDocSize;
+
+        /// <summary>
+        /// Used to document normalization
+        /// </summary>
+        public float AverageDocSize
+        {
+            get { return averageDocSize; }
+            set { averageDocSize = value; }
+        }
+
+
+
         private static DocumentIndexHashTable instance = null;
         private static readonly object padlock = new object();
 

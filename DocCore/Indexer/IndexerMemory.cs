@@ -75,49 +75,65 @@ namespace DocCore
         //parallel linked list (memory)
         public void Index(List<Document> listOfDocs)
         {
+            IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
+
             Parallel.ForEach(listOfDocs, (docItem) =>
             {
-                this.documentIndex.Insert(docItem);
-
-                Hashtable postingList = docItem.GetPostingList();
-                IDictionaryEnumerator iDicE = postingList.GetEnumerator();
-
-                while (iDicE.MoveNext())
+                try
                 {
-                    //get posting list and add hits
-                    //never reindex the same document 2 times.
+                    Hashtable postingList = docItem.GetPostingList();
+                    IDictionaryEnumerator iDicE = postingList.GetEnumerator();
 
-                    DictionaryEntry dicEntry = (DictionaryEntry)iDicE.Current;
-                    WordOccurrenceNode occurrence = dicEntry.Value as WordOccurrenceNode;
-                    lock (this)
+                    this.documentIndex.Insert(docItem);
+
+                    while (iDicE.MoveNext())
                     {
-                        //Do not has any word
-                        if (!lexicon.HasWord(ref occurrence.Word.WordID))
+                        //get posting list and add hits
+                        //never reindex the same document 2 times.
+
+                        DictionaryEntry dicEntry = (DictionaryEntry)iDicE.Current;
+                        WordOccurrenceNode occurrence = dicEntry.Value as WordOccurrenceNode;
+                        lock (this)
                         {
-                            occurrence.Word.FirstOccurrence = occurrence;
-                            occurrence.Word.LastOccurrence = occurrence;
-                            occurrence.Word.Quantity = occurrence.Hits.Count;
-                            lexicon.AddNewWord(occurrence.Word);
+                            //Do not has any word
+                            if (!lexicon.HasWord(ref occurrence.Word.WordID))
+                            {
+                                occurrence.Word.FirstOccurrence = occurrence;
+                                occurrence.Word.LastOccurrence = occurrence;
+                                occurrence.Word.Quantity = occurrence.Hits.Count;
+                                lexicon.AddNewWord(occurrence.Word);
+                            }
+                            else
+                            {
+                                //to do: memory allocation alert!! remove ref!! use newnode.Word.text or something, don't pass WordID as a parameter!! Performance is poor.
+                                occurrence.Word = lexicon.GetWord(ref occurrence.Word.WordID);
+
+                                occurrence.PreviousOccurrence = occurrence.Word.LastOccurrence;
+                                occurrence.Word.LastOccurrence.NextOccurrence = occurrence;
+                                occurrence.Word.LastOccurrence = occurrence;
+
+                                occurrence.Word.Quantity += occurrence.Hits.Count;
+                            }
+
+                            totalWordQuantity += occurrence.Hits.Count;
                         }
-                        else
-                        {
-                            //to do: memory allocation alert!! remove ref!! use newnode.Word.text or something, don't pass WordID as a parameter!! Performance is poor.
-                            occurrence.Word = lexicon.GetWord(ref occurrence.Word.WordID);
-
-                            occurrence.PreviousOccurrence = occurrence.Word.LastOccurrence;
-                            occurrence.Word.LastOccurrence.NextOccurrence = occurrence;
-                            occurrence.Word.LastOccurrence = occurrence;
-
-                            occurrence.Word.Quantity += occurrence.Hits.Count;
-                        }
-
-                        totalWordQuantity += occurrence.Hits.Count;    
                     }
+
+                    GC.ReRegisterForFinalize(postingList);
+                    GC.ReRegisterForFinalize(iDicE);
+                    GC.Collect();
+                }
+                catch (Exception)
+                {
+                    Log entry = new Log();
+                    entry.TaskDescription = "Read pdf file error";
+                    entry.LogParameters = new List<string>();
+                    entry.LogParameters.Add("FileName: " + docItem.File);
+
+                    repLog.Write(entry);
+                    
                 }
 
-                GC.ReRegisterForFinalize(postingList);
-                GC.ReRegisterForFinalize(iDicE);
-                GC.Collect();
             });
         }
 

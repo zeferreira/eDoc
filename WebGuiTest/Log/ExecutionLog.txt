@@ -381,3 +381,23 @@ Memory         |23/06/2016 01:36:14|0|0|0|6|800|TotalMemory: 33(MB's)#
 Search         |23/06/2016 01:36:26|0|0|0|0|0|sentence: teste#totalDocFound: 1#
 Load Engine    |29/06/2016 11:58:09|0|0|0|9|869|totalIndexedDocs: 2#totalIndexedWords: 33971#
 Memory         |29/06/2016 11:58:09|0|0|0|9|869|TotalMemory: 42(MB's)#
+Load Engine    |05/09/2016 08:07:52|0|0|0|3|699|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |05/09/2016 08:07:52|0|0|0|3|699|TotalMemory: 84(MB's)#
+Search         |05/09/2016 08:08:34|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |05/09/2016 08:08:49|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |05/09/2016 08:08:50|0|0|0|0|0|sentence: precision#totalDocFound: 1#
+Search         |05/09/2016 08:08:54|0|0|0|0|0|sentence: precision#totalDocFound: 1#
+Search         |05/09/2016 08:08:55|0|0|0|0|0|sentence: recall#totalDocFound: 1#
+Load Engine    |05/09/2016 08:13:52|0|0|0|2|322|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |05/09/2016 08:13:52|0|0|0|2|322|TotalMemory: 87(MB's)#
+Search         |05/09/2016 08:15:16|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Load Engine    |05/09/2016 08:46:24|0|0|0|2|926|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |05/09/2016 08:46:24|0|0|0|2|926|TotalMemory: 88(MB's)#
+Search         |05/09/2016 08:46:57|0|0|0|0|0|sentence: a#totalDocFound: 2#
+Search         |05/09/2016 08:49:30|0|0|0|0|0|sentence: a#totalDocFound: 2#
+Search         |05/09/2016 08:49:30|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |05/09/2016 08:49:43|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Search         |05/09/2016 08:49:43|0|0|0|0|0|sentence: teste de software#totalDocFound: 2#
+Load Engine    |05/09/2016 08:54:08|0|0|0|1|306|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |05/09/2016 08:54:08|0|0|0|1|306|TotalMemory: 88(MB's)#
+Search         |05/09/2016 08:54:16|0|0|0|0|0|sentence: teste#totalDocFound: 1#

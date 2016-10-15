@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DocCore", "DocCore\DocCore.csproj", "{D06025B5-086B-48F7-B3A7-49CA63431008}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test", "Test\Test.csproj", "{0FDF9710-341D-406A-A6A0-E6E7BB0CCE37}"
@@ -8,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FilesReport", "FilesReport\FilesReport.csproj", "{5A37935B-A149-4CC5-A4C4-741888A9D40B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebGuiTest", "WebGuiTest\WebGuiTest.csproj", "{CC92DB76-9489-49DB-BE68-301B93943C39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrawlerGUI", "CrawlerGUI\CrawlerGUI.csproj", "{66F040A1-1B96-427E-B718-ED491FB3570B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +64,16 @@ Global
 		{CC92DB76-9489-49DB-BE68-301B93943C39}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{CC92DB76-9489-49DB-BE68-301B93943C39}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{CC92DB76-9489-49DB-BE68-301B93943C39}.Release|x86.ActiveCfg = Release|Any CPU
+		{66F040A1-1B96-427E-B718-ED491FB3570B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{66F040A1-1B96-427E-B718-ED491FB3570B}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{66F040A1-1B96-427E-B718-ED491FB3570B}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{66F040A1-1B96-427E-B718-ED491FB3570B}.Debug|x86.ActiveCfg = Debug|x86
+		{66F040A1-1B96-427E-B718-ED491FB3570B}.Debug|x86.Build.0 = Debug|x86
+		{66F040A1-1B96-427E-B718-ED491FB3570B}.Release|Any CPU.ActiveCfg = Release|x86
+		{66F040A1-1B96-427E-B718-ED491FB3570B}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{66F040A1-1B96-427E-B718-ED491FB3570B}.Release|Mixed Platforms.Build.0 = Release|x86
+		{66F040A1-1B96-427E-B718-ED491FB3570B}.Release|x86.ActiveCfg = Release|x86
+		{66F040A1-1B96-427E-B718-ED491FB3570B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

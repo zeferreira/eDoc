@@ -48,6 +48,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crawler\Crawler.cs" />
     <Compile Include="Document\Document.cs" />
     <Compile Include="Document\DocumentIndex\DocumentIndexHashTable.cs" />
     <Compile Include="Document\DocumentIndex\FactoryDocumentIndex.cs" />

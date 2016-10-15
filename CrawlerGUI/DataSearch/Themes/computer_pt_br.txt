@@ -1,0 +1,83 @@
+Tipos de documentos
+Hardware	
+Sistemas de comunicação
+circuitos integrados
+arquitetura de computadores
+sistemas embarcados
+sistemas de tempo real
+Networks
+redes de computadores
+arquiteturas de redes 
+protocolos de redes
+algoritmos para redes 
+performance de redes
+engenharia de software 
+teoria da computação
+processamento de linguagem natural
+logica
+projeto de algoritmos
+analise de  
+Randomness, geometry and discrete structures 
+Theory and algorithms for application domains 
+Semantics and reasoning
+Mathematics of computing	
+Discrete mathematics 
+Probability and statistics 
+Mathematical software 
+Information theory 
+Mathematical analysis 
+Continuous mathematics
+Information systems	
+Data management systems
+Information storage systems
+Information systems applications 
+World Wide Web 
+Information retrieval
+Security and privacy	
+Cryptography 
+Formal methods and theory of security 
+Security services 
+Intrusion/anomaly detection and malware mitigation 
+Security in hardware 
+Systems security 
+Network security 
+Database and storage security 
+Software and application security 
+Human and societal aspects of security and privacy
+Human-centered computing	
+Human–computer interaction 
+Interaction design 
+Collaborative and social computing 
+Ubiquitous and mobile computing 
+Visualization 
+Accessibility
+Computing methodologies	
+Symbolic and algebraic manipulation 
+Parallel computing methodologies 
+Artificial intelligence 
+Machine learning 
+Modeling and simulation 
+Computer graphics 
+Distributed computing methodologies 
+Concurrent computing methodologies
+Applied computing	
+Electronic commerce 
+Enterprise computing 
+Physical sciences and engineering 
+Life and medical sciences 
+Law, social and behavioral sciences 
+Computer forensics 
+Arts and humanities 
+Computers in other domains 
+Operations research 
+Education 
+Document management and text processing
+Social and professional topics	
+Professional topics 
+Computing/technology policy 
+User characteristics
+Proper nouns: people, technologies and companies	
+Companies 
+Organizations 
+People in computing 
+Technologies

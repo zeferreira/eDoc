@@ -3,3 +3,17 @@ Search         |11/06/2016 19:31:08|0|0|0|0|3|sentence: search#totalDocFound: 1#
 Search Two Words|11/06/2016 19:31:08|0|0|0|0|0|sentence: web search#totalDocFound: 2#
 Search         |11/06/2016 19:31:08|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 2#
 Memory         |11/06/2016 19:31:08|0|0|0|0|0|TotalMemory: 32(MB's)#
+Load Engine    |17/09/2016 15:49:43|0|0|6|52|166|totalIndexedDocs: 322#totalIndexedWords: 4785141#
+Search         |17/09/2016 15:56:35|0|0|0|0|3|sentence: search#totalDocFound: 70#
+Search Two Words|17/09/2016 15:56:35|0|0|0|0|0|sentence: web search#totalDocFound: 187#
+Search         |17/09/2016 15:56:35|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 322#
+Memory         |17/09/2016 15:56:35|0|0|0|0|0|TotalMemory: 195(MB's)#
+Read pdf file error|01/01/0001 00:00:00|0|0|0|0|0|FileName: D:\projetos\edoc\RepositoryFiles\google\Tereza%20Catarina%20Furtado%20Lobato.pdf#
+Read pdf file error|01/01/0001 00:00:00|0|0|0|0|0|FileName: D:\projetos\edoc\RepositoryFiles\google\manual_ic_uncisal_geral.pdf#
+Read pdf file error|01/01/0001 00:00:00|0|0|0|0|0|FileName: D:\projetos\edoc\RepositoryFiles\google\Portfolio_Leonir.pdf#
+Read pdf file error|01/01/0001 00:00:00|0|0|0|0|0|FileName: D:\projetos\edoc\RepositoryFiles\google\rafaella_20071103_relatoriofinal.pdf#
+Load Engine    |17/09/2016 18:33:09|0|0|26|56|678|totalIndexedDocs: 727#totalIndexedWords: 10869201#
+Search         |17/09/2016 19:00:05|0|0|0|0|3|sentence: search#totalDocFound: 113#
+Search Two Words|17/09/2016 19:00:06|0|0|0|0|1|sentence: web search#totalDocFound: 280#
+Search         |17/09/2016 19:00:06|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 727#
+Memory         |17/09/2016 19:00:06|0|0|0|0|0|TotalMemory: 385(MB's)#
