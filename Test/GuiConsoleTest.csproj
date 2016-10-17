@@ -52,10 +52,10 @@
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="RepositoryFiles\monografia_AndrezaSoares.docx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="IndexFiles\" />
+    <Folder Include="LogEvaluation\" />
     <Folder Include="Log\" />
   </ItemGroup>
   <ItemGroup>

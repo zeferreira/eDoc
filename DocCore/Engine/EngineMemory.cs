@@ -94,7 +94,7 @@ namespace DocCore
             foreach (Word item in wordFound)
             {
                 WordOccurrenceNode firstOcc = item.FirstOccurrence;
-                //problem: the number of occurrences is wrong! The 'else' case, doesn't exist and becaouse this, 
+                //problem: the number of occurrences is wrong! The 'else' case, doesn't exist and because this, 
                 //the program don't count the occurrences of the second word. 
                 //when he merge, it discards the occurrences. 
                 if (!resultHash.ContainsKey(firstOcc.Doc.DocID))

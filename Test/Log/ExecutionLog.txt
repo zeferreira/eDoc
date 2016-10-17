@@ -17,3 +17,48 @@ Search         |17/09/2016 19:00:05|0|0|0|0|3|sentence: search#totalDocFound: 11
 Search Two Words|17/09/2016 19:00:06|0|0|0|0|1|sentence: web search#totalDocFound: 280#
 Search         |17/09/2016 19:00:06|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 727#
 Memory         |17/09/2016 19:00:06|0|0|0|0|0|TotalMemory: 385(MB's)#
+Load Engine    |17/10/2016 14:31:35|0|0|0|0|82|totalIndexedDocs: 1#totalIndexedWords: 10878#
+Search         |17/10/2016 14:31:35|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|17/10/2016 14:31:35|0|0|0|0|0|sentence: web search#totalDocFound: 1#
+Search         |17/10/2016 14:31:35|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 1#
+Memory         |17/10/2016 14:31:35|0|0|0|0|0|TotalMemory: 18(MB's)#
+Load Engine    |17/10/2016 14:32:38|0|0|0|0|49|totalIndexedDocs: 1#totalIndexedWords: 10878#
+Search         |17/10/2016 14:32:38|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|17/10/2016 14:32:38|0|0|0|0|0|sentence: web search#totalDocFound: 1#
+Search         |17/10/2016 14:32:38|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 1#
+Memory         |17/10/2016 14:32:38|0|0|0|0|0|TotalMemory: 19(MB's)#
+Load Engine    |17/10/2016 14:37:15|0|0|0|0|48|totalIndexedDocs: 1#totalIndexedWords: 10878#
+Search         |17/10/2016 14:37:15|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|17/10/2016 14:37:15|0|0|0|0|0|sentence: web search#totalDocFound: 1#
+Search         |17/10/2016 14:37:15|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 1#
+Memory         |17/10/2016 14:37:15|0|0|0|0|0|TotalMemory: 18(MB's)#
+Load Engine    |17/10/2016 14:40:04|0|0|0|0|54|totalIndexedDocs: 1#totalIndexedWords: 10878#
+Search         |17/10/2016 14:40:04|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|17/10/2016 14:40:04|0|0|0|0|0|sentence: web search#totalDocFound: 1#
+Search         |17/10/2016 14:40:04|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 1#
+Memory         |17/10/2016 14:40:04|0|0|0|0|0|TotalMemory: 19(MB's)#
+Load Engine    |17/10/2016 14:42:44|0|0|0|0|49|totalIndexedDocs: 1#totalIndexedWords: 10878#
+Search         |17/10/2016 14:42:44|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|17/10/2016 14:42:44|0|0|0|0|0|sentence: web search#totalDocFound: 1#
+Search         |17/10/2016 14:42:44|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 1#
+Memory         |17/10/2016 14:42:44|0|0|0|0|0|TotalMemory: 19(MB's)#
+Load Engine    |17/10/2016 14:46:41|0|0|0|0|49|totalIndexedDocs: 1#totalIndexedWords: 10878#
+Search         |17/10/2016 14:46:42|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|17/10/2016 14:46:42|0|0|0|0|0|sentence: web search#totalDocFound: 1#
+Search         |17/10/2016 14:46:42|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 1#
+Memory         |17/10/2016 14:46:42|0|0|0|0|0|TotalMemory: 19(MB's)#
+Load Engine    |17/10/2016 15:01:02|0|0|0|0|77|totalIndexedDocs: 1#totalIndexedWords: 10878#
+Search         |17/10/2016 15:01:02|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|17/10/2016 15:01:02|0|0|0|0|0|sentence: web search#totalDocFound: 1#
+Search         |17/10/2016 15:01:02|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 1#
+Memory         |17/10/2016 15:01:02|0|0|0|0|0|TotalMemory: 18(MB's)#
+Load Engine    |17/10/2016 15:01:55|0|0|0|0|58|totalIndexedDocs: 1#totalIndexedWords: 10878#
+Search         |17/10/2016 15:01:55|0|0|0|0|3|sentence: search#totalDocFound: 1#
+Search Two Words|17/10/2016 15:01:55|0|0|0|0|0|sentence: web search#totalDocFound: 1#
+Search         |17/10/2016 15:01:55|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 1#
+Memory         |17/10/2016 15:01:55|0|0|0|0|0|TotalMemory: 19(MB's)#
+Load Engine    |17/10/2016 15:21:08|0|0|0|0|81|totalIndexedDocs: 1#totalIndexedWords: 10878#
+Search         |17/10/2016 15:21:08|0|0|0|0|4|sentence: search#totalDocFound: 1#
+Search Two Words|17/10/2016 15:21:08|0|0|0|0|0|sentence: web search#totalDocFound: 1#
+Search         |17/10/2016 15:21:08|0|0|0|0|0|sentence: gimgolbel123#321456654987qqqwweqweq#totalDocFound: 0#totalDocIndexed: 1#
+Memory         |17/10/2016 15:21:08|0|0|0|0|0|TotalMemory: 19(MB's)#

@@ -7,6 +7,7 @@ using DocCore;
 using System.Diagnostics;
 using System.Configuration;
 using System.Text;
+using System.IO;
 
 namespace WebGuiTest
 {
@@ -78,6 +79,11 @@ namespace WebGuiTest
             repLog.Write(entry);
 
             TestResult(result);
+
+            if (result.Count > 0)
+            {
+                WriteResultsToDisk(result, query);
+            }
         }
 
         void TestResult(List<DocumentResult> list)
@@ -101,6 +107,7 @@ namespace WebGuiTest
                 Response.Write(
 
                     qtd + " - " + item.Title +
+                    " | DocID: " + item.DocID.ToString() +
                     " | QueryRank: " + item.QueryRank +
                     " | WordsQtd:" + item.WordQuantity +
                     //"\n" + " | File: " + item.File +
@@ -117,8 +124,42 @@ namespace WebGuiTest
                  this.divFeedback.Visible = false;
             }
             else
-                 Response.Write(list.Count.ToString() +" " + Messages.DocumentsFound + "<br>" );
+            {
+                Response.Write(list.Count.ToString() + " " + Messages.DocumentsFound + "<br>");
+            }
+              
         }
+        /// <summary>
+        /// Method for write results to disk. It store the order, ID and rank of documents. This metrics are used to compare modifcations.
+        /// </summary>
+        /// <param name="list">Lista de documentos</param>
+        /// <param name="query">Query que foi retornada</param>
+        private void WriteResultsToDisk(List<DocumentResult> list, string query)
+        {
+            int qtd = 1;
+
+            string fileNameResult = EngineConfiguration.Instance.PathEvaluationLog + query + ".txt";
+            string resultRank = "#Date" + DateTime.Now.ToString() + "#" + Environment.NewLine;
+
+            foreach (DocumentResult item in list)
+            {
+                resultRank +=
+
+                    "Order: " + qtd +
+                    " | DocID: " + item.DocID.ToString() +
+                    " | QueryRank: " + item.QueryRank +
+                    " | WordsQtd:" + item.WordQuantity +
+                    " | FileName: "+ item.File +
+
+                    //"\n" + " | File: " + item.File +
+                    Environment.NewLine;
+
+                qtd++;
+            }
+
+            File.AppendAllText(fileNameResult, resultRank);
+        }
+
 
         private string GetEncodedString(string text)
         {

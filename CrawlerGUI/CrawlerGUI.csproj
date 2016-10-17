@@ -53,6 +53,7 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DataSearch\Themes\UPE_poli_tcc_20132.txt" />
     <Content Include="DataSearch\Themes\computer_en_us.txt" />
     <Content Include="DataSearch\Inst\brasil.txt" />
     <Content Include="DataSearch\Themes\computer_pt_br.txt" />

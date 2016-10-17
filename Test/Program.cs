@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using DocCore;
 using System.Diagnostics;
+using System.IO;
 
 namespace Test
 {
@@ -16,7 +17,10 @@ namespace Test
             DateTime start;
             TimeSpan timeDif;
             Stopwatch sw;
+            DateTime startTest = DateTime.Now;
 
+            #region basicTestsLogicAndPerformance
+            Console.WriteLine("=============================================================================");
             string smsTimeToLoad = "Load Engine".PadRight(15);
             string smsSearch = "Search".PadRight(15);
             string smsSearchTwoWords = "Search Two Words".PadRight(15);
@@ -24,6 +28,7 @@ namespace Test
 
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
+            Console.WriteLine(startTest.ToString() + " - Loading...");
             eng.Load();
             sw.Stop();
             timeDif = sw.Elapsed;
@@ -35,9 +40,10 @@ namespace Test
             entry.LogParameters = new List<string>();
             entry.LogParameters.Add("totalIndexedDocs: " + eng.TotalDocumentQuantity.ToString());
             entry.LogParameters.Add("totalIndexedWords: " + eng.TotalWordQuantity.ToString());
+            entry.LogParameters.Add("TypeGUI: CONSOLE");
 
             repLog.Write(entry);
-
+            Console.WriteLine("I'm running some basic tests");
             //search one word
             string parameters = "search";
             Console.WriteLine("||||| positive test - one word ||||| ( {0} )", parameters);
@@ -115,11 +121,18 @@ namespace Test
             entry.LogParameters = new List<string>();
             entry.LogParameters.Add("TotalMemory: " + Useful.GetFormatedSizeString(memoryUsed));
             repLog.Write(entry);
+            #endregion
+            Console.WriteLine("=============================================================================");
 
-            //ShowLogEntrys();
-
-
-
+            #region RankTests
+            Console.WriteLine("I'm running ranked queries for tests");
+            Console.WriteLine("Wait ...");
+            
+            SearchRankedThemes();
+            Console.WriteLine(startTest.ToString() + " I have done.");
+            Console.WriteLine("=============================================================================");
+            Console.WriteLine("Start: " + startTest.ToString() + " I have done. (" + DateTime.Now.ToString() + ")");
+            #endregion
             Console.ReadLine();
         }
 
@@ -146,6 +159,79 @@ namespace Test
             }
             else
                 Console.WriteLine("{0} "+ Messages.DocumentsFound +" \n", list.Count);
+        }
+
+        /// <summary>
+        /// Method for write results to disk. It store the order, ID and rank of documents. This metrics are used to compare modifcations.
+        /// </summary>
+        /// <param name="list">Lista de documentos</param>
+        /// <param name="query">Query que foi retornada</param>
+        static void WriteResultsToDisk(List<DocumentResult> list, string query)
+        {
+            int qtd = 1;
+
+            string fileNameResult = RemoveForFileName( EngineConfiguration.Instance.PathEvaluationLog + query + ".txt");
+            string resultRank = "#Date" + DateTime.Now.ToString() + "#" + Environment.NewLine;
+
+            foreach (DocumentResult item in list)
+            {
+                resultRank +=
+
+                    "Order: " + qtd +
+                    " | DocID: " + item.DocID.ToString() +
+                    " | QueryRank: " + item.QueryRank +
+                    " | WordsQtd:" + item.WordQuantity +
+                    " | FileName: " + item.File +
+
+                    //"\n" + " | File: " + item.File +
+                    Environment.NewLine;
+
+                qtd++;
+            }
+
+            File.AppendAllText(fileNameResult, resultRank);
+        }
+
+        static void SearchRankedThemes()
+        {
+            List<string> themes = GetThemes(@"D:\projetos\edoc\CodeRepository\eDoc\CrawlerGUI\DataSearch\Themes\computer_en_us.txt");
+            List<string> tcc_poli = GetThemes(@"D:\projetos\edoc\CodeRepository\eDoc\CrawlerGUI\DataSearch\Themes\UPE_poli_tcc_20132.txt");
+            IEngine eng = FactoryEngine.GetEngine();
+
+            foreach (string theme in themes)
+            {
+                List<DocumentResult> resultList = eng.Search(theme);
+
+                WriteResultsToDisk(resultList, theme);
+            }
+
+            foreach (string theme in tcc_poli)
+            {
+                List<DocumentResult> resultList = eng.Search(theme);
+
+                WriteResultsToDisk(resultList, theme);
+            }
+        }
+
+        private static string RemoveForFileName(string fileName)
+        {
+            string illegal = fileName;
+            string invalid = new string(Path.GetInvalidFileNameChars()) + new string(Path.GetInvalidPathChars());
+
+            foreach (char c in invalid)
+            {
+                illegal = illegal.Replace(c.ToString(), "");
+            }
+
+            return illegal;
+        }
+
+        private static List<string> GetThemes(string file)
+        {
+            var strInstFile = File.ReadAllLines(file);
+            List<string> instList = new List<string>(strInstFile);
+
+            return instList;
         }
 
         static void ShowLogEntrys()

@@ -51,6 +51,16 @@ namespace DocCore
                 }
         }
 
+        public string PathEvaluationLog
+        {
+            get
+            {
+                this.pathFolderRepository = ConfigurationManager.AppSettings["pathEvaluationLog"] as string;
+                return this.pathFolderRepository;
+            }
+        }
+
+
         string pathFolderIndex;
 
         public string PathFolderIndex

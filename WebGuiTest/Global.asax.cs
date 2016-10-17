@@ -43,7 +43,7 @@ namespace WebGuiTest
             entry.LogParameters = new List<string>();
             entry.LogParameters.Add("totalIndexedDocs: " + eng.TotalDocumentQuantity.ToString());
             entry.LogParameters.Add("totalIndexedWords: " + eng.TotalWordQuantity.ToString());
-
+            entry.LogParameters.Add("TypeGUI: WEB");
             repLog.Write(entry);
 
             //memory monitor

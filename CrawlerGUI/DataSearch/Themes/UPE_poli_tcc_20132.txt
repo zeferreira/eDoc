@@ -1,0 +1,8 @@
+LIPNET COM OTIMIZAÇÃO POR ENXAME DE PARTÍCULAS
+Utilização de redes neurais para construção da curva de potência de aerogeradores 
+APLICAÇÃO DA MATRIZ DE FATORAÇÃO NÃO NEGATIVA PARA VISÃO COMPUTACIONAL
+Estudo comparativo de técnicas de redes neurais artificais na previsão da velocidade do vento em curto prazo
+HIBRIDIZAÇÃO DE PROTOCOLOS DE COMUNICAÇÃO PARA COORDENAÇÃO DE ENXAME DE VEÍCULOS AÉREOS NÃO TRIPULADOS
+Métrica para avaliação do valor semântico de um signo entre em sistemas com acoplamento parcial
+Ferramentas e Métodos para validação de ideias utilizando customer development e lean startup
+AVALIANDO ALGORITMOS DE OTIMIZAÇÃO BASEADOS EM COLÔNIA DE FORMIGAS UTILIZANDO MÉTRICAS DE REDES COMPLEXAS

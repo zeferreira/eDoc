@@ -401,3 +401,44 @@ Search         |05/09/2016 08:49:43|0|0|0|0|0|sentence: teste de software#totalD
 Load Engine    |05/09/2016 08:54:08|0|0|0|1|306|totalIndexedDocs: 2#totalIndexedWords: 33971#
 Memory         |05/09/2016 08:54:08|0|0|0|1|306|TotalMemory: 88(MB's)#
 Search         |05/09/2016 08:54:16|0|0|0|0|0|sentence: teste#totalDocFound: 1#
+Load Engine    |15/10/2016 13:18:20|0|0|0|1|618|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |15/10/2016 13:18:20|0|0|0|1|618|TotalMemory: 78(MB's)#
+Search         |15/10/2016 13:20:38|0|0|0|0|0|sentence: information retrieval#totalDocFound: 1#
+Load Engine    |15/10/2016 13:28:48|0|0|0|1|604|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |15/10/2016 13:28:48|0|0|0|1|604|TotalMemory: 77(MB's)#
+Search         |15/10/2016 13:29:01|0|0|0|0|0|sentence: information retrieval#totalDocFound: 1#
+Load Engine    |15/10/2016 13:29:41|0|0|0|1|353|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |15/10/2016 13:29:41|0|0|0|1|353|TotalMemory: 79(MB's)#
+Search         |15/10/2016 13:29:59|0|0|0|0|0|sentence: information retrieval#totalDocFound: 1#
+Load Engine    |15/10/2016 13:42:15|0|0|0|1|305|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |15/10/2016 13:42:15|0|0|0|1|305|TotalMemory: 77(MB's)#
+Load Engine    |15/10/2016 16:28:24|0|0|13|52|916|totalIndexedDocs: 721#totalIndexedWords: 10768345#
+Memory         |15/10/2016 16:28:24|0|0|13|52|916|TotalMemory: 525(MB's)#
+Search         |15/10/2016 16:43:21|0|0|0|0|1|sentence: information retrieval#totalDocFound: 278#
+Search         |15/10/2016 16:46:14|0|0|0|0|0|sentence: anatomy#totalDocFound: 13#
+Load Engine    |15/10/2016 17:08:13|0|0|0|1|304|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |15/10/2016 17:08:13|0|0|0|1|304|TotalMemory: 85(MB's)#
+Search         |15/10/2016 17:08:22|0|0|0|0|0|sentence: antomu#totalDocFound: 0#
+Search         |15/10/2016 17:08:29|0|0|0|0|0|sentence: antomu#totalDocFound: 0#
+Search         |15/10/2016 17:08:29|0|0|0|0|0|sentence: anatomy#totalDocFound: 1#
+Search         |15/10/2016 17:08:49|0|0|0|0|0|sentence: anatomy#totalDocFound: 1#
+Search         |15/10/2016 17:08:49|0|0|0|0|0|sentence: information retrieval#totalDocFound: 1#
+Load Engine    |17/10/2016 13:46:07|0|0|0|1|461|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |17/10/2016 13:46:07|0|0|0|1|461|TotalMemory: 90(MB's)#
+Search         |17/10/2016 13:46:19|0|0|0|0|0|sentence: information retrieval#totalDocFound: 1#
+Load Engine    |17/10/2016 13:52:03|0|0|0|1|309|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |17/10/2016 13:52:03|0|0|0|1|309|TotalMemory: 86(MB's)#
+Search         |17/10/2016 13:52:09|0|0|0|0|0|sentence: information retrieval#totalDocFound: 1#
+Load Engine    |17/10/2016 13:53:39|0|0|0|1|309|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |17/10/2016 13:53:39|0|0|0|1|309|TotalMemory: 89(MB's)#
+Search         |17/10/2016 13:53:49|0|0|0|0|0|sentence: information retrieval#totalDocFound: 1#
+Load Engine    |17/10/2016 13:54:50|0|0|0|1|305|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |17/10/2016 13:54:50|0|0|0|1|305|TotalMemory: 85(MB's)#
+Search         |17/10/2016 13:54:57|0|0|0|0|0|sentence: information retrieval#totalDocFound: 1#
+Load Engine    |17/10/2016 14:00:28|0|0|0|1|308|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |17/10/2016 14:00:28|0|0|0|1|308|TotalMemory: 83(MB's)#
+Load Engine    |17/10/2016 14:02:41|0|0|0|1|436|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |17/10/2016 14:02:41|0|0|0|1|436|TotalMemory: 72(MB's)#
+Load Engine    |17/10/2016 14:05:45|0|0|0|0|914|totalIndexedDocs: 2#totalIndexedWords: 33971#
+Memory         |17/10/2016 14:05:45|0|0|0|0|914|TotalMemory: 71(MB's)#
+Search         |17/10/2016 14:05:46|0|0|0|0|0|sentence: teste#totalDocFound: 1#
