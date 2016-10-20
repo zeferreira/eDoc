@@ -91,26 +91,23 @@ namespace DocCore
 
             List<Word> wordFound = FindWords(parsedQuery);
 
-            List<int> docListIDs = new List<int>();
-
             //merging the list.
             foreach (Word item in wordFound)
             {
-                List<int> tempDocList = InvertedFileManager.Instance.GetWordOccurrencies(item.WordID);
+                List<WordOccurrenceNode> tempDocList = InvertedFileManager.Instance.GetWordOccurrencies(item);
 
-                foreach (int docIDtmp in tempDocList)
+                foreach (WordOccurrenceNode wordOccur in tempDocList)
                 {
-                    if (!resultHash.ContainsKey(docIDtmp))
+                    if (!resultHash.ContainsKey(wordOccur.Doc.DocID))
                     {
-                        DocumentResult newDoc = new DocumentResult(docIDtmp);
-                        newDoc.CalculateRank(item);
+                        DocumentResult newDoc = new DocumentResult(wordOccur.Doc);
+                        newDoc.CalculateRank(wordOccur, parsedQuery);
                         resultHash.Add(newDoc.DocID, newDoc);
                     }
                     else
                     {
-                        DocumentResult newDoc = resultHash[docIDtmp] as DocumentResult;
-                        //newDoc.DocQuantitityResults += firstOcc.Hits.Count;
-                        newDoc.CalculateRank(item);
+                        DocumentResult newDoc = resultHash[wordOccur.Doc.DocID] as DocumentResult;
+                        newDoc.CalculateRank(wordOccur, parsedQuery);
                     }
                 }
             }
@@ -119,7 +116,6 @@ namespace DocCore
             foreach (DictionaryEntry entry in resultHash)
             {
                 DocumentResult doc = entry.Value as DocumentResult;
-                doc.CalculateRank(parsedQuery);
                 resultList.Add(doc);
             }
 
@@ -128,7 +124,5 @@ namespace DocCore
 
             return resultList;
         }
-
-
     }
 }

@@ -50,24 +50,25 @@ namespace DocCore
             this.WordQuantity = docTmp.WordQuantity;
         }
 
-        public void CalculateRank(Query query)
+        public void CalculateRank(WordOccurrenceNode occ, Query query)
         {
-            //this.queryRank += DocQuantitityResults;
-            //to do.
-            if (HasPhrase(query))
+            int countTermQuery = 0;
+            foreach (QueryItem item in query.QueryItens)
             {
-                this.queryRank += 50;
+                if(item.WordID == occ.Word.WordID)
+                {
+                    countTermQuery++;
+                }
             }
-        }
 
-        public void CalculateRank(Word word)
-        {
-            this.queryRank += ((double)lexicon.Quantity) / ((double)word.Quantity);
-        }
+            int countTermDoc = occ.Hits.Count;
 
-        public bool HasPhrase(Query query)
-        {
-            return false;
+            double tf = occ.Frequency;
+            double idf = Math.Log((((double)docIndex.GetQuantity()) + 1) / ((double)occ.Word.QuantityDocFrequency));
+
+            double tf_idf = ((double)countTermQuery) * ((double)countTermDoc) * idf;
+
+            this.queryRank += tf_idf;
         }
     }
 }

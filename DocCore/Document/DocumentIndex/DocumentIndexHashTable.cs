@@ -67,5 +67,9 @@ namespace DocCore
             this.ht.Remove(docID);
         }
 
+        public long GetQuantity()
+        {
+            return this.Quantity;
+        }
     }
 }

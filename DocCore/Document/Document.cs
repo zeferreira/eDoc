@@ -99,7 +99,7 @@ namespace DocCore
                     WordOccurrenceNode newNode = new WordOccurrenceNode();
                     newNode.Word = new Word();
                     newNode.Word.WordID = key;
-                    //newNode.Word.Text = wordTmp;
+                    newNode.Word.Text = wordTmp;
 
                     newNode.Doc = this;
 

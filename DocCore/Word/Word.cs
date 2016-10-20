@@ -10,14 +10,35 @@ namespace DocCore
     public class Word
     {
         public int WordID;
+        //public int WordID
+        //{
+        //    get { return wordID; }
+        //    set { wordID = value; }
+        //}
+
+        private string text;
+        public string Text
+        {
+            get { return text; }
+            set { text = value; }
+        }
 
         private int quant;
-
+        //hits that word have
         public int Quantity
         {
             get { return quant; }
             set { quant = value; }
         }
+
+        private int quantDocFreq;
+        //quantity of documents that have this word
+        public int QuantityDocFrequency
+        {
+            get { return quantDocFreq; }
+            set { quantDocFreq = value; }
+        }
+
 
         public static int GetHashValue(string text)
         {

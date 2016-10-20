@@ -57,7 +57,23 @@ namespace DocCore
                 }
                 return hits; 
             }
-            set { hits = value; }
+            set 
+            { 
+                hits = value;
+                
+            }
+        }
+
+        private int quantityHits;
+
+        public int QuantityHits
+        {
+            get 
+            {
+                this.quantityHits = hits.Count;
+                return quantityHits; 
+            }
+            set { quantityHits = value; }
         }
 
         private WordOccurrenceNode nextOccurrence;

@@ -96,6 +96,7 @@ namespace DocCore
                         {
                             lexicon.AddNewWord(occurrence.Word);
                             occurrence.Word.Quantity = occurrence.Hits.Count;
+                            occurrence.Word.QuantityDocFrequency++;
                             InvertedFileManager.Instance.AddWordOccurrence(occurrence);
                         }
                         else
@@ -103,6 +104,7 @@ namespace DocCore
                             //to do: memory allocation alert!! remove ref!! use newnode.Word.text or something, don't pass WordID as a parameter!! Performance is poor.
                             occurrence.Word = lexicon.GetWord(ref occurrence.Word.WordID);
                             occurrence.Word.Quantity += occurrence.Hits.Count;
+                            occurrence.Word.QuantityDocFrequency++;
                             InvertedFileManager.Instance.AddWordOccurrence(occurrence);
                         }
 

@@ -100,14 +100,13 @@ namespace DocCore
                 if (!resultHash.ContainsKey(firstOcc.Doc.DocID))
                 {
                     DocumentResult newDoc = new DocumentResult(firstOcc.Doc);
-                    newDoc.CalculateRank(item);
+                    newDoc.CalculateRank(firstOcc, parsedQuery);
                     resultHash.Add(newDoc.DocID, newDoc);
                 }
                 else
                 {
                     DocumentResult newDoc = resultHash[firstOcc.Doc.DocID] as DocumentResult;
-                    newDoc.DocQuantitityResults += firstOcc.Hits.Count;
-                    newDoc.CalculateRank(firstOcc.Word);
+                    newDoc.CalculateRank(firstOcc, parsedQuery);
                 }
 
                 WordOccurrenceNode tmp = firstOcc;
@@ -119,14 +118,13 @@ namespace DocCore
                     if (!resultHash.ContainsKey(tmp.Doc.DocID))
                     {
                         DocumentResult newDoc = new DocumentResult(tmp.Doc);
-                        newDoc.CalculateRank(tmp.Word);
+                        newDoc.CalculateRank(tmp, parsedQuery);
                         resultHash.Add(newDoc.DocID, newDoc);
                     }
                     else
                     {
                         DocumentResult newDoc = resultHash[tmp.Doc.DocID] as DocumentResult;
-                        newDoc.DocQuantitityResults += tmp.Hits.Count;
-                        newDoc.CalculateRank(tmp.Word);
+                        newDoc.CalculateRank(tmp, parsedQuery);
                     }
                 }
             }
@@ -135,7 +133,6 @@ namespace DocCore
             foreach (DictionaryEntry entry in resultHash)
             {
                 DocumentResult doc = entry.Value as DocumentResult;
-                doc.CalculateRank(parsedQuery);
                 resultList.Add(doc);
             }
 

@@ -102,6 +102,7 @@ namespace DocCore
                                 occurrence.Word.LastOccurrence = occurrence;
                                 occurrence.Word.Quantity = occurrence.Hits.Count;
                                 lexicon.AddNewWord(occurrence.Word);
+                                occurrence.Word.QuantityDocFrequency++;
                             }
                             else
                             {
@@ -111,7 +112,7 @@ namespace DocCore
                                 occurrence.PreviousOccurrence = occurrence.Word.LastOccurrence;
                                 occurrence.Word.LastOccurrence.NextOccurrence = occurrence;
                                 occurrence.Word.LastOccurrence = occurrence;
-
+                                occurrence.Word.QuantityDocFrequency++;
                                 occurrence.Word.Quantity += occurrence.Hits.Count;
                             }
 
@@ -123,12 +124,13 @@ namespace DocCore
                     GC.ReRegisterForFinalize(iDicE);
                     GC.Collect();
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     Log entry = new Log();
                     entry.TaskDescription = "Read pdf file error";
                     entry.LogParameters = new List<string>();
                     entry.LogParameters.Add("FileName: " + docItem.File);
+                    entry.LogParameters.Add("Error: " + e.Message);
 
                     repLog.Write(entry);
                     

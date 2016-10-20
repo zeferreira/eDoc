@@ -15,6 +15,7 @@ namespace DocCore
     public class InvertedFileManager
     {
         EngineConfiguration conf;
+        IDocumentIndex docIndex;
 
         BinaryReader br;
         BinaryWriter bw;
@@ -24,6 +25,7 @@ namespace DocCore
         private InvertedFileManager()
         {
             this.invertedfileName = string.Empty;
+            this.docIndex = FactoryDocumentIndex.GetDocumentIndex();
         }
 
         public static InvertedFileManager Instance { get { return Nested.Instance; } }
@@ -49,7 +51,12 @@ namespace DocCore
                 bw = new BinaryWriter(new FileStream(invertedfileName, FileMode.Append));
 
                 bw.Write(wordOccur.Doc.DocID);
-                bw.Write(wordOccur.Frequency);
+                bw.Write(wordOccur.QuantityHits);
+
+                foreach (WordHit hit in wordOccur.Hits)
+                {
+                    bw.Write(hit.Position);
+                }
             }
             catch (IOException e)
             {
@@ -62,11 +69,11 @@ namespace DocCore
             }
         }
 
-
-        public List<int> GetWordOccurrencies(int wordID)
+        
+        public List<WordOccurrenceNode> GetWordOccurrencies(Word word)
         {
-            invertedfileName = GetFileName(wordID);
-            List<int> result = new List<int>();
+            invertedfileName = GetFileName(word.WordID);
+            List<WordOccurrenceNode> result = new List<WordOccurrenceNode>();
 
             try
             {
@@ -77,9 +84,23 @@ namespace DocCore
                 for (int i = 0; (i < conf.MaxResultList) && (br.BaseStream.Position < br.BaseStream.Length); i++)
                 {
                     int tempDocumentHashOne = br.ReadInt32();
-                    double frequencyOne = br.ReadDouble(); //add later.
+                    int hitsCount = br.ReadInt32();
 
-                    result.Add(tempDocumentHashOne);
+                    WordOccurrenceNode node = new WordOccurrenceNode();
+
+                    node.Hits = new List<WordHit>();
+
+                    for (int y = 0; y < hitsCount; y++)
+                    {
+                        WordHit hit = new WordHit();
+                        hit.Position = br.ReadInt32();
+                        node.Hits.Add(hit);
+                    }
+
+                    node.Word = word;
+                    node.QuantityHits = hitsCount;
+                    node.Doc = this.docIndex.Search(tempDocumentHashOne);
+                    result.Add(node);
                 }
 
                 return result;
@@ -93,6 +114,7 @@ namespace DocCore
                 br.Close();
             }
         }
+
 
         private string GetFileName(int wordID)
         {

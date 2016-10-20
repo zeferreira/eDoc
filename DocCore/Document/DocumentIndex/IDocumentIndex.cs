@@ -6,6 +6,8 @@ namespace DocCore
 {
     public interface IDocumentIndex
     {
+        long GetQuantity();
+
         void Insert(Document doc);
         Document Search(int docID);
         void Delete(int docID);

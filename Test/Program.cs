@@ -169,8 +169,9 @@ namespace Test
         static void WriteResultsToDisk(List<DocumentResult> list, string query)
         {
             int qtd = 1;
+            string fileName = RemoveForFileName(Useful.RemoveForbbidenSymbols(query));
 
-            string fileNameResult = RemoveForFileName( EngineConfiguration.Instance.PathEvaluationLog + query + ".txt");
+            string fileNameResult = EngineConfiguration.Instance.PathEvaluationLog + fileName + ".txt";
             string resultRank = "#Date" + DateTime.Now.ToString() + "#" + Environment.NewLine;
 
             foreach (DocumentResult item in list)
@@ -208,8 +209,8 @@ namespace Test
             foreach (string theme in tcc_poli)
             {
                 List<DocumentResult> resultList = eng.Search(theme);
-
-                WriteResultsToDisk(resultList, theme);
+                string file = "20132_TCC_POLI_" + theme;
+                WriteResultsToDisk(resultList, file);
             }
         }
 
