@@ -100,7 +100,7 @@ namespace DocCore
                             {
                                 occurrence.Word.FirstOccurrence = occurrence;
                                 occurrence.Word.LastOccurrence = occurrence;
-                                occurrence.Word.Quantity = occurrence.Hits.Count;
+                                occurrence.Word.QuantityHits = occurrence.Hits.Count;
                                 lexicon.AddNewWord(occurrence.Word);
                                 occurrence.Word.QuantityDocFrequency++;
                             }
@@ -113,7 +113,7 @@ namespace DocCore
                                 occurrence.Word.LastOccurrence.NextOccurrence = occurrence;
                                 occurrence.Word.LastOccurrence = occurrence;
                                 occurrence.Word.QuantityDocFrequency++;
-                                occurrence.Word.Quantity += occurrence.Hits.Count;
+                                occurrence.Word.QuantityHits += occurrence.Hits.Count;
                             }
 
                             totalWordQuantity += occurrence.Hits.Count;

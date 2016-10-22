@@ -17,6 +17,9 @@ namespace DocCore
                 case "simple-tf-idf":
                     return RankFunctionSimpleTF_IDF.Instance;
 
+                case "bm25":
+                    return RankFunctionSimpleTF_IDF.Instance;
+
                 default:
                     throw new NotImplementedException(Messages.RankedFunctionNotImplemented);
 

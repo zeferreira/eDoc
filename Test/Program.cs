@@ -65,7 +65,7 @@ namespace Test
             entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
             repLog.Write(entry);
 
-            TestResult(docList);
+            ShowResultsToScreen(docList);
             
             //search 2 words 
             //search one word
@@ -88,7 +88,7 @@ namespace Test
             entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
             repLog.Write(entry);
 
-            TestResult(docList);
+            ShowResultsToScreen(docList);
 
 
             //search word that not exist
@@ -112,7 +112,7 @@ namespace Test
             entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
             repLog.Write(entry);
 
-            TestResult(docList);
+            ShowResultsToScreen(docList);
 
             //memory monitor
             Process currentProc = Process.GetCurrentProcess();
@@ -142,7 +142,7 @@ namespace Test
             Console.ReadLine();
         }
 
-        static void TestResult(List<DocumentResult> list)
+        static void ShowResultsToScreen(List<DocumentResult> list)
         {
             int qtd = 1;
 
@@ -180,7 +180,7 @@ namespace Test
             string fileName = RemoveForFileName(Useful.RemoveForbbidenSymbols(query));
 
             string fileNameResult = EngineConfiguration.Instance.PathEvaluationLog + fileName + ".txt";
-            string resultRank = "#Date" + DateTime.Now.ToString() + "#" + engConf.RankTypeFunction + Environment.NewLine;
+            string resultRank = "#Date: " + DateTime.Now.ToString() + "# " + engConf.RankTypeFunction + Environment.NewLine;
 
             foreach (DocumentResult item in list)
             {
@@ -203,20 +203,71 @@ namespace Test
 
         static void SearchRankedThemes()
         {
+            string smsSearch = "Search".PadRight(15);
+            EngineConfiguration engConf = EngineConfiguration.Instance;
             List<string> themes = GetThemes(@"D:\projetos\edoc\CodeRepository\eDoc\CrawlerGUI\DataSearch\Themes\computer_en_us.txt");
             List<string> tcc_poli = GetThemes(@"D:\projetos\edoc\CodeRepository\eDoc\CrawlerGUI\DataSearch\Themes\UPE_poli_tcc_20132.txt");
             IEngine eng = FactoryEngine.GetEngine();
 
             foreach (string theme in themes)
             {
-                List<DocumentResult> resultList = eng.Search(theme);
+                List<DocumentResult> resultList;
+                IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
+
+                Console.WriteLine("||||| Ranked Theme  ||||| ( {0} )" + Environment.NewLine, theme);
+                
+                DateTime start;
+                TimeSpan timeDif;
+                Stopwatch sw;
+
+                start = DateTime.Now;
+                sw = Stopwatch.StartNew();
+                resultList = eng.Search(theme);
+                sw.Stop();
+                timeDif = sw.Elapsed;
+
+                Log entry = new Log();
+                entry.TaskDescription = smsSearch;
+                entry.StartDateTime = start;
+                entry.ExecutionTime = timeDif;
+                entry.LogParameters = new List<string>();
+                entry.LogParameters.Add("sentence: " + theme);
+                entry.LogParameters.Add("totalDocFound: " + resultList.Count.ToString());
+                entry.LogParameters.Add("totalDocIndexed: " + eng.TotalDocumentQuantity.ToString());
+                entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
+                repLog.Write(entry);
 
                 WriteResultsToDisk(resultList, theme);
             }
 
             foreach (string theme in tcc_poli)
             {
-                List<DocumentResult> resultList = eng.Search(theme);
+                List<DocumentResult> resultList;
+                IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
+
+                Console.WriteLine("||||| Ranked Query Poli ||||| ( {0} )" + Environment.NewLine, theme);
+
+                DateTime start;
+                TimeSpan timeDif;
+                Stopwatch sw;
+
+                start = DateTime.Now;
+                sw = Stopwatch.StartNew();
+                resultList = eng.Search(theme);
+                sw.Stop();
+                timeDif = sw.Elapsed;
+
+                Log entry = new Log();
+                entry.TaskDescription = smsSearch;
+                entry.StartDateTime = start;
+                entry.ExecutionTime = timeDif;
+                entry.LogParameters = new List<string>();
+                entry.LogParameters.Add("sentence: " + theme);
+                entry.LogParameters.Add("totalDocFound: " + resultList.Count.ToString());
+                entry.LogParameters.Add("totalDocIndexed: " + eng.TotalDocumentQuantity.ToString());
+                entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
+                repLog.Write(entry);
+
                 string file = "20132_TCC_POLI_" + theme;
                 WriteResultsToDisk(resultList, file);
             }
@@ -254,7 +305,6 @@ namespace Test
                 Console.WriteLine(item.ToString());
             }
         }
-
 
     }
 }

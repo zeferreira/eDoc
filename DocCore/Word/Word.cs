@@ -24,15 +24,20 @@ namespace DocCore
         }
 
         private int quant;
-        //hits that word have
-        public int Quantity
+        
+        /// <summary>
+        /// Total of hits of that word 
+        /// </summary>
+        public int QuantityHits
         {
             get { return quant; }
             set { quant = value; }
         }
 
         private int quantDocFreq;
-        //quantity of documents that have this word
+        /// <summary>
+        /// Quantity of documents that have this word in the collection
+        /// </summary>
         public int QuantityDocFrequency
         {
             get { return quantDocFreq; }
