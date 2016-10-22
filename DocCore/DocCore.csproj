@@ -84,6 +84,9 @@
     <Compile Include="Query\RepositoryQuery\RepositoryQueryTXT.cs" />
     <Compile Include="Query\Query.cs" />
     <Compile Include="Query\QueryParser.cs" />
+    <Compile Include="Rank\FactoryRankFunction.cs" />
+    <Compile Include="Rank\IRankFunction.cs" />
+    <Compile Include="Rank\RankFunctionSimpleTF_IDF.cs" />
     <Compile Include="Useful\Useful.cs" />
     <Compile Include="Word\Lexicon\FactoryLexicon.cs" />
     <Compile Include="Word\Lexicon\InvertedFileManager.cs" />

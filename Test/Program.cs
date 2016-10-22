@@ -12,6 +12,7 @@ namespace Test
         static void Main(string[] args)
         {
             IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
+            EngineConfiguration engConf = EngineConfiguration.Instance;
 
             IEngine eng = FactoryEngine.GetEngine();
             DateTime start;
@@ -41,6 +42,7 @@ namespace Test
             entry.LogParameters.Add("totalIndexedDocs: " + eng.TotalDocumentQuantity.ToString());
             entry.LogParameters.Add("totalIndexedWords: " + eng.TotalWordQuantity.ToString());
             entry.LogParameters.Add("TypeGUI: CONSOLE");
+            entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
 
             repLog.Write(entry);
             Console.WriteLine("I'm running some basic tests");
@@ -60,6 +62,7 @@ namespace Test
             entry.LogParameters = new List<string>();
             entry.LogParameters.Add("sentence: " + parameters);
             entry.LogParameters.Add("totalDocFound: " + docList.Count.ToString());
+            entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
             repLog.Write(entry);
 
             TestResult(docList);
@@ -82,6 +85,7 @@ namespace Test
             entry.LogParameters = new List<string>();
             entry.LogParameters.Add("sentence: " + parameters);
             entry.LogParameters.Add("totalDocFound: " + docList.Count.ToString());
+            entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
             repLog.Write(entry);
 
             TestResult(docList);
@@ -105,6 +109,7 @@ namespace Test
             entry.LogParameters.Add("sentence: " + parameters);
             entry.LogParameters.Add("totalDocFound: " + docList.Count.ToString());
             entry.LogParameters.Add("totalDocIndexed: " + eng.TotalDocumentQuantity.ToString());
+            entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
             repLog.Write(entry);
 
             TestResult(docList);
@@ -120,6 +125,7 @@ namespace Test
             entry.ExecutionTime = timeDif;
             entry.LogParameters = new List<string>();
             entry.LogParameters.Add("TotalMemory: " + Useful.GetFormatedSizeString(memoryUsed));
+            entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
             repLog.Write(entry);
             #endregion
             Console.WriteLine("=============================================================================");
@@ -168,11 +174,13 @@ namespace Test
         /// <param name="query">Query que foi retornada</param>
         static void WriteResultsToDisk(List<DocumentResult> list, string query)
         {
+            EngineConfiguration engConf = EngineConfiguration.Instance;
+
             int qtd = 1;
             string fileName = RemoveForFileName(Useful.RemoveForbbidenSymbols(query));
 
             string fileNameResult = EngineConfiguration.Instance.PathEvaluationLog + fileName + ".txt";
-            string resultRank = "#Date" + DateTime.Now.ToString() + "#" + Environment.NewLine;
+            string resultRank = "#Date" + DateTime.Now.ToString() + "#" + engConf.RankTypeFunction + Environment.NewLine;
 
             foreach (DocumentResult item in list)
             {

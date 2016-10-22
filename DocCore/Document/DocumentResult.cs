@@ -52,23 +52,10 @@ namespace DocCore
 
         public void CalculateRank(WordOccurrenceNode occ, Query query)
         {
-            int countTermQuery = 0;
-            foreach (QueryItem item in query.QueryItens)
-            {
-                if(item.WordID == occ.Word.WordID)
-                {
-                    countTermQuery++;
-                }
-            }
+            IRankFunction rankFunc = FactoryRankFunction.GetRankFunction();
 
-            int countTermDoc = occ.Hits.Count;
-
-            double tf = occ.Frequency;
-            double idf = Math.Log((((double)docIndex.GetQuantity()) + 1) / ((double)occ.Word.QuantityDocFrequency));
-
-            double tf_idf = ((double)countTermQuery) * ((double)countTermDoc) * idf;
-
-            this.queryRank += tf_idf;
+            long docQuant = docIndex.GetQuantity();
+            this.queryRank += rankFunc.CalcRankFactor(occ, query,docQuant );
         }
     }
 }

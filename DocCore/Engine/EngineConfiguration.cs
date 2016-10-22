@@ -171,5 +171,16 @@ namespace DocCore
             }
         }
 
+        
+        private string rankTypeFunction;
+        public string RankTypeFunction
+        {
+            get
+            {
+                this.rankTypeFunction = ConfigurationManager.AppSettings["rankTypeFunction"] as string;
+                return rankTypeFunction.ToLower();
+            }
+        }
+                
     }
 }
