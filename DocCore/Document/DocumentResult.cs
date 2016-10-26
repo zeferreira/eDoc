@@ -55,7 +55,7 @@ namespace DocCore
             IRankFunction rankFunc = FactoryRankFunction.GetRankFunction();
 
             long docQuant = docIndex.GetQuantity();
-            this.queryRank += rankFunc.CalcRankFactor(occ, query,docQuant );
+            this.queryRank += rankFunc.CalcRankFactor(occ, query);
         }
     }
 }

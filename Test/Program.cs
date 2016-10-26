@@ -4,6 +4,7 @@ using System.Text;
 using DocCore;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 
 namespace Test
 {
@@ -175,12 +176,19 @@ namespace Test
         static void WriteResultsToDisk(List<DocumentResult> list, string query)
         {
             EngineConfiguration engConf = EngineConfiguration.Instance;
+            IDocumentIndex docIndex = FactoryDocumentIndex.GetDocumentIndex();
 
             int qtd = 1;
             string fileName = RemoveForFileName(Useful.RemoveForbbidenSymbols(query));
 
             string fileNameResult = EngineConfiguration.Instance.PathEvaluationLog + fileName + ".txt";
-            string resultRank = "#Date: " + DateTime.Now.ToString() + "# " + engConf.RankTypeFunction + Environment.NewLine;
+            string resultRank = "#Date: " + DateTime.Now.ToString() + "# " + engConf.RankTypeFunction
+                + "# BNormalizationfactor:" + engConf.BNormalizationfactor
+                + "# SNormalizationfactor:" + engConf.SNormalizationfactor
+                + "# BM25OkapiK1factor:" + engConf.BM25OkapiK1factor
+                + "# BM25OkapiK3factor:" + engConf.BM25OkapiK3factor
+                + "# avdl:" + docIndex.GetAverageDocumentLenght()
+                + Environment.NewLine;
 
             foreach (DocumentResult item in list)
             {
@@ -209,36 +217,36 @@ namespace Test
             List<string> tcc_poli = GetThemes(@"D:\projetos\edoc\CodeRepository\eDoc\CrawlerGUI\DataSearch\Themes\UPE_poli_tcc_20132.txt");
             IEngine eng = FactoryEngine.GetEngine();
 
-            foreach (string theme in themes)
-            {
-                List<DocumentResult> resultList;
-                IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
+            //foreach (string theme in themes)
+            //{
+            //    List<DocumentResult> resultList;
+            //    IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
 
-                Console.WriteLine("||||| Ranked Theme  ||||| ( {0} )" + Environment.NewLine, theme);
+            //    Console.WriteLine("||||| Ranked Theme  ||||| ( {0} )" + Environment.NewLine, theme);
                 
-                DateTime start;
-                TimeSpan timeDif;
-                Stopwatch sw;
+            //    DateTime start;
+            //    TimeSpan timeDif;
+            //    Stopwatch sw;
 
-                start = DateTime.Now;
-                sw = Stopwatch.StartNew();
-                resultList = eng.Search(theme);
-                sw.Stop();
-                timeDif = sw.Elapsed;
+            //    start = DateTime.Now;
+            //    sw = Stopwatch.StartNew();
+            //    resultList = eng.Search(theme);
+            //    sw.Stop();
+            //    timeDif = sw.Elapsed;
 
-                Log entry = new Log();
-                entry.TaskDescription = smsSearch;
-                entry.StartDateTime = start;
-                entry.ExecutionTime = timeDif;
-                entry.LogParameters = new List<string>();
-                entry.LogParameters.Add("sentence: " + theme);
-                entry.LogParameters.Add("totalDocFound: " + resultList.Count.ToString());
-                entry.LogParameters.Add("totalDocIndexed: " + eng.TotalDocumentQuantity.ToString());
-                entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
-                repLog.Write(entry);
+            //    Log entry = new Log();
+            //    entry.TaskDescription = smsSearch;
+            //    entry.StartDateTime = start;
+            //    entry.ExecutionTime = timeDif;
+            //    entry.LogParameters = new List<string>();
+            //    entry.LogParameters.Add("sentence: " + theme);
+            //    entry.LogParameters.Add("totalDocFound: " + resultList.Count.ToString());
+            //    entry.LogParameters.Add("totalDocIndexed: " + eng.TotalDocumentQuantity.ToString());
+            //    entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
+            //    repLog.Write(entry);
 
-                WriteResultsToDisk(resultList, theme);
-            }
+            //    WriteResultsToDisk(resultList, theme);
+            //}
 
             foreach (string theme in tcc_poli)
             {
@@ -288,7 +296,7 @@ namespace Test
 
         private static List<string> GetThemes(string file)
         {
-            var strInstFile = File.ReadAllLines(file);
+            var strInstFile = File.ReadAllLines(file, Encoding.GetEncoding("iso-8859-1"));
             List<string> instList = new List<string>(strInstFile);
 
             return instList;

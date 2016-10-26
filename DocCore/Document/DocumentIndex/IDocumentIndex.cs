@@ -7,7 +7,7 @@ namespace DocCore
     public interface IDocumentIndex
     {
         long GetQuantity();
-
+        double GetAverageDocumentLenght();
         void Insert(Document doc);
         Document Search(int docID);
         void Delete(int docID);

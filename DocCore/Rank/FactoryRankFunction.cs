@@ -20,6 +20,12 @@ namespace DocCore
                 case "bm25":
                     return RankFunctionSimpleTF_IDF.Instance;
 
+                case "bm25_okapi":
+                    return RankFunctionBM25_Okapi.Instance;
+
+                case "pivoted_len_norm_vsm":
+                    return RankFunctionPivotedLengthNormVSM.Instance;
+
                 default:
                     throw new NotImplementedException(Messages.RankedFunctionNotImplemented);
 

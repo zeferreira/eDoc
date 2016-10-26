@@ -34,6 +34,7 @@ namespace DocCore
                 //validateUrl(url);              
                 request.Method = "Get";
                 response = (HttpWebResponse)request.GetResponse();
+                
                 // Display the status.  
                 //Console.WriteLine(response.StatusDescription);
                 // Get the stream containing content returned by the server.  

@@ -4,10 +4,18 @@ using System.Text;
 
 namespace DocCore
 {
+    /// <summary>
+    /// Class with default BM25 TF transformation (without document lenght normalization)
+    /// </summary>
     public class RankFunctionBM25 : IRankFunction
     {
+        private EngineConfiguration engConf;
+        private IDocumentIndex docIndex;
+
         private static RankFunctionBM25 instance = null;
         private static readonly object padlock = new object();
+
+        private long totalDocQuantity;
 
         public static RankFunctionBM25 Instance
         {
@@ -25,9 +33,13 @@ namespace DocCore
         }
 
         RankFunctionBM25()
-        { }
+        {
+            this.engConf = EngineConfiguration.Instance;
+            this.docIndex = FactoryDocumentIndex.GetDocumentIndex();
+            this.totalDocQuantity = docIndex.GetQuantity();
+        }
 
-        public double CalcRankFactor(WordOccurrenceNode occ, Query query, long totalDocQuantity)
+        public double CalcRankFactor(WordOccurrenceNode occ, Query query)
         {
             double queryRank = 0.0;
 

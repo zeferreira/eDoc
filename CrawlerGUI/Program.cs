@@ -69,9 +69,9 @@ namespace CrawlerGUI
                     {
                         cr.DownloadFile(item);
                     }
-                    catch (Exception)
+                    catch (Exception e)
                     {
-                        Console.WriteLine("Falha ao tentar baixar: " + item);
+                        Console.WriteLine("Falha ao tentar baixar: " + item + "( Erro:" + e.Message + ")");
                         //throw;
                     }
 

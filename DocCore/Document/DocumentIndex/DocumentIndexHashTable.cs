@@ -14,19 +14,8 @@ namespace DocCore
             get { return ht.Count; }
         }
 
-        private int maxDocSize;
-        private int minDocSize;
-        private float averageDocSize;
-
-        /// <summary>
-        /// Used to document normalization
-        /// </summary>
-        public float AverageDocSize
-        {
-            get { return averageDocSize; }
-            set { averageDocSize = value; }
-        }
-
+        private long totalLenghtAccumulator;
+        private double averageDocLenght;
 
 
         private static DocumentIndexHashTable instance = null;
@@ -55,6 +44,7 @@ namespace DocCore
         public void Insert(Document doc)
         {
             this.ht[doc.DocID] = doc;
+            this.totalLenghtAccumulator += doc.WordQuantity;
         }
 
         public Document Search(int docID)
@@ -71,5 +61,17 @@ namespace DocCore
         {
             return this.Quantity;
         }
+
+        /// <summary>
+        /// Used to document normalization
+        /// </summary>
+        public double GetAverageDocumentLenght()
+        {
+            this.averageDocLenght = this.totalLenghtAccumulator / this.GetQuantity();
+
+            return averageDocLenght;
+        }
+
+
     }
 }

@@ -40,6 +40,17 @@ namespace DocCore
             }
         }
 
+        private string url;
+
+        public string Url
+        {
+            get { return url; }
+            set
+            {
+                url = value;
+            }
+        }
+
         private int wordQuantity;
 
         public int WordQuantity

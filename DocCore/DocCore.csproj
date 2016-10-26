@@ -86,6 +86,8 @@
     <Compile Include="Query\QueryParser.cs" />
     <Compile Include="Rank\FactoryRankFunction.cs" />
     <Compile Include="Rank\IRankFunction.cs" />
+    <Compile Include="Rank\RankFunctionPivotedLengthNormVSM.cs" />
+    <Compile Include="Rank\RankFunctionBM25_Okapi.cs" />
     <Compile Include="Rank\RankFunctionBM25.cs" />
     <Compile Include="Rank\RankFunctionSimpleTF_IDF.cs" />
     <Compile Include="Useful\Useful.cs" />

@@ -3,6 +3,6 @@ namespace DocCore
 {
     public interface IRankFunction
     {
-        double CalcRankFactor(WordOccurrenceNode occ, Query query, long totalDocQuantity);
+        double CalcRankFactor(WordOccurrenceNode occ, Query query);
     }
 }

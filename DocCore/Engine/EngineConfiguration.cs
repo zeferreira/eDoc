@@ -181,6 +181,46 @@ namespace DocCore
                 return rankTypeFunction.ToLower();
             }
         }
-                
+
+        private string bNormalizationfactor;
+        public double BNormalizationfactor
+        {
+            get
+            {
+                this.bNormalizationfactor = ConfigurationManager.AppSettings["bNormalizationfactor"] as string;
+                return Convert.ToDouble(bNormalizationfactor.ToLower());
+            }
+        }
+
+        private string bm25OkapiK1factor;
+        public double BM25OkapiK1factor
+        {
+            get
+            {
+                this.bm25OkapiK1factor = ConfigurationManager.AppSettings["bm25OkapiK1factor"] as string;
+                return Convert.ToDouble(bm25OkapiK1factor.ToLower());
+            }
+        }
+
+
+        private string bm25OkapiK3factor;
+        public double BM25OkapiK3factor
+        {
+            get
+            {
+                this.bm25OkapiK3factor = ConfigurationManager.AppSettings["bm25OkapiK3factor"] as string;
+                return Convert.ToDouble(bm25OkapiK3factor.ToLower());
+            }
+        }
+
+        private string sNormalizationfactor;
+        public double SNormalizationfactor
+        {
+            get
+            {
+                this.sNormalizationfactor = ConfigurationManager.AppSettings["sNormalizationfactor"] as string;
+                return Convert.ToDouble(sNormalizationfactor.ToLower());
+            }
+        }
     }
 }
