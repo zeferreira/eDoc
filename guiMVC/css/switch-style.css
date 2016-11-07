@@ -1,0 +1,105 @@
+.switch-style {
+    background: #ffffff;
+    -webkit-backface-visibility: hidden;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.1);
+    -webkit-box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow: 0 10px 50px 0 rgba(0, 0, 0, 0.1);
+    padding: 20px 18px;
+    position: fixed;
+    z-index: 9999;
+    top: 150px;
+    left: -202px;
+    width: 202px;
+    -webkit-transition: left 0.3s ease-in-out;
+    -moz-transition: left 0.3s ease-in-out;
+    -o-transition: left 0.3s ease-in-out;
+    transition: left 0.3s ease-in-out;
+}
+
+.switch-style.active {
+    left: 0;
+}
+
+.switch-style .switch-style-toggle {
+    background: #ffffff;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    position: absolute;
+    top: 30px;
+    left: 202px;
+    width: 40px;
+    height: 40px;
+}
+
+.switch-style .switch-style-toggle:hover {
+    cursor: pointer;
+}
+
+.switch-style .switch-style-toggle i {
+    font-size: 20px;
+    line-height: 40px;
+}
+
+.switch-style h4 {
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 8px;
+}
+
+.switch-style ul {
+    margin-left: 0;
+}
+
+.switch-style ul > li {
+    padding-right: 8px;
+    padding-left: 0;
+}
+
+.switch-style ul > li:last-child {
+    padding-right: 0;
+}
+
+.switch-style ul > li > a {
+    border-radius: 2px;
+    display: block;
+    width: 35px;
+    height: 30px;
+}
+
+.switch-style ul > li > a.blue {
+    background: #026cff;
+}
+
+.switch-style ul > li > a.blue2 {
+    background: #21b7b6;
+}
+
+.switch-style ul > li > a.green {
+    background: #00c775;
+}
+
+.switch-style ul > li > a.green2 {
+    background: #3c948b;
+}
+
+.switch-style ul > li > a.orange {
+    background: #f36b30;
+}
+
+.switch-style ul > li > a.orange2 {
+    background: #df6c4f;
+}
+
+.switch-style ul > li > a.pink {
+    background: #ef305a;
+}
+
+.switch-style ul > li > a.pink2 {
+    background: #ff334f;
+}
+
+.switch-style p {
+    margin-top: 6px;
+}

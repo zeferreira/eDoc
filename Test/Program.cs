@@ -5,6 +5,7 @@ using DocCore;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using System.Globalization;
 
 namespace Test
 {
@@ -135,11 +136,22 @@ namespace Test
             Console.WriteLine("I'm running ranked queries for tests");
             Console.WriteLine("Wait ...");
             
-            SearchRankedThemes();
+            //SearchRankedThemes();
             Console.WriteLine(startTest.ToString() + " I have done.");
             Console.WriteLine("=============================================================================");
             Console.WriteLine("Start: " + startTest.ToString() + " I have done. (" + DateTime.Now.ToString() + ")");
             #endregion
+
+            #region cultureTest
+            CultureInfo ci = Thread.CurrentThread.CurrentCulture;
+            CultureInfo cui = Thread.CurrentThread.CurrentUICulture;
+
+            Console.WriteLine(ci.DisplayName);
+            Console.WriteLine(cui.DisplayName);
+
+            #endregion 
+
+
             Console.ReadLine();
         }
 

@@ -44,8 +44,6 @@ namespace WebGuiTest
 
         void Search(string query)
         {
-            //Response.Clear();
-
             IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
 
             IEngine eng = FactoryEngine.GetEngine();
@@ -61,21 +59,13 @@ namespace WebGuiTest
             sw.Stop();
             timeDif = sw.Elapsed;
 
-            string parameters = query;
-
-            start = DateTime.Now;
-            sw = Stopwatch.StartNew();
-            List<DocumentResult> docList = eng.Search(parameters);
-            sw.Stop();
-            timeDif = sw.Elapsed;
-
             Log entry = new Log();
             entry.TaskDescription = smsSearch;
             entry.StartDateTime = start;
             entry.ExecutionTime = timeDif;
             entry.LogParameters = new List<string>();
-            entry.LogParameters.Add("sentence: " + parameters);
-            entry.LogParameters.Add("totalDocFound: " + docList.Count.ToString());
+            entry.LogParameters.Add("sentence: " + query);
+            entry.LogParameters.Add("totalDocFound: " + result.Count.ToString());
             repLog.Write(entry);
 
             TestResult(result);

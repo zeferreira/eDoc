@@ -1,0 +1,279 @@
+/*------------------------------------*\
+    Reset
+\*------------------------------------*/
+
+/**
+* Text color
+*/
+
+.text-color {
+  color: #00c775 !important;
+}
+
+
+/**
+* Text highlight
+*/
+
+.text-highlight {
+  background-color: #00c775;
+}
+
+
+/**
+* Title underline
+*/
+
+.title-underline {
+  border-bottom: 4px solid #00c775;
+}
+
+
+/**
+* Background color
+*/
+
+.background-color {
+  background-color: #00c775 !important;
+}
+
+
+
+
+
+/*------------------------------------*\
+    Navigation
+\*------------------------------------*/
+
+#navigation .navbar-nav > li > a:after {
+  background-color: #00c775;
+}
+
+
+
+
+
+/*------------------------------------*\
+    Header
+\*------------------------------------*/
+
+.header .logo {
+  background-color: #00c775;
+}
+
+
+
+
+
+/*------------------------------------*\
+    Preloader
+\*------------------------------------*/
+
+#jpreBar {
+  background-color: #00c775;
+}
+
+
+
+
+
+/*------------------------------------*\
+    Section - Hero
+\*------------------------------------*/
+
+/**
+* Hero Text Rotator
+*/
+
+.text-rotator > .text-rotator-item > .item > span {
+  border-left: 3px solid #00c775;
+}
+@media (max-width: 479px) {
+  .text-rotator > .text-rotator-item > .item > span {
+    border-left: 2px solid #00c775;
+  }
+}
+.text-rotator > .rotator-pagination > .page.active {
+  background-color: #00c775;
+}
+.text-rotator > .rotator-page-number > .number > .total-items {
+  color: #00c775;
+}
+.text-rotator > .rotator-progress-bar:before {
+  background-color: #00c775;
+}
+.text-rotator > .rotator-progress-bar > .rotator-bar {
+  background-color: #00c775;
+}
+
+
+
+
+
+/*------------------------------------*\
+    Section - Profile
+\*------------------------------------*/
+
+.profile .profile-description .circle {
+  background-color: #00c775;
+}
+.profile-chart .item:nth-child(1) > span.percent:before {
+  background-color: #00c775;
+}
+
+
+/**
+* Profile - Gauge chart
+*/
+
+.gauge-chart-graph .ct-series-a .ct-slice-donut {
+  stroke: #00c775;
+}
+
+
+
+
+
+/*------------------------------------*\
+    Section - Projects
+\*------------------------------------*/
+
+@media (min-width: 992px) {
+  .projects > .item .hover-bg {
+    background-color: #00c775;
+  }
+}
+.projects > .item .has-sideline:before {
+  background-color: #00c775;
+}
+
+
+/**
+* Project nav
+*/
+
+.project-nav ul > li.active > a:before {
+  background-color: #00c775;
+}
+
+
+/**
+* Project preview
+*/
+
+.mfp-triggerBtn:before {
+  background-color: #00c775;
+}
+.mfp-projectTitleWrap:before {
+  background-color: #00c775;
+}
+.mfp-projectLink:hover:before {
+  background-color: #00c775;
+}
+.mfp-triggerClose {
+  background-color: #00c775;
+}
+button.mfp-arrow:before {
+  background-color: #00c775;
+}
+.mfp-preloader {
+  background-color: #00c775;
+}
+
+
+
+
+
+/*------------------------------------*\
+    Section - Studio
+\*------------------------------------*/
+
+.gallery-carousel .gallery-cell .cell-number {
+  background-color: #00c775;
+}
+
+
+
+
+
+/*------------------------------------*\
+    Section - Stats
+\*------------------------------------*/
+
+.area-chart-wrapper ul > li:nth-child(2) > span:before {
+  background-color: #00c775;
+}
+.area-chart-wrapper ul > li > span:before {
+  background-color: #00c775;
+}
+.area-chart-graph .ct-series-b .ct-area {
+  fill: #00c775;
+}
+
+
+
+
+
+/*------------------------------------*\
+    Footer
+\*------------------------------------*/
+
+.footer ul > li a:before {
+  background-color: #00c775;
+}
+
+#wrap {
+          display: inherit;
+          position: relative;
+          box-sizing: border-box;
+          align-content: center;
+          vertical-align:central;
+          padding: 3% 3%;
+        }
+                
+        input[type="text"] {
+            background: #fff;
+            display: inline-block;
+            border: 2px solid #00c775;
+	        font-size: 18px;
+            position:relative;
+            width: 80%;
+            box-sizing: border-box;
+            
+        }
+
+        input[type="submit"] {
+              display: inline-block;
+              
+              background: #00c775;
+              border: 2px solid #00c775;
+              
+              width:100px;
+              position:relative;
+              cursor: pointer;
+              
+              color:#fff;
+              font-size: 18px;
+            }
+
+         .result_doc_content 
+         {
+          background-color: #ffffff;
+          border: solid 1px none;
+          padding: 2% 2% 2% 2%; 
+          margin: 1% 1% 1% 1%;
+          display: inline-block;
+          position: relative;
+          
+          width:100%;
+        }
+
+        .result_author_cit_details {
+            color: gray;
+            font-weight:bold;
+        }
+
+        .nav_nex_page {
+           text-align: center;
+           
+        }

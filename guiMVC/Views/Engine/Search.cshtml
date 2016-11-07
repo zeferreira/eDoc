@@ -1,0 +1,70 @@
+﻿@model guiMVC.Models.ResultSearchModel
+
+@{
+    ViewBag.Title = "Asktume?";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="results" class="section background-gray-light no-padding-bottom">
+    <div class="section-content">
+        <div class="container">
+                <div id="wrap" >
+                    <form action="" autocomplete="on">
+                        <input id="search" name="q" type="text" placeholder="What're we looking for ?" value="@Model.query">
+                        <input id="search_submit" value="Search" type="submit">
+                    </form>
+                </div>
+            
+
+            @*<div class="result_title section-title display-inline-block font-family-alt text-extra-large">
+                Procurando por: @Html.DisplayFor(modelItem => Model.query)</a>
+            </div>*@
+
+            @*@foreach (DocCore.DocumentResult item in Model.results)*@
+            @for (int i = Model.start; (i < (int)ViewData["offSet"]) && (i < (Model.results.Count)) && (Model.results.Count > 0); i++)
+            {
+                <div class="result_doc_content ">
+                    <div class="result_title title-underline section-title display-inline-block font-family-alt text-extra-large">
+                        @*<a href="#" target="_blank">@Html.DisplayFor(modelItem => Model.results[i].Title)</a>*@
+                        <span id="title_doc_spam">@Html.DisplayFor(modelItem => Model.results[i].Title)</span>
+                    </div>
+                    <div class="result_url_details">
+                        <a href="@Html.DisplayFor(modelItem => Model.results[i].Url)" target="_blank">Go to the paper ...</a>
+                    </div>
+                    <div class="result_author_cit_details">
+                        @*<a href="#" target="_blank"> Jose F.</a>
+                        <a href="#" target="_blank"> - Citations: 55</a>
+                        <a href="#" target="_blank"> - Year: 2016</a>*@
+                    </div>
+                    <div class="result_description">
+                        @Html.DisplayFor(modelItem => Model.results[i].QueryRank)
+                        @*@Html.DisplayFor(modelItem => Model.results[i].Description).ToString().Substring(0, 268)...*@
+                    </div>
+                </div>
+            }
+
+            @if ((@Model.results.Count > 0) && (Model.results.Count > (int)ViewData["offSet"]))
+            { 
+            <div class="navPanel" id="contentNavPanel">
+                <div class="result_doc_content ">
+                    <div class="section-title display-inline-block font-family-alt text-extra-large nav_nex_page">
+                        <a href="/engine/search?q=@(HttpUtility.UrlEncode(Model.query))&startPaging=@(Model.start += (int)ViewData["resultPageSize"])" target="_self">More results > </a>
+                    </div>
+                </div>
+            </div>
+            }
+            
+            @if(Model.results.Count == 0)
+            {
+                <div class="navPanel" id="contentNavPanel">
+                    <div class="result_doc_content ">
+                        <div class="section-title display-inline-block font-family-alt text-extra-large nav_nex_page">
+                            No results found O.o...
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+

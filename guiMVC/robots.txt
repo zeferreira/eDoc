@@ -1,0 +1,4 @@
+ser-agent: *
+Allow: /engine/about
+Allow: /engine/search
+Disallow: /

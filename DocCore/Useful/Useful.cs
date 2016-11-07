@@ -101,6 +101,5 @@ namespace DocCore
                 return bytesSize.ToString() + "(B's)";
             }
         }
-
     }
 }

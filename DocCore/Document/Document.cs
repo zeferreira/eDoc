@@ -51,6 +51,17 @@ namespace DocCore
             }
         }
 
+        private string description;
+
+        public string Description
+        {
+            get { return description; }
+            set
+            {
+                description = value;
+            }
+        }
+
         private int wordQuantity;
 
         public int WordQuantity
