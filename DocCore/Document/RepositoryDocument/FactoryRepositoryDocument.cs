@@ -6,21 +6,21 @@ namespace DocCore
 {
     public class FactoryRepositoryDocument
     {
-        public static IRepositoryDocument GetRepositoryDocument(EnumRepositoryType type)
+        public static IRepositoryDocument GetRepositoryDocument()
         {
             string path = (EngineConfiguration.Instance).PathFolderRepository;
+            string type = (EngineConfiguration.Instance).RepositoryDocumentType;
 
             switch (type)
             {
-                case EnumRepositoryType.Folder:
+                case "folder":
                     return new RepositoryDocumentFolder(path);
                     
-                case EnumRepositoryType.SQL:
-                    throw new NotImplementedException();
+                case "btree":
+                    return RepositoryDocumentBplusTree.Instance;
                     
                 default:
                     throw new NotImplementedException(Messages.RepositoryDocumentNotImplemented);
-                    
             }
         }
 

@@ -4,6 +4,11 @@ using System.Text;
 using DocCore;
 using System.IO;
 using System.Configuration;
+using System.Diagnostics;
+using CrawlerCore;
+using System.Threading;
+using System.Collections;
+
 
 namespace CrawlerGUI
 {
@@ -11,75 +16,50 @@ namespace CrawlerGUI
     {
         static void Main(string[] args)
         {
-            int niveis = 1;
-            List<string> inst = GetInstitutions(@"D:\projetos\edoc\CodeRepository\eDoc\CrawlerGUI\DataSearch\Inst\brasil.txt");
-            List<string> themes = GetThemes(@"D:\projetos\edoc\CodeRepository\eDoc\CrawlerGUI\DataSearch\Themes\computer_pt_br.txt");
+            ////spider = create candidates 
+            string strUrl = @"http://tcc.ecomp.poli.br/";
+            //string strUrl = @"http://singhal.info/home";
 
-            foreach (string theme in themes)
+            Spider sp = new Spider(strUrl);
+
+            sp.GetCandidates(strUrl);
+
+            PrintList(sp.docCandidates);
+
+            string strFolder = @"G:\CrawlerTest\";
+
+            Crawler c = new Crawler(strFolder);
+            URLFrontier urlServer = new URLFrontier();
+
+            foreach (DocumentCandidate item in sp.docCandidates)
             {
-                foreach (string instAtual in inst)
-                {
-                    string tema = Uri.EscapeUriString(theme);
-                    string instituicao = Uri.EscapeUriString(instAtual);
-
-                    BaixarTema(niveis, tema, instituicao);
-                }
+                urlServer.SubmitDocumentCandidate(item.Url);
             }
 
-            Console.WriteLine("Fim");
+            c.Start();
+
+            IRepositoryDocument repDoc = FactoryRepositoryDocument.GetRepositoryDocument();
+
+            List<Document> list = repDoc.List();
+
+            foreach (Document item in list)
+            {
+                Console.WriteLine("Url: " + item.Url);
+                Console.WriteLine("WordQuantity: " + item.WordQuantity);
+
+                if (item.WordQuantity == 0)
+                    Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ " + item.File);
+            }
+            
             Console.ReadLine();
         }
 
-        private static List<string> GetInstitutions(string file)
+        public static void PrintList(List<DocumentCandidate> list)
         {
-            var strInstFile = File.ReadAllLines(file);
-            List<string> instList = new List<string>(strInstFile);
-
-            return instList;
-        }
-
-        private static List<string> GetThemes(string file)
-        {
-            var strInstFile = File.ReadAllLines(file);
-            List<string> instList = new List<string>(strInstFile);
-
-            return instList;
-        }
-
-        private static void BaixarTema(int niveis, string tema, string instituicao)
-        {
-            string folderForFiles = ConfigurationManager.AppSettings["folderForFiles"].ToString() + @"\";
-
-            int nivel = niveis;
-            Crawler cr = new Crawler(folderForFiles);
-
-            for (int i = 0; i < nivel; i++)
+            foreach (DocumentCandidate item in list)
             {
-                string url = @"https://scholar.google.com.br/scholar?start=" + i.ToString() + @"0&q=filetype:pdf+" + tema + "+" + instituicao + "&hl=pt-BR&as_sdt=0,5";
-
-                string content = cr.GetWebPageContent(url);
-
-                List<string> urlList = cr.GetDocumentListFromPage(content);
-
-                foreach (string item in urlList)
-                {
-                    Console.WriteLine(item);
-
-                    try
-                    {
-                        cr.DownloadFile(item);
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("Falha ao tentar baixar: " + item + "( Erro:" + e.Message + ")");
-                        //throw;
-                    }
-
-                }
-
-                Console.WriteLine("Page: " + i.ToString());
+                Console.WriteLine(item.OriginalUrl);
             }
         }
-
     }
 }

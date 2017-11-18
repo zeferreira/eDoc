@@ -5,6 +5,11 @@ c:\users\jose\documents\visual studio 2010\Projects\EDoc\DocCore\obj\Debug\DocCo
 D:\projetos\edoc\CodeRepository\eDoc\DocCore\bin\Debug\DocCore.dll.config
 D:\projetos\edoc\CodeRepository\eDoc\DocCore\bin\Debug\DocCore.dll
 D:\projetos\edoc\CodeRepository\eDoc\DocCore\bin\Debug\DocCore.pdb
+D:\projetos\edoc\CodeRepository\eDoc\DocCore\bin\Debug\bplustree.dll
+D:\projetos\edoc\CodeRepository\eDoc\DocCore\bin\Debug\HTMLAgilityPack.dll
 D:\projetos\edoc\CodeRepository\eDoc\DocCore\bin\Debug\itextsharp.dll
+D:\projetos\edoc\CodeRepository\eDoc\DocCore\bin\Debug\bplustree.pdb
+D:\projetos\edoc\CodeRepository\eDoc\DocCore\bin\Debug\HTMLAgilityPack.pdb
+D:\projetos\edoc\CodeRepository\eDoc\DocCore\obj\Debug\DocCore.csprojResolveAssemblyReference.cache
 D:\projetos\edoc\CodeRepository\eDoc\DocCore\obj\Debug\DocCore.dll
 D:\projetos\edoc\CodeRepository\eDoc\DocCore\obj\Debug\DocCore.pdb

@@ -10,7 +10,6 @@ namespace DocCore
     public class IndexerMemory : IIndexer
     {
         private ILexicon lexicon;
-        private IDocumentIndex documentIndex;
         private IRepositoryDocument repDoc;
 
         private long totalWordQuantity;
@@ -48,13 +47,12 @@ namespace DocCore
         IndexerMemory()
         {
             this.lexicon = FactoryLexicon.GetLexicon();
-            this.documentIndex = FactoryDocumentIndex.GetDocumentIndex();
-            this.repDoc = FactoryRepositoryDocument.GetRepositoryDocument(EnumRepositoryType.Folder);
+            this.repDoc = FactoryRepositoryDocument.GetRepositoryDocument();
         }
 
         public void ReIndexing()
         {
-            List<Document> listOfDocs = repDoc.Search(false);
+            List<Document> listOfDocs = repDoc.List();
             this.totalDocumentQuantity += listOfDocs.Count;
 
             Index(listOfDocs);
@@ -62,7 +60,7 @@ namespace DocCore
 
         public void Load()
         {
-            List<Document> listOfDocs = repDoc.Search(true);
+            List<Document> listOfDocs = repDoc.List();
             this.totalDocumentQuantity += listOfDocs.Count;
             Index(listOfDocs);
         }
@@ -81,10 +79,8 @@ namespace DocCore
             {
                 try
                 {
-                    Hashtable postingList = docItem.GetPostingList();
+                    Hashtable postingList = docItem.GetPostingListClass();
                     IDictionaryEnumerator iDicE = postingList.GetEnumerator();
-
-                    this.documentIndex.Insert(docItem);
 
                     while (iDicE.MoveNext())
                     {
@@ -127,7 +123,7 @@ namespace DocCore
                 catch (Exception e)
                 {
                     Log entry = new Log();
-                    entry.TaskDescription = "Read pdf file error";
+                    entry.TaskDescription = "Read file error";
                     entry.LogParameters = new List<string>();
                     entry.LogParameters.Add("FileName: " + docItem.File);
                     entry.LogParameters.Add("Error: " + e.Message);

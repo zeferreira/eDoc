@@ -10,8 +10,8 @@ namespace DocCore
     public class IndexerDisk : IIndexer
     {
         private ILexicon lexicon;
-        private IDocumentIndex documentIndex;
         private IRepositoryDocument repDoc;
+        private IInvertedFile invertedFile;
 
         private long totalWordQuantity;
 
@@ -48,13 +48,13 @@ namespace DocCore
         IndexerDisk()
         {
             this.lexicon = FactoryLexicon.GetLexicon();
-            this.documentIndex = FactoryDocumentIndex.GetDocumentIndex();
-            this.repDoc = FactoryRepositoryDocument.GetRepositoryDocument(EnumRepositoryType.Folder);
+            this.repDoc = FactoryRepositoryDocument.GetRepositoryDocument();
+            this.invertedFile = FactoryInvertedFile.GetInvertedFile();
         }
 
         public void ReIndexing()
         {
-            List<Document> listOfDocs = repDoc.Search(false);
+            List<Document> listOfDocs = repDoc.List();
             this.totalDocumentQuantity += listOfDocs.Count;
 
             Index(listOfDocs);
@@ -62,8 +62,9 @@ namespace DocCore
 
         public void Load()
         {
-            List<Document> listOfDocs = repDoc.Search(true);
+            List<Document> listOfDocs = repDoc.List();
             this.totalDocumentQuantity += listOfDocs.Count;
+            //this.lexicon.LoadFromStorage();
             Index(listOfDocs);
         }
 
@@ -77,9 +78,7 @@ namespace DocCore
         {
             Parallel.ForEach(listOfDocs, (docItem) =>
             {
-                this.documentIndex.Insert(docItem);
-
-                Hashtable postingList = docItem.GetPostingList();
+                Hashtable postingList = docItem.GetPostingListClass();
                 IDictionaryEnumerator iDicE = postingList.GetEnumerator();
 
                 while (iDicE.MoveNext())
@@ -97,7 +96,7 @@ namespace DocCore
                             lexicon.AddNewWord(occurrence.Word);
                             occurrence.Word.QuantityHits = occurrence.Hits.Count;
                             occurrence.Word.QuantityDocFrequency++;
-                            InvertedFileManager.Instance.AddWordOccurrence(occurrence);
+                            invertedFile.AddWordOccurrence(occurrence);
                         }
                         else
                         {
@@ -105,7 +104,7 @@ namespace DocCore
                             occurrence.Word = lexicon.GetWord(ref occurrence.Word.WordID);
                             occurrence.Word.QuantityHits += occurrence.Hits.Count;
                             occurrence.Word.QuantityDocFrequency++;
-                            InvertedFileManager.Instance.AddWordOccurrence(occurrence);
+                            invertedFile.AddWordOccurrence(occurrence);
                         }
 
                         totalWordQuantity += occurrence.Hits.Count;
@@ -116,6 +115,9 @@ namespace DocCore
                 GC.ReRegisterForFinalize(iDicE);
                 GC.Collect();
             });
+
+            this.invertedFile.WriteToStorage();
+            this.lexicon.WriteToStorage();
         }
      }
 }

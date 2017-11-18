@@ -16,10 +16,12 @@ namespace DocCore
             switch (type)
             {
                 case "memory":
-                    return EngineMemory.Instance;
+                    return EngineDisk.Instance;
 
                 case "disk":
                     return EngineDisk.Instance;
+                case "spimi":
+                    return EngineSPIMI.Instance;
 
                 default:
                     throw new NotImplementedException(Messages.RepositoryLogNotImplemented);

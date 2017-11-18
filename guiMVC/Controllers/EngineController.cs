@@ -98,12 +98,18 @@ namespace guiMVC.Controllers
             sw.Stop();
             timeDif = sw.Elapsed;
 
+            Query parsedQuery = new Query(query);
+            parsedQuery.ResultQuantity = result.Count;
+            parsedQuery.SearchDate = DateTime.Now;
+            parsedQuery.TimeToSearch = timeDif;
+            string strQuerySer = Useful.Serialize<Query>(parsedQuery);
+
             Log entry = new Log();
             entry.TaskDescription = smsSearch;
             entry.StartDateTime = start;
             entry.ExecutionTime = timeDif;
             entry.LogParameters = new List<string>();
-            entry.LogParameters.Add("sentence: " + query);
+            entry.LogParameters.Add("query: " + strQuerySer);
             entry.LogParameters.Add("totalDocFound: " + result.Count.ToString());
             entry.LogParameters.Add("totalDocIndexed: " + eng.TotalDocumentQuantity.ToString());
             entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
@@ -118,25 +124,6 @@ namespace guiMVC.Controllers
                 if (model.start == 0)
                 {
                     WriteResultsToDisk(result, query);
-                }
-
-                foreach (DocumentResult item in result)
-                {
-                    string physicalRepositoryPath = EngineConfiguration.Instance.PathFolderRepository;
-                    string virtualRepositoryParh = ConfigurationManager.AppSettings["pathVirtualRepository"] as string;
-
-                    string resultPath = item.File.Remove(0, physicalRepositoryPath.Length);
-
-                    resultPath = virtualRepositoryParh + resultPath.Replace("\\", "/");
-
-                    resultPath = GetEncodedString(resultPath);
-
-                    string baseUrl = Request.Url.Scheme + "://" + Request.Url.Authority + Request.ApplicationPath.TrimEnd('/') + "/";
-
-                    if (String.IsNullOrEmpty(item.Url))
-                    {
-                        item.Url = baseUrl+ resultPath;
-                    }
                 }
             }
             return result;
@@ -153,7 +140,7 @@ namespace guiMVC.Controllers
         static void WriteResultsToDisk(List<DocumentResult> list, string query)
         {
             EngineConfiguration engConf = EngineConfiguration.Instance;
-            IDocumentIndex docIndex = FactoryDocumentIndex.GetDocumentIndex();
+            IRepositoryDocument docIndex = FactoryRepositoryDocument.GetRepositoryDocument();
 
             int qtd = 1;
             string fileName = RemoveForFileName(Useful.RemoveForbbidenSymbols(query));

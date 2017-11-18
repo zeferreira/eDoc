@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D9E4B69F-A194-4242-A350-602DBA8C3409}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>bplustree</RootNamespace>
+    <AssemblyName>bplustree</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bases\Disposable.cs" />
+    <Compile Include="Bases\Equatable.cs" />
+    <Compile Include="Collections\BPlusTree.cs" />
+    <Compile Include="Collections\BPlusTree.Debug.cs" />
+    <Compile Include="Collections\BPlusTree.Options.cs" />
+    <Compile Include="Collections\BPlusTree.OptionsBase.cs" />
+    <Compile Include="Collections\BPlusTree.Recovery.cs" />
+    <Compile Include="Collections\BTreeDictionary.cs" />
+    <Compile Include="Collections\BTreeList.cs" />
+    <Compile Include="Collections\DisposingList.cs" />
+    <Compile Include="Collections\Element.cs" />
+    <Compile Include="Collections\Enumerator.cs" />
+    <Compile Include="Collections\HashUtilities.cs" />
+    <Compile Include="Collections\IConcurrentDictionary.cs" />
+    <Compile Include="Collections\IDictionaryEx.cs" />
+    <Compile Include="Collections\Interfaces.cs" />
+    <Compile Include="Collections\KeyValueComparer.cs" />
+    <Compile Include="Collections\LurchTable.cs" />
+    <Compile Include="Collections\MergeSort.cs" />
+    <Compile Include="Collections\Node.BulkInsert.cs" />
+    <Compile Include="Collections\Node.cs" />
+    <Compile Include="Collections\Node.Delete.cs" />
+    <Compile Include="Collections\Node.Insert.cs" />
+    <Compile Include="Collections\Node.Search.cs" />
+    <Compile Include="Collections\Node.Serialize.cs" />
+    <Compile Include="Collections\NodeCache.Base.cs" />
+    <Compile Include="Collections\NodeCache.Full.cs" />
+    <Compile Include="Collections\NodeCache.None.cs" />
+    <Compile Include="Collections\NodeCache.Normal.cs" />
+    <Compile Include="Collections\NodeHandle.cs" />
+    <Compile Include="Collections\NodePin.cs" />
+    <Compile Include="Collections\NodeTransaction.cs" />
+    <Compile Include="Collections\OrderedEnumeration.cs" />
+    <Compile Include="Collections\OrderedKeyValuePairs.cs" />
+    <Compile Include="Collections\OrdinalList.cs" />
+    <Compile Include="Collections\SetList.cs" />
+    <Compile Include="Collections\TransactionLog.cs" />
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="Interfaces\DefaultFactories.cs" />
+    <Compile Include="Interfaces\ICloneable.cs" />
+    <Compile Include="Interfaces\IFactory.cs" />
+    <Compile Include="Interfaces\ITransactable.cs" />
+    <Compile Include="IO\AggregateStream.cs" />
+    <Compile Include="IO\BinaryComparer.cs" />
+    <Compile Include="IO\Crc32.cs" />
+    <Compile Include="IO\FileStreamFactory.cs" />
+    <Compile Include="IO\FragmentedFile.cs" />
+    <Compile Include="IO\IOStream.cs" />
+    <Compile Include="IO\StreamCache.cs" />
+    <Compile Include="IO\TempFile.cs" />
+    <Compile Include="IO\TransactedCompoundFile.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources.Designer.cs" />
+    <Compile Include="Serialization\ISerializer.cs" />
+    <Compile Include="Serialization\KeyValueSerializer.cs" />
+    <Compile Include="Serialization\LimitedSerializer.cs" />
+    <Compile Include="Serialization\PrimitiveSerializer.cs" />
+    <Compile Include="Serialization\VariantNumberSerializer.cs" />
+    <Compile Include="Storage\Storage.Cache.cs" />
+    <Compile Include="Storage\Storage.Disk.cs" />
+    <Compile Include="Storage\Storage.DiskV2.cs" />
+    <Compile Include="Storage\Storage.Memory.cs" />
+    <Compile Include="Synchronization\ExclusiveLocking.cs" />
+    <Compile Include="Synchronization\IgnoreLocking.cs" />
+    <Compile Include="Synchronization\ILockStrategy.cs" />
+    <Compile Include="Synchronization\LockFactory.cs" />
+    <Compile Include="Synchronization\ReaderWriterLocking.cs" />
+    <Compile Include="Synchronization\ReadLock.cs" />
+    <Compile Include="Synchronization\SafeLock.cs" />
+    <Compile Include="Synchronization\SimpleReadWriteLocking.cs" />
+    <Compile Include="Synchronization\WriteLock.cs" />
+    <Compile Include="Synchronization\WriterOnlyLocking.cs" />
+    <Compile Include="Utils\Check.cs" />
+    <Compile Include="Utils\ObjectKeepAlive.cs" />
+    <Compile Include="Utils\WeakReference.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LICENSE-2.0.txt" />
+    <Content Include="README.htm" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CmdTool.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\" />
+    <Folder Include="obj\Release\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

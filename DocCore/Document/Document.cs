@@ -87,10 +87,60 @@ namespace DocCore
 
         public override int GetHashCode()
         {
-            return file.GetHashCode() ;
+            return Word.GetHashValue(file);
         }
 
-        public Hashtable GetPostingList()
+        public Hashtable GetPostingListClass()
+        {
+            Hashtable postingList = new Hashtable();
+
+            string text = this.GetText();
+
+            string[] splitWords = text.Split(' ');
+            this.WordQuantity = splitWords.Length + 1;
+
+            //index words
+            for (int i = 0; i < splitWords.Length; i++)
+            {
+                string wordTmp = QueryParser.GetCleanQuery(splitWords[i]);
+                wordTmp = wordTmp.Replace(" ", string.Empty);
+                int wordTmpHashValue = Word.GetHashValue(wordTmp);
+
+                //get frequency for each document word
+                if (postingList.ContainsKey(wordTmpHashValue))
+                {
+                    WordOccurrenceNode node = postingList[wordTmpHashValue] as WordOccurrenceNode;
+
+                    WordHit newhit = new WordHit();
+                    newhit.Position = i;
+                    node.Hits.Add(newhit);
+                }
+                else if(!string.IsNullOrEmpty(wordTmp))
+                {
+                    WordOccurrenceNode newNode = new WordOccurrenceNode();
+                    newNode.Word = new Word();
+                    newNode.Word.WordID = wordTmpHashValue;
+                    newNode.Word.Text = wordTmp;
+
+                    newNode.Doc = this;
+
+                    WordHit newhit = new WordHit();
+                    newhit.Position = i;
+                    //define frequency
+                    newNode.Hits.Add(newhit);
+
+                    postingList.Add(wordTmpHashValue, newNode);
+                }
+            }
+
+            GC.ReRegisterForFinalize(text);
+            GC.ReRegisterForFinalize(splitWords);
+            GC.Collect();
+
+            return postingList;
+        }
+
+        public Hashtable GetBytePostingListClass()
         {
             Hashtable postingList = new Hashtable();
 
@@ -105,22 +155,20 @@ namespace DocCore
                 string wordTmp = QueryParser.GetCleanQuery(splitWords[i]);
                 wordTmp = wordTmp.Replace(" ", string.Empty);
 
-                int key = wordTmp.GetHashCode();
-
                 //get frequency for each document word
-                if (postingList.ContainsKey(key))
+                if (postingList.ContainsKey(wordTmp.GetHashCode()))
                 {
-                    WordOccurrenceNode node = postingList[key] as WordOccurrenceNode;
+                    WordOccurrenceNode node = postingList[wordTmp.GetHashCode()] as WordOccurrenceNode;
 
                     WordHit newhit = new WordHit();
                     newhit.Position = i;
                     node.Hits.Add(newhit);
                 }
-                else if(!string.IsNullOrEmpty(wordTmp))
+                else if (!string.IsNullOrEmpty(wordTmp))
                 {
                     WordOccurrenceNode newNode = new WordOccurrenceNode();
                     newNode.Word = new Word();
-                    newNode.Word.WordID = key;
+                    newNode.Word.WordID = wordTmp.GetHashCode();
                     newNode.Word.Text = wordTmp;
 
                     newNode.Doc = this;
@@ -130,7 +178,7 @@ namespace DocCore
                     //define frequency
                     newNode.Hits.Add(newhit);
 
-                    postingList.Add(key, newNode);
+                    postingList.Add(wordTmp.GetHashCode(), newNode);
                 }
             }
 
@@ -141,5 +189,6 @@ namespace DocCore
             return postingList;
         }
         
+
     }
 }

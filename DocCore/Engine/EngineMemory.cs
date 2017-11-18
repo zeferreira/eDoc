@@ -65,20 +65,6 @@ namespace DocCore
             this.indexer.ReIndexing();
         }
 
-        private List<Word> FindWords(Query parsedQuery)
-        {
-            List<Word> wordFound = new List<Word>();
-
-            for (int i = 0; ((i < parsedQuery.QueryItens.Count) && (i < maxSentence)); i++)
-            {
-                Word wf = indexer.Search(parsedQuery.QueryItens[i].WordID);
-
-                if (wf != null)
-                    wordFound.Add(wf);
-            }
-
-            return wordFound;
-        }
 
         public List<DocumentResult> Search(string query)
         {
@@ -142,5 +128,19 @@ namespace DocCore
             return resultList;
         }
 
+        private List<Word> FindWords(Query parsedQuery)
+        {
+            List<Word> wordFound = new List<Word>();
+
+            for (int i = 0; ((i < parsedQuery.QueryItens.Count) && (i < maxSentence)); i++)
+            {
+                Word wf = indexer.Search(parsedQuery.QueryItens[i].WordID);
+
+                if (wf != null)
+                    wordFound.Add(wf);
+            }
+
+            return wordFound;
+        }
     }
 }

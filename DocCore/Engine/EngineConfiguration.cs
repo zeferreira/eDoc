@@ -126,18 +126,6 @@ namespace DocCore
             }
         }
 
-
-        string documentIndexType;
-
-        public string DocumentIndexType
-        {
-            get
-            {
-                this.documentIndexType = ConfigurationManager.AppSettings["documentIndexType"] as string;
-                return documentIndexType.ToLower();
-            }
-        }
-
         string lexiconType;
 
         public string LexiconType
@@ -222,5 +210,127 @@ namespace DocCore
                 return Convert.ToDouble(sNormalizationfactor.ToLower());
             }
         }
+
+        private string pathRepositoryDocumentCandidateFile;
+        public string PathRepositoryDocumentCandidateFile
+        {
+            get
+            {
+                this.pathRepositoryDocumentCandidateFile = ConfigurationManager.AppSettings["pathRepositoryDocumentCandidateFile"] as string;
+                return this.pathRepositoryDocumentCandidateFile;
+            }
+        }
+
+        private string repositoryDocumentCandidateType;
+        public string RepositoryDocumentCandidateType
+        {
+            get
+            {
+                this.repositoryDocumentCandidateType = ConfigurationManager.AppSettings["repositoryDocumentCandidateType"] as string;
+                return this.repositoryDocumentCandidateType;
+            }
+        }
+
+        private string repositoryDocumentType;
+        public string RepositoryDocumentType
+        {
+            get
+            {
+                this.repositoryDocumentType = ConfigurationManager.AppSettings["repositoryDocumentType"] as string;
+                return this.repositoryDocumentType;
+            }
+        }
+
+        private string pathRepositoryUrlFrontierFile;
+        public string PathRepositoryUrlFrontierFile
+        {
+            get
+            {
+                this.pathRepositoryUrlFrontierFile = ConfigurationManager.AppSettings["pathRepositoryUrlFrontierFile"] as string;
+                return this.pathRepositoryUrlFrontierFile;
+            }
+        }
+
+        private string repositoryUrlFrontierType;
+        public string RepositoryUrlFrontierType
+        {
+            get
+            {
+                this.repositoryUrlFrontierType = ConfigurationManager.AppSettings["repositoryUrlFrontierType"] as string;
+                return this.repositoryUrlFrontierType;
+            }
+        }
+
+        private string bplusTreeFileRep;
+        public string BplusTreeFileRep
+        {
+            get
+            {
+                this.bplusTreeFileRep = ConfigurationManager.AppSettings["bplusTreeFileRep"] as string;
+                return this.bplusTreeFileRep;
+            }
+        }
+
+        private string diskPhysicalSectorSize;
+        public string DiskPhysicalSectorSize
+        {
+            get
+            {
+                this.diskPhysicalSectorSize = ConfigurationManager.AppSettings["diskPhysicalSectorSize"] as string;
+                return this.diskPhysicalSectorSize;
+            }
+        }
+
+
+        private string collectionStatisticsFile;
+        public string CollectionStatisticsFile
+        {
+            get
+            {
+                this.collectionStatisticsFile = ConfigurationManager.AppSettings["collectionStatisticsFile"] as string;
+                return this.collectionStatisticsFile;
+            }
+        }
+
+        private string finalIndexFile;
+        public string FinalIndexFile
+        {
+            get
+            {
+                this.finalIndexFile = ConfigurationManager.AppSettings["finalIndexFile"] as string;
+                return this.finalIndexFile;
+            }
+        }
+
+        private string lexiconFileName;
+        public string LexiconFileName
+        {
+            get
+            {
+                this.lexiconFileName = ConfigurationManager.AppSettings["lexiconFileName"] as string;
+                return this.lexiconFileName;
+            }
+        }
+
+        private string strFolderBlockTempFiles;
+        public string STRFolderBlockTempFiles
+        {
+            get
+            {
+                this.strFolderBlockTempFiles = ConfigurationManager.AppSettings["strFolderBlockTempFiles"] as string;
+                return this.strFolderBlockTempFiles;
+            }
+        }
+
+        private string traceDebugFile;
+        public string TraceDebugFile
+        {
+            get
+            {
+                this.traceDebugFile = ConfigurationManager.AppSettings["traceDebugFile"] as string;
+                return this.traceDebugFile;
+            }
+        }
+
     }
 }

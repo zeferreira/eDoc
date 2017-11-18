@@ -22,6 +22,13 @@ namespace DocCore
             set { doc = value; }
         }
 
+        private int docID;
+        public int DocID
+        {
+            get { return docID; }
+            set { docID = value; }
+        }
+
         //private float frequency;
         private double rank;
         //used to order the list
@@ -119,6 +126,13 @@ namespace DocCore
                 this.NextOccurrence = newNode;
                 newNode.PreviousOccurrence = this;
             }
+        }
+
+        public int GetSizeBytes()
+        {
+            int intSizeBytes = sizeof(int);
+
+            return (intSizeBytes * 2) + (this.Hits.Count * intSizeBytes);
         }
     }
 }

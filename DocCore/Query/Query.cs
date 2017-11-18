@@ -53,6 +53,8 @@ namespace DocCore
             set { searchDate = value; }
         }
 
+        public Query()
+        { }
         public Query(string queryText)
         {
             this.OriginalQueryText = queryText;

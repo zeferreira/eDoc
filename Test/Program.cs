@@ -22,17 +22,21 @@ namespace Test
             Stopwatch sw;
             DateTime startTest = DateTime.Now;
 
-            #region basicTestsLogicAndPerformance
+            #region loadEngine
             Console.WriteLine("=============================================================================");
             string smsTimeToLoad = "Load Engine".PadRight(15);
             string smsSearch = "Search".PadRight(15);
             string smsSearchTwoWords = "Search Two Words".PadRight(15);
             string smsMemoryUsage = "Memory".PadRight(15);
-
+            //IndexerSPIMI indexer = new IndexerSPIMI();
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
             Console.WriteLine(startTest.ToString() + " - Loading...");
+            
             eng.Load();
+
+            //eng.Reindex();
+
             sw.Stop();
             timeDif = sw.Elapsed;
 
@@ -47,6 +51,10 @@ namespace Test
             entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
 
             repLog.Write(entry);
+            Console.WriteLine("final: " + timeDif.ToString());
+            #endregion
+
+            #region basicTestsLogicAndPerformance
             Console.WriteLine("I'm running some basic tests");
             //search one word
             string parameters = "search";
@@ -129,13 +137,36 @@ namespace Test
             entry.LogParameters.Add("TotalMemory: " + Useful.GetFormatedSizeString(memoryUsed));
             entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
             repLog.Write(entry);
-            #endregion
+            
             Console.WriteLine("=============================================================================");
+            #endregion
 
             #region RankTests
             Console.WriteLine("I'm running ranked queries for tests");
             Console.WriteLine("Wait ...");
-            
+
+            //long term search
+            parameters = "DESENVOLVIMENTO DE SISTEMA DE INFORMAÇÃO WEB PARA O CONTROLE INTERNO DE PROTOCOLOS DA ESCOLA POLITÉCNICA DE PERNAMBUCO";
+            Console.WriteLine("||||| long term test  ||||| ( {0} )", parameters);
+
+            start = DateTime.Now;
+            sw = Stopwatch.StartNew();
+            docList = eng.Search(parameters);
+            sw.Stop();
+            timeDif = sw.Elapsed;
+
+            entry = new Log();
+            entry.TaskDescription = smsSearch;
+            entry.StartDateTime = start;
+            entry.ExecutionTime = timeDif;
+            entry.LogParameters = new List<string>();
+            entry.LogParameters.Add("sentence: " + parameters);
+            entry.LogParameters.Add("totalDocFound: " + docList.Count.ToString());
+            entry.LogParameters.Add("totalDocIndexed: " + eng.TotalDocumentQuantity.ToString());
+            entry.LogParameters.Add("RankTypeFunction: " + engConf.RankTypeFunction);
+            repLog.Write(entry);
+
+
             //SearchRankedThemes();
             Console.WriteLine(startTest.ToString() + " I have done.");
             Console.WriteLine("=============================================================================");
@@ -188,7 +219,7 @@ namespace Test
         static void WriteResultsToDisk(List<DocumentResult> list, string query)
         {
             EngineConfiguration engConf = EngineConfiguration.Instance;
-            IDocumentIndex docIndex = FactoryDocumentIndex.GetDocumentIndex();
+            IRepositoryDocument docIndex = FactoryRepositoryDocument.GetRepositoryDocument();
 
             int qtd = 1;
             string fileName = RemoveForFileName(Useful.RemoveForbbidenSymbols(query));

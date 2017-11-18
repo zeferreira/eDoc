@@ -6,8 +6,7 @@ namespace DocCore
 {
     public class DocumentResult : Document
     {
-        IDocumentIndex docIndex;
-        ILexicon lexicon;
+        IRepositoryDocument docIndex;
 
         private double queryRank;
 
@@ -26,12 +25,13 @@ namespace DocCore
 
         public DocumentResult(Document doc)
         {
-            this.docIndex = FactoryDocumentIndex.GetDocumentIndex();
-            this.lexicon = FactoryLexicon.GetLexicon();
+            this.docIndex = FactoryRepositoryDocument.GetRepositoryDocument();
 
             this.DocID = doc.DocID;
             this.File = doc.File;
             this.Title = doc.Title;
+            this.Description = doc.Description;
+            this.Url = doc.Url;
             this.WordQuantity = doc.WordQuantity;
         }
 
@@ -39,14 +39,14 @@ namespace DocCore
         {
             Document docTmp;
 
-            this.docIndex = FactoryDocumentIndex.GetDocumentIndex();
-            this.lexicon = FactoryLexicon.GetLexicon();
+            this.docIndex = FactoryRepositoryDocument.GetRepositoryDocument();
 
-            docTmp = docIndex.Search(docID);
+            docTmp = docIndex.Read(docID);
 
             this.DocID = DocID;
             this.File = docTmp.File;
             this.Title = docTmp.Title;
+            this.Url = docTmp.Url;
             this.WordQuantity = docTmp.WordQuantity;
         }
 

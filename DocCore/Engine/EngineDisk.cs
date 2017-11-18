@@ -9,6 +9,7 @@ namespace DocCore
     public class EngineDisk : IEngine
     {
         private IIndexer indexer;
+        private IInvertedFile invertedFile;
         private EngineConfiguration engineConfiguration;
         private IRepositoryLog logRep;
         int maxSentence;
@@ -54,6 +55,7 @@ namespace DocCore
             maxSentence = engineConfiguration.MaxSentence;
             maxResultList = engineConfiguration.MaxResultList;
             this.indexer = FactoryIndexer.GetIndexer();
+            this.invertedFile = FactoryInvertedFile.GetInvertedFile();
         }
 
         public void Load()
@@ -94,7 +96,7 @@ namespace DocCore
             //merging the list.
             foreach (Word item in wordFound)
             {
-                List<WordOccurrenceNode> tempDocList = InvertedFileManager.Instance.GetWordOccurrencies(item);
+                List<WordOccurrenceNode> tempDocList = invertedFile.GetWordOccurrencies(item);
 
                 foreach (WordOccurrenceNode wordOccur in tempDocList)
                 {

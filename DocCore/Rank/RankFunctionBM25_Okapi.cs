@@ -11,7 +11,7 @@ namespace DocCore
     public class RankFunctionBM25_Okapi : IRankFunction
     {
         private EngineConfiguration engConf;
-        private IDocumentIndex docIndex;
+        private IRepositoryDocument docIndex;
         private double avdl;
 
         private static RankFunctionBM25_Okapi instance = null;
@@ -40,12 +40,12 @@ namespace DocCore
         RankFunctionBM25_Okapi()
         {
             this.engConf = EngineConfiguration.Instance;
-            this.docIndex = FactoryDocumentIndex.GetDocumentIndex();
+            this.docIndex = FactoryRepositoryDocument.GetRepositoryDocument();
             
             this.b = engConf.BNormalizationfactor;
             this.k1 = engConf.BM25OkapiK1factor;
             this.k3 = engConf.BM25OkapiK3factor;
-            this.totalDocQuantity = docIndex.GetQuantity();
+            this.totalDocQuantity = docIndex.GetTotalQuantity();
 
             this.avdl = docIndex.GetAverageDocumentLenght();
         }

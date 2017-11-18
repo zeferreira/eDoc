@@ -13,5 +13,7 @@ namespace DocCore
         //bool HasWord(string word);
         Word GetWord(ref int wordID);
         bool HasWord(ref int wordID);
+        void WriteToStorage();
+        void LoadFromStorage();
     }
 }

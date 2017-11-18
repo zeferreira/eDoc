@@ -9,7 +9,6 @@ namespace DocCore
         void Reindex();
         
         List<DocumentResult> Search(string query);
-        //List<DocumentResult> SearchFromMemory(string query);
         
         long TotalDocumentQuantity { get; }
         long TotalWordQuantity { get; }

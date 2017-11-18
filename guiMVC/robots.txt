@@ -1,4 +1,5 @@
 ser-agent: *
 Allow: /engine/about
 Allow: /engine/search
-Disallow: /
+Allow: /suggest
+Disallow: /repositoryDoc/

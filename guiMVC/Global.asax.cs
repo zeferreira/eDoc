@@ -27,15 +27,14 @@ namespace guiMVC
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            // Change current culture
+            //// Change current culture
             CultureInfo culture = CultureInfo.CreateSpecificCulture("pt-br");
-            
+
             CultureInfo.DefaultThreadCurrentCulture = culture;
             CultureInfo.DefaultThreadCurrentUICulture = culture;
 
             Thread.CurrentThread.CurrentCulture = culture;
             Thread.CurrentThread.CurrentUICulture = culture;
-
             
             this.eng = FactoryEngine.GetEngine();
 
@@ -47,9 +46,8 @@ namespace guiMVC
 
             string smsTimeToLoad = "Load Engine".PadRight(15);
             string smsSearch = "Search".PadRight(15);
-            string smsSearchTwoWords = "Search Two Words".PadRight(15);
             string smsMemoryUsage = "Memory".PadRight(15);
-
+            string smsConfFile = "ConfigFile".PadRight(15);
 
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
@@ -79,6 +77,18 @@ namespace guiMVC
             entry.LogParameters = new List<string>();
             entry.LogParameters.Add("TotalMemory: " + Useful.GetFormatedSizeString(memoryUsed));
             repLog.Write(entry);
+
+            //configuration file
+            //string strConfFile = Useful.Serialize<EngineConfiguration>(EngineConfiguration.Instance);
+
+            //entry = new Log();
+            //entry.TaskDescription = smsConfFile;
+            //entry.StartDateTime = start;
+            //entry.ExecutionTime = timeDif;
+            //entry.LogParameters = new List<string>();
+            //entry.LogParameters.Add(strConfFile);
+            //repLog.Write(entry);
+
         }
     }
 }

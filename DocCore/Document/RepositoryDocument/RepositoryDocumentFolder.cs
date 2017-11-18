@@ -8,12 +8,14 @@ namespace DocCore
     public class RepositoryDocumentFolder : IRepositoryDocument
     {
         private string rootFolder;
-        long quant;
+        int quant;
         DateTime lastIndexTime;
+        private CollectionStatistics statistics;
 
         public RepositoryDocumentFolder(string folder)
         {
             this.rootFolder = folder;
+            this.statistics = CollectionStatistics.LoadCollectionStatistics();
         }
 
         public void Insert(Document e)
@@ -21,22 +23,17 @@ namespace DocCore
             throw new NotImplementedException();
         }
 
-        public Document Read(long id)
+        public Document Read(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void MarkIndexed(long id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public long GetTotalQuantity()
+        public int GetTotalQuantity()
         {
             return this.quant;
         }
 
-        public List<Document> Search(bool onlyIndexed)
+        public List<Document> List()
         {
             List<Document> list = new List<Document>();
 
@@ -72,10 +69,46 @@ namespace DocCore
         {
             Document newDoc = new Document();
             
-            newDoc.Title = Path.GetFileName(fileName);
+            string tmpFileName = Useful.FormatFileNameToUrl(Path.GetFileName(fileName));
+
+            newDoc.Title = tmpFileName;
             newDoc.File = fileName;
             newDoc.DocID = newDoc.File.GetHashCode();
+            newDoc.Url = tmpFileName;
             list.Add(newDoc);
+        }
+
+
+        public bool Exist(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double GetAverageDocumentLenght()
+        {
+            return this.statistics.AverageDocumentLenght;
+        }
+
+
+        public CollectionStatistics GetStatistitcs()
+        {
+            return this.statistics;
+        }
+
+        public void WriteStatistics()
+        {
+            this.statistics.WriteCollectionStatistics();
+        }
+
+
+        public bool MoveNext()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Document GetCurrent()
+        {
+            throw new NotImplementedException();
         }
     }
 }

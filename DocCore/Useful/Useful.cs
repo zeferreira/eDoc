@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Globalization;
+using System.Threading;
+using System.Xml.Serialization;
+using System.Xml;
+using System.Diagnostics;
 
 namespace DocCore
 {
@@ -32,6 +36,7 @@ namespace DocCore
             replaced = replaced.Replace('#', ' ');
             replaced = replaced.Replace('|', ' ');
             replaced = replaced.Replace('_', ' ');
+            replaced = replaced.Replace('-', ' ');
 
             return replaced;
         }
@@ -99,6 +104,72 @@ namespace DocCore
             else
             {
                 return bytesSize.ToString() + "(B's)";
+            }
+        }
+
+
+        public static float GetTotalMemoryProcessInGB()
+        {
+            Process currentProc = Process.GetCurrentProcess();
+            long bytesInMemory = currentProc.PrivateMemorySize64;
+
+            float resultInGiga = (float)(((float)bytesInMemory) / 1024.0 / 1024.0 / 1024.0);
+
+            return resultInGiga;
+        }
+
+
+        public static string FormatUrlToFileName(string url)
+        {
+            return url.Replace('/', '#').Replace(':', '_');
+        }
+
+        public static string FormatFileNameToUrl(string fileName)
+        {
+            return fileName.Replace('#', '/').Replace('_', ':');
+        }
+
+        public static string Serialize<T>(T dataToSerialize)
+        {
+            try
+            {
+                CultureInfo n = CultureInfo.InvariantCulture;
+                Thread.CurrentThread.CurrentCulture = n;
+                Thread.CurrentThread.CurrentUICulture = n;
+
+                var serializer = new XmlSerializer(typeof(T));
+                var stringwriter = new System.IO.StringWriter();
+
+                var ns = new XmlSerializerNamespaces();
+                ns.Add("", "");
+
+                var xmlWriter = XmlWriter.Create(stringwriter, new XmlWriterSettings() { OmitXmlDeclaration = true });
+
+                serializer.Serialize(xmlWriter, dataToSerialize, ns);
+
+                return stringwriter.ToString();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        public static T Deserialize<T>(string xmlText)
+        {
+            try
+            {
+                CultureInfo n = CultureInfo.InvariantCulture;
+                Thread.CurrentThread.CurrentCulture = n;
+                Thread.CurrentThread.CurrentUICulture = n;
+
+                var stringReader = new System.IO.StringReader(xmlText);
+                var serializer = new XmlSerializer(typeof(T));
+                return (T)serializer.Deserialize(stringReader);
+            }
+            catch
+            {
+                throw;
             }
         }
     }

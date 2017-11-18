@@ -43,7 +43,7 @@ namespace FilesReport
 
         void RunTests()
         {
-            IRepositoryDocument repDoc = FactoryRepositoryDocument.GetRepositoryDocument(EnumRepositoryType.Folder);
+            IRepositoryDocument repDoc = FactoryRepositoryDocument.GetRepositoryDocument();
             IRepositoryLog repLog = FactoryRepositoryLog.GetRepositoryLog();
             IIndexer indexer = FactoryIndexer.GetIndexer();
             ILexicon lexicon = FactoryLexicon.GetLexicon();
@@ -61,7 +61,7 @@ namespace FilesReport
 
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
-            List<Document> listOfDocs = repDoc.Search(true);
+            List<Document> listOfDocs = repDoc.List();
             sw.Stop();
             timeDif = sw.Elapsed;
 
@@ -145,7 +145,7 @@ namespace FilesReport
             //getting posting list
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
-            Hashtable ht = listOfDocs[1].GetPostingList();
+            Hashtable ht = listOfDocs[1].GetPostingListClass();
             sw.Stop();
             timeDif = sw.Elapsed;
 
@@ -182,7 +182,7 @@ namespace FilesReport
             start = DateTime.Now;
             sw = Stopwatch.StartNew();
 
-            Hashtable postingList = listOfDocs[1].GetPostingList();
+            Hashtable postingList = listOfDocs[1].GetPostingListClass();
             totalWordQuantity = postingList.Count;
 
             //foreach (DictionaryEntry dicEntry in postingList)

@@ -11,15 +11,16 @@ namespace DocCore
             EngineConfiguration engConf = EngineConfiguration.Instance;
             string path = engConf.LogFilePath;
 
-            string type = engConf.EngineType;
+            string type = engConf.EngineType.ToLower();
 
             switch (type)
             {
                 case "memory":
                     return IndexerMemory.Instance;
-
                 case "disk":
                     return IndexerDisk.Instance;
+                case "spimi":
+                    return IndexerSPIMI.Instance;
 
                 default:
                     throw new NotImplementedException(Messages.IndexTypeNotImplemented);

@@ -14,7 +14,6 @@
                         <input id="search_submit" value="Search" type="submit">
                     </form>
                 </div>
-            
 
             @*<div class="result_title section-title display-inline-block font-family-alt text-extra-large">
                 Procurando por: @Html.DisplayFor(modelItem => Model.query)</a>
@@ -29,7 +28,7 @@
                         <span id="title_doc_spam">@Html.DisplayFor(modelItem => Model.results[i].Title)</span>
                     </div>
                     <div class="result_url_details">
-                        <a href="@Html.DisplayFor(modelItem => Model.results[i].Url)" target="_blank">Go to the paper ...</a>
+                        <a href="@Html.DisplayFor(modelItem => Model.results[i].Url)" target="_blank">[Go to the paper ...]</a>
                     </div>
                     <div class="result_author_cit_details">
                         @*<a href="#" target="_blank"> Jose F.</a>

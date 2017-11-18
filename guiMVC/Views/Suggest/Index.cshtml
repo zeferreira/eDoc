@@ -1,0 +1,85 @@
+﻿@model CrawlerCore.DocumentCandidate
+
+@{
+    ViewBag.Title = "Suggest";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <!-- SECTION - INTRODUCTION START -->
+<section id="introduction" class="section background-gray-light no-padding-bottom">
+    <div class="section-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="section-title display-inline-block font-family-alt margin-4 no-margin-rl no-margin-top text-extra-large text-uppercase title-underline">
+                        Suggesting Documents
+                    </h3>
+
+                    <p class="font-weight-300 title-extra-large">
+                        We index the files on the <span class="font-weight-400">internet </span>, which is a large repository, but sometimes we can not find the best content. So this page is a way to encourage users to help us when we can not find any relevant content.
+                    </p>
+
+                    <p class="font-weight-300 margin-3-5 no-margin-bottom no-margin-rl title-extra-large">
+                        We are educated and we try to maintain good relationships with everyone, so if someone does not want their paper indexed, just block our theft through <span class="font-weight-400">robots.txt (http://www.robotstxt.org/) </span> our Agent name is <span class="font-weight-400">"Asktume.bot"</span>
+                    </p>
+
+                    <p class="font-weight-300 margin-3-5 no-margin-bottom no-margin-rl title-extra-large">
+                        Be aware when using our platform, the responsibility for the submitted content is yours and this includes rights of use and ownership of the material, we only index the references to what is being provided on the internet.
+                    </p>
+
+                    <p class="font-weight-300 margin-3-5 no-margin-bottom no-margin-rl title-extra-large">
+                        *Pay attention on the format of URL  <span class="font-weight-400">(like the sample http://sample.com/paper.pdf )</span> and include http:// or https:// . 
+                    </p>
+
+                    <p class="font-weight-300 margin-3-5 no-margin-bottom no-margin-rl title-extra-large">
+                        *We index <span class="font-weight-400">Papers not Sites</span> then send direct links to your paper.
+                    </p>
+
+                    <p class="font-weight-300 margin-3-5 no-margin-bottom no-margin-rl title-extra-large">
+                        *We only give support to <span class="font-weight-400">PDF</span> file format. It is a good format to read papers in all plattforms, we have worked in other formats, but now, we accept only PDF.
+                    </p>
+
+                    <br/>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-horizontal">
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.OriginalUrl, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.OriginalUrl, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.OriginalUrl, "", new { @class = "text-danger" })
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                    @if (TempData["success"] != null)
+                                    {
+                                        <text>
+                                            <div id="SuccessMessage">
+                                                @Html.Encode(TempData["success"])
+                                            </div>
+                                        </text>
+                                    }
+
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Send" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    }
+                
+                </div>
+                <!-- //.col-md-12 -->
+            </div>
+            <!-- //.row -->
+        </div>
+        <!-- //.container -->
+    </div>
+    <!-- //.section-content -->
+</section>
+<!-- //SECTION - INTRODUCTION END -->
+

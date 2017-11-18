@@ -73,5 +73,14 @@ namespace DocCore
             return false;
         }
 
+        public void WriteToStorage()
+        {
+            
+        }
+
+        public void LoadFromStorage()
+        {
+            
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace DocCore
         private static readonly object padlock = new object();
 
         private EngineConfiguration engConf;
-        private IDocumentIndex docIndex;
+        private IRepositoryDocument docIndex;
 
         private long totalDocQuantity;
 
@@ -32,8 +32,8 @@ namespace DocCore
         RankFunctionSimpleTF_IDF()
         {
             this.engConf = EngineConfiguration.Instance;
-            this.docIndex = FactoryDocumentIndex.GetDocumentIndex();
-            this.totalDocQuantity = docIndex.GetQuantity();
+            this.docIndex = FactoryRepositoryDocument.GetRepositoryDocument();
+            this.totalDocQuantity = docIndex.GetTotalQuantity();
         }
 
         public double CalcRankFactor(WordOccurrenceNode occ, Query query)

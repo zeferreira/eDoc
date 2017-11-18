@@ -13,7 +13,7 @@ namespace DocCore
     public class RankFunctionPivotedLengthNormVSM : IRankFunction
     {
         private EngineConfiguration engConf;
-        private IDocumentIndex docIndex;
+        private IRepositoryDocument docIndex;
         private double avdl;
 
         private static RankFunctionPivotedLengthNormVSM instance = null;
@@ -41,11 +41,11 @@ namespace DocCore
         RankFunctionPivotedLengthNormVSM()
         {
             this.engConf = EngineConfiguration.Instance;
-            this.docIndex = FactoryDocumentIndex.GetDocumentIndex();
+            this.docIndex = FactoryRepositoryDocument.GetRepositoryDocument();
             
             this.s = engConf.SNormalizationfactor;
 
-            this.totalDocQuantity = docIndex.GetQuantity();
+            this.totalDocQuantity = docIndex.GetTotalQuantity();
 
             this.avdl = docIndex.GetAverageDocumentLenght();
         }

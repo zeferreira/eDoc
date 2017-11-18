@@ -10,7 +10,7 @@ namespace DocCore
     public class RankFunctionBM25 : IRankFunction
     {
         private EngineConfiguration engConf;
-        private IDocumentIndex docIndex;
+        private IRepositoryDocument docIndex;
 
         private static RankFunctionBM25 instance = null;
         private static readonly object padlock = new object();
@@ -35,8 +35,8 @@ namespace DocCore
         RankFunctionBM25()
         {
             this.engConf = EngineConfiguration.Instance;
-            this.docIndex = FactoryDocumentIndex.GetDocumentIndex();
-            this.totalDocQuantity = docIndex.GetQuantity();
+            this.docIndex = FactoryRepositoryDocument.GetRepositoryDocument();
+            this.totalDocQuantity = docIndex.GetTotalQuantity();
         }
 
         public double CalcRankFactor(WordOccurrenceNode occ, Query query)
